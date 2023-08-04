@@ -2110,7 +2110,7 @@ ul.menu li:first-child {
   -ms-transition: background-color 0.25s ease-in-out;
   transition: background-color 0.25s ease-in-out;
   font-weight: 800;
-  color: #444;
+  color: #141829;
   text-decoration: none;
   border-radius: 6px;
   padding: 0.5em 1em 0.5em 1em;
@@ -2138,7 +2138,7 @@ ul.menu li:first-child {
 .dropotron {
   background: #fff;
   letter-spacing: 0.025em;
-  color: #444;
+  color: black;
   text-decoration: none;
   border-radius: 6px;
   padding: 0.75em 0;
@@ -2602,7 +2602,7 @@ ul.menu li:first-child {
   }
 
   #navPanel .depth-0 {
-    color: #444;
+    color: #141829;
     font-weight: 800;
   }
 
