@@ -1736,7 +1736,7 @@ button,
   -webkit-appearance: none;
   position: relative;
   display: inline-block;
-  background: #4e888f;
+  background: #88CDFF;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -1763,7 +1763,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background: #4e898fcb;
+  background: #88cdffbe;
 }
 
 input[type="button"]:active,
@@ -1771,7 +1771,7 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-  background: #4e888f;
+  background: #88CDFF;
 }
 
 input[type="button"].alt,
@@ -1832,6 +1832,10 @@ ul.style2 li {
 }
 ul.style2 li a {
   z-index: 999;
+}
+
+.misson{
+  margin: 0;
 }
 
 ol {
@@ -2093,6 +2097,12 @@ ul.menu li:first-child {
   padding-left: 1.5em;
 }
 
+.hide-arrow {
+  padding: 0 !important;
+  margin: 0;
+  display: inline;
+}
+
 #nav ul li a,
 #nav ul li span {
   -moz-transition: background-color 0.25s ease-in-out;
@@ -2336,7 +2346,6 @@ ul.menu li:first-child {
   }
 
   /* Menu */
-
   ul.menu li {
     display: block;
     border: 0 !important;
