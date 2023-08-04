@@ -193,7 +193,7 @@ body {
   background-size: 100% 30em, auto;
   font-family: "Open Sans", sans-serif;
   font-size: 13pt;
-  color: #696969;
+  color: black;
   font-weight: 300;
   line-height: 2.25em;
 }
@@ -216,13 +216,13 @@ select,
 textarea {
   font-family: "Open Sans", sans-serif;
   font-size: 13pt;
-  color: #696969;
+  color: black;
   font-weight: 300;
   line-height: 2.25em;
 }
 
 a {
-  color: #0090c5;
+  color: #4e888f;
   text-decoration: underline;
 }
 
@@ -236,7 +236,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444;
+  color: black;
   font-weight: 800;
 }
 
@@ -265,7 +265,7 @@ h3 {
 b,
 strong {
   font-weight: 600;
-  color: #444;
+  color: black;
 }
 
 i,
@@ -1593,7 +1593,7 @@ form label {
   font-weight: 800;
   margin: 0 0 1em 0;
   font-size: 0.8em;
-  color: #444;
+  color: black;
 }
 
 form input[type="text"],
@@ -1613,7 +1613,7 @@ form input[type="email"]:focus,
 form input[type="password"]:focus,
 form select:focus,
 form textarea:focus {
-  border-color: #0090c5;
+  border-color: #4e888f;
 }
 
 form input[type="text"],
@@ -1634,19 +1634,19 @@ form textarea {
 }
 
 form ::-webkit-input-placeholder {
-  color: #555 !important;
+  color: black !important;
 }
 
 form :-moz-placeholder {
-  color: #555 !important;
+  color: black !important;
 }
 
 form ::-moz-placeholder {
-  color: #555 !important;
+  color: black !important;
 }
 
 form :-ms-input-placeholder {
-  color: #555 !important;
+  color: black !important;
 }
 
 form ::-moz-focus-inner {
@@ -1781,7 +1781,7 @@ button.alt,
 .button.alt {
   background: #f1f1f1;
   background: rgba(0, 0, 0, 0.05);
-  color: #444;
+  color: black;
 }
 
 input[type="button"].alt:hover,
@@ -2110,7 +2110,7 @@ ul.menu li:first-child {
   -ms-transition: background-color 0.25s ease-in-out;
   transition: background-color 0.25s ease-in-out;
   font-weight: 800;
-  color: #696969;
+  color: #444;
   text-decoration: none;
   border-radius: 6px;
   padding: 0.5em 1em 0.5em 1em;
@@ -2138,7 +2138,7 @@ ul.menu li:first-child {
 .dropotron {
   background: #fff;
   letter-spacing: 0.025em;
-  color: #696969;
+  color: #444;
   text-decoration: none;
   border-radius: 6px;
   padding: 0.75em 0;
@@ -2569,7 +2569,7 @@ ul.menu li:first-child {
     height: 54px;
     line-height: 54px;
     border-top: solid 1px #e8e8e8;
-    color: #696969;
+    color: #444;
   }
 
   #navPanel .link:first-child {
