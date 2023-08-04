@@ -1736,7 +1736,7 @@ button,
   -webkit-appearance: none;
   position: relative;
   display: inline-block;
-  background: #88CDFF;
+  background: #4e888f;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -1763,7 +1763,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background: #88cdffbe;
+  background: #4e898fcb;
 }
 
 input[type="button"]:active,
@@ -1771,7 +1771,7 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-  background: #88CDFF;
+  background: #4e888f;
 }
 
 input[type="button"].alt,
