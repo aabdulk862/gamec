@@ -55,14 +55,35 @@
               <h2>Gallery</h2>
 
               <p>
-                Welcome to the Gallery of the Global Association of Muslim
-                Eritrean Communities (AMEAC). Here, we invite you to embark on a
+                Welcome to the Gallery of the Association of Muslim Eritrean
+                American Communities (AMEAC). Here, we invite you to embark on a
                 visual journey that celebrates the vibrant moments and cherished
                 memories captured during our diverse range of events, cultural
                 gatherings, social initiatives, and community activities.
               </p>
-
-              <h3>More coming sooon</h3>
+              <div class="image-gallery">
+                <img
+                  src="./images/logo-bg.png"
+                  alt="Image 1"
+                  onclick="openImageInNewTab('./images/logo-bg.png')"
+                />
+                <img
+                  src="./images/asmara-mosque.jpg"
+                  alt="Image 2"
+                  onclick="openImageInNewTab('./images/asmara-mosque.jpg')"
+                />
+                <img
+                  src="./images/event-room.jpg"
+                  alt="Image 3"
+                  onclick="openImageInNewTab('./images/event-room.jpg')"
+                />
+                <img
+                  src="./images/jebena.png"
+                  alt="Image 4"
+                  onclick="openImageInNewTab('./images/jebena.png')"
+                />
+                <!-- Add more images as needed -->
+              </div>
             </article>
           </div>
         </div>
@@ -152,5 +173,10 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      function openImageInNewTab(imageUrl) {
+        window.open(imageUrl, "_blank");
+      }
+    </script>
   </body>
 </html>

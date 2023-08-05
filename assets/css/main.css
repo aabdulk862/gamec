@@ -230,6 +230,10 @@ a:hover {
   text-decoration: none;
 }
 
+.more-link {
+  padding-top: 1em;
+}
+
 h1,
 h2,
 h3,
@@ -1683,6 +1687,21 @@ table thead {
   color: #fff;
 }
 
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2em;
+}
+
+.image-gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.212);
+}
+
 /* Image */
 
 .image {
@@ -1834,7 +1853,7 @@ ul.style2 li a {
   z-index: 999;
 }
 
-.misson{
+.misson {
   margin: 0;
 }
 
@@ -2339,6 +2358,10 @@ ul.menu li:first-child {
   }
 
   /* Image */
+
+  .image-gallery {
+    justify-content: center;
+  }
 
   .image.left {
     width: 25%;
