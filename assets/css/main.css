@@ -2234,6 +2234,11 @@ ul.menu li:first-child {
   padding: 4.5em;
 }
 
+#banner h1 {
+  font-size: 3.5em;
+  margin: 0.1em 0 0.35em 0;
+}
+
 #banner h2 {
   font-size: 3.5em;
   margin: 0.1em 0 0.35em 0;
