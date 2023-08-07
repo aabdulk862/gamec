@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://ameac.org/</loc>
+  </url>
+
+  <!-- Mission & Vision Page -->
+  <url>
+    <loc>https://ameac.org/mission-vision/</loc>
+  </url>
+
+  <!-- History Page -->
+  <url>
+    <loc>https://ameac.org/history/</loc>
+  </url>
+
+  <!-- Leadership Team Page -->
+  <url>
+    <loc>https://ameac.org/leadership-team/</loc>
+  </url>
+
+  <!-- Membership Page -->
+  <url>
+    <loc>https://ameac.org/membership/</loc>
+  </url>
+
+  <!-- Programs Page -->
+  <url>
+    <loc>https://ameac.org/programs/</loc>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://ameac.org/gallery/</loc>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://ameac.org/contact/</loc>
+  </url>
+
+  <!-- Resources Page -->
+  <url>
+    <loc>https://ameac.org/resources/</loc>
+  </url>
+</urlset>
