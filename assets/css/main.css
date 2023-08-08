@@ -1664,6 +1664,24 @@ form ::-moz-focus-inner {
   border: 0;
 }
 
+.program {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.sport-card {
+  flex: 1;
+  padding: 1em;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  display: flex;
+}
+.sport-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
 /* Tables */
 
 table {
@@ -1671,7 +1689,7 @@ table {
 }
 
 table tr {
-  border-top: solid 1px #eee;
+  border-top: solid 1px #cecece;
 }
 
 table tr:first-child {
@@ -1679,13 +1697,14 @@ table tr:first-child {
 }
 
 table td {
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em 0.5em 0em;
 }
 
 table th {
   text-align: left;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em 0.5em 0em;
   font-weight: 800;
+  font-size: 1.3em;
   margin: 0 0 1em 0;
 }
 
@@ -1835,6 +1854,10 @@ button.large,
 .button.large {
   font-size: 2.25em;
   padding: 0.8em 0.9em;
+}
+
+.signup {
+  padding-top: 1em;
 }
 
 /* List */
@@ -2317,7 +2340,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: 12pt;
+    font-size: 1.2em;
   }
 }
 
@@ -2330,7 +2353,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: 11pt;
+    font-size: 1em;
   }
 }
 
@@ -2353,7 +2376,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: 11pt;
+    font-size: 1em;
   }
 
   /* Section/Article */
@@ -2667,6 +2690,11 @@ ul.menu li:first-child {
 
 @media screen and (max-width: 736px) {
   /* Basic */
+
+  .program {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
   body,
   input,
