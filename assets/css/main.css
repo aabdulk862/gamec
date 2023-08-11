@@ -351,6 +351,31 @@ table {
   }
 }
 
+.program {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.sport-card {
+  flex: 1;
+  padding: 1em;
+  border: 2px solid #cecece;
+  border-radius: 8px;
+  display: flex;
+}
+.sport-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Border */
+.border1{
+  border: 2px solid #cecece;
+  border-radius: 10px; /* Curved border */
+  padding: 1.6em; /* Space around the content */
+}
+
 /* Row */
 
 .row {
@@ -1664,23 +1689,7 @@ form ::-moz-focus-inner {
   border: 0;
 }
 
-.program {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.sport-card {
-  flex: 1;
-  padding: 1em;
-  border: 1px solid #cecece;
-  border-radius: 8px;
-  display: flex;
-}
-.sport-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
+
 
 /* Tables */
 
