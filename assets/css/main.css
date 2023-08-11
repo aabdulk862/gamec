@@ -1851,6 +1851,34 @@ button.large,
 
 /* List */
 
+.mission {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mission li {
+  display: flex;
+  align-items: center;
+  padding: 0.7em;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  margin-bottom: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.mission li::before {
+  content: "\2713";
+  font-size: 1.5em;
+  margin-right: 10px;
+  color: #239e46;
+}
+
+.mission li p {
+  margin: 0;
+}
+
 ul {
   list-style: disc;
   padding-left: 1em;
@@ -1870,10 +1898,6 @@ ul.style2 li {
 }
 ul.style2 li a {
   z-index: 999;
-}
-
-.misson {
-  margin: 0;
 }
 
 ol {
@@ -2491,11 +2515,11 @@ ul.menu li:first-child {
     top: auto;
   }
 
-  #banner h1{
+  #banner h1 {
     font-size: 3em;
   }
 
-  #banner p{
+  #banner p {
     font-size: 2em;
   }
 
