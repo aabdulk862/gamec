@@ -213,7 +213,6 @@ body.is-preload *:after {
 input,
 select,
 textarea {
-  font-family: "Open Sans", sans-serif;
   font-size: 13pt;
   color: black;
   font-weight: 300;
@@ -1864,7 +1863,6 @@ button.large,
   background-color: #f0f0f0;
   margin-bottom: 0.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
 }
 
 .mission li::before {
@@ -2141,7 +2139,7 @@ ul.menu li:first-child {
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
   padding-top: 40px;
 }
 
