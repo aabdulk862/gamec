@@ -1,5 +1,5 @@
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 html,
 body,
@@ -191,10 +191,9 @@ body {
   background-position: top left, top left;
   background-repeat: repeat-x, repeat;
   background-size: 100% 30em, auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   color: black;
-  font-weight: 300;
   line-height: 2.25em;
 }
 
@@ -222,7 +221,7 @@ textarea {
 }
 
 a {
-  color: #4e888f;
+  color: #3f72af;
   text-decoration: underline;
 }
 
@@ -1770,7 +1769,7 @@ button,
   -webkit-appearance: none;
   position: relative;
   display: inline-block;
-  background: #4e888f;
+  background: #3f72af;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -1797,7 +1796,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background: #4e898fcb;
+  background: #3f71afc2;
 }
 
 input[type="button"]:active,
@@ -1805,7 +1804,7 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-  background: #4e888f;
+  background: #3f72af;
 }
 
 input[type="button"].alt,
@@ -2113,10 +2112,8 @@ ul.menu li:first-child {
 }
 
 #logo h1 {
-  background: #ff4486;
   color: #fff;
   border-radius: 6px;
-  font-family: "Oleo Script", serif;
   font-weight: 400;
   padding: 0.25em 0.2em 0.25em 0.2em;
   font-size: 3.25em;
