@@ -187,7 +187,7 @@ body {
     url("images/bg01.png");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)),
     url("images/bg01.png");
-  background-color: #f7f7f7;
+  background-color: #f0f0f0;
   background-position: top left, top left;
   background-repeat: repeat-x, repeat;
   background-size: 100% 30em, auto;
@@ -351,9 +351,8 @@ table {
   }
 }
 
-
 /* Border */
-.border1{
+.border1 {
   border: 2px solid #cecece;
   border-radius: 10px; /* Curved border */
   padding: 1.6em; /* Space around the content */
@@ -1672,8 +1671,6 @@ form ::-moz-focus-inner {
   border: 0;
 }
 
-
-
 /* Tables */
 
 table {
@@ -2345,7 +2342,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: .8em;
+    font-size: 0.8em;
   }
 }
 
@@ -2385,13 +2382,12 @@ ul.menu li:first-child {
   }
 
   /* Image */
-  .logo-img{
+  .logo-img {
     width: 35%;
   }
   .image-gallery {
     justify-content: center;
   }
-  
 
   .image.left {
     width: 25%;
@@ -2493,6 +2489,14 @@ ul.menu li:first-child {
     position: relative;
     right: auto;
     top: auto;
+  }
+
+  #banner h1{
+    font-size: 3em;
+  }
+
+  #banner p{
+    font-size: 2em;
   }
 
   /* Content */
@@ -2685,7 +2689,6 @@ ul.menu li:first-child {
 
 @media screen and (max-width: 736px) {
   /* Basic */
-
 
   body,
   input,
