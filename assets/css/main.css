@@ -2349,7 +2349,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -2362,7 +2362,7 @@ ul.menu li:first-child {
   input,
   select,
   textarea {
-    font-size: 1em;
+    font-size: .8em;
   }
 }
 
@@ -2402,7 +2402,9 @@ ul.menu li:first-child {
   }
 
   /* Image */
-
+  .logo-img{
+    width: 40%;
+  }
   .image-gallery {
     justify-content: center;
   }
