@@ -351,23 +351,6 @@ table {
   }
 }
 
-.program {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.sport-card {
-  flex: 1;
-  padding: 1em;
-  border: 2px solid #cecece;
-  border-radius: 8px;
-  display: flex;
-}
-.sport-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
 
 /* Border */
 .border1{
@@ -1730,8 +1713,8 @@ table thead {
 }
 
 .image-gallery img {
-  width: 300px;
-  height: 200px;
+  width: 17em;
+  height: auto;
   object-fit: cover;
   cursor: pointer;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.212);
@@ -2408,6 +2391,7 @@ ul.menu li:first-child {
   .image-gallery {
     justify-content: center;
   }
+  
 
   .image.left {
     width: 25%;
@@ -2702,10 +2686,6 @@ ul.menu li:first-child {
 @media screen and (max-width: 736px) {
   /* Basic */
 
-  .program {
-    flex-direction: column;
-    align-items: stretch;
-  }
 
   body,
   input,
