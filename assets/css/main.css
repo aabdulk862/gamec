@@ -1,5 +1,5 @@
 @import url("fontawesome-all.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 html,
 body,
@@ -191,7 +191,7 @@ body {
   background-position: top left, top left;
   background-repeat: repeat-x, repeat;
   background-size: 100% 30em, auto;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1em;
   color: black;
   line-height: 2.25em;
@@ -1768,7 +1768,7 @@ button,
   -webkit-appearance: none;
   position: relative;
   display: inline-block;
-  background: #3f72af;
+  background: #4e888f;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -1795,7 +1795,7 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-  background: #3f71afc2;
+  background: #4e898fde;
 }
 
 input[type="button"]:active,
@@ -1803,7 +1803,7 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-  background: #3f72af;
+  background: #4e888f;
 }
 
 input[type="button"].alt,
@@ -1811,7 +1811,7 @@ input[type="submit"].alt,
 input[type="reset"].alt,
 button.alt,
 .button.alt {
-  background: #f1f1f1;
+  background: #e8e8e8;
   background: rgba(0, 0, 0, 0.05);
   color: black;
 }
@@ -1821,7 +1821,7 @@ input[type="submit"].alt:hover,
 input[type="reset"].alt:hover,
 button.alt:hover,
 .button.alt:hover {
-  background: #e8e8e8;
+  background: #f1f1f1;
   background: rgba(0, 0, 0, 0.085);
 }
 
@@ -1860,7 +1860,7 @@ button.large,
   align-items: center;
   padding: 0.7em;
   border-radius: 5px;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   margin-bottom: 0.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
