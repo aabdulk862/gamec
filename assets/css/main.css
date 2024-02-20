@@ -1604,6 +1604,18 @@ footer {
 }
 
 /* Forms */
+.login-form{
+  text-align: center;
+  display: flex !important;
+}
+.login-form > input{
+  margin: 0 auto;
+}
+
+.login-button {
+  text-align: center;
+  padding: 1.5em;
+}
 
 form label {
   display: block;
@@ -1619,8 +1631,6 @@ form input[type="password"],
 form select,
 form textarea {
   -webkit-appearance: none;
-  display: block;
-  width: 100%;
   border-radius: 8px;
   border: solid 1px #eee;
 }
@@ -1669,6 +1679,8 @@ form :-ms-input-placeholder {
 form ::-moz-focus-inner {
   border: 0;
 }
+
+
 
 /* Tables */
 
@@ -2134,6 +2146,15 @@ ul.menu li:first-child {
   width: 22%;
 }
 
+.logo-login{
+  text-align: center;
+  padding: 1em;
+}
+
+.logo-login > img{
+  width: 15%;
+}
+
 /* Nav */
 
 #nav {
@@ -2435,7 +2456,10 @@ ul.menu li:first-child {
   }
 
   /* Button */
-
+  .login-button > button{
+    width: 30%;
+  }
+  
   input[type="button"],
   input[type="submit"],
   input[type="reset"],
