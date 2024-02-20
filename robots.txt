@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.ameac.org/sitemap.xml
+Sitemap: https://www.igamec.org/sitemap.xml
