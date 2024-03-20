@@ -317,6 +317,10 @@ table {
   margin-bottom: 2em;
 }
 
+.text-center{
+  text-align: center;
+  text-wrap: pretty;
+}
 /* Container */
 
 .container {
@@ -357,6 +361,12 @@ table {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.bottom-border{
+  border-bottom: 2px double #444;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
 /* Row */
 
 .row {
