@@ -228,6 +228,10 @@ a:hover {
   text-decoration: none;
 }
 
+.gameclist {
+  color: black;
+}
+
 .more-link {
   padding-top: 1em;
   font-weight: 600;
@@ -317,7 +321,7 @@ table {
   margin-bottom: 2em;
 }
 
-.text-center{
+.text-center {
   text-align: center;
   text-wrap: pretty;
 }
@@ -361,10 +365,10 @@ table {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.bottom-border{
+.bottom-border {
   border-bottom: 2px double #444;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   text-align: center;
 }
 /* Row */
@@ -1614,11 +1618,11 @@ footer {
 }
 
 /* Forms */
-.login-form{
+.login-form {
   text-align: center;
   display: flex !important;
 }
-.login-form > input{
+.login-form > input {
   margin: 0 auto;
 }
 
@@ -1689,8 +1693,6 @@ form :-ms-input-placeholder {
 form ::-moz-focus-inner {
   border: 0;
 }
-
-
 
 /* Tables */
 
@@ -2156,12 +2158,12 @@ ul.menu li:first-child {
   width: 22%;
 }
 
-.logo-login{
+.logo-login {
   text-align: center;
   padding: 1em;
 }
 
-.logo-login > img{
+.logo-login > img {
   width: 15%;
 }
 
@@ -2395,6 +2397,13 @@ ul.menu li:first-child {
   textarea {
     font-size: 0.8em;
   }
+
+  .gbutton {
+    width: 100%;
+  }
+  .gameclist2{
+    display: flex;
+  }
 }
 
 /* Medium */
@@ -2406,7 +2415,10 @@ ul.menu li:first-child {
 
 @media screen and (max-width: 980px) {
   /* Basic */
-
+  .gameclist2{
+    display: unset;
+  }
+  
   html,
   body {
     overflow-x: hidden;
@@ -2466,10 +2478,10 @@ ul.menu li:first-child {
   }
 
   /* Button */
-  .login-button > button{
+  .login-button > button {
     width: 30%;
   }
-  
+
   input[type="button"],
   input[type="submit"],
   input[type="reset"],
