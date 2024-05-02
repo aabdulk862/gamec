@@ -1,52 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home Page -->
+  <!-- 1. Home Page -->
   <url>
     <loc>https://igamec.org/</loc>
   </url>
 
-  <!-- Mission & Vision Page -->
+  <!-- 2. Mission & Vision Page -->
   <url>
     <loc>https://igamec.org/vision/</loc>
   </url>
 
-  <!-- History Page -->
+  <!-- 3. History Page -->
   <url>
     <loc>https://igamec.org/history/</loc>
   </url>
 
-  <!-- Leadership Team Page -->
+  <!-- 4. Leadership Team Page -->
   <url>
     <loc>https://igamec.org/leadership/</loc>
   </url>
 
-  <!-- Membership Page -->
+  <!-- 5. Membership Page -->
   <url>
     <loc>https://igamec.org/membership/</loc>
   </url>
 
-  <!-- Programs Page -->
+  <!-- 6. Programs Page -->
   <url>
     <loc>https://igamec.org/programs/</loc>
   </url>
 
-  <!-- Gallery Page -->
+  <!-- 7. Gallery Page -->
   <url>
     <loc>https://igamec.org/gallery/</loc>
   </url>
 
-  <!-- Contact Page -->
+  <!-- 8. Contact Page -->
   <url>
     <loc>https://igamec.org/contact/</loc>
   </url>
 
-  <!-- Resources Page -->
+  <!-- 9. Resources Page -->
   <url>
     <loc>https://igamec.org/resources/</loc>
   </url>
-
-  <!-- Sports Page -->
+  
+  <!-- 10. Relief Page -->
   <url>
-    <loc>https://igamec.org/sports/</loc>
+    <loc>https://igamec.org/relief/</loc>
+  </url>
+
+  <!-- 11. Sisters Page -->
+  <url>
+    <loc>https://igamec.org/sisters/</loc>
+  </url>
+
+  <!-- 12. Youth Page -->
+  <url>
+    <loc>https://igamec.org/youth/</loc>
+  </url>
+
+  <!-- 13. Seniors Page -->
+  <url>
+    <loc>https://igamec.org/seniors/</loc>
+  </url>
+
+  <!-- 14. Professionals Page -->
+  <url>
+    <loc>https://igamec.org/professionals/</loc>
+  </url>
+
+  <!-- 15. Donations Page -->
+  <url>
+    <loc>https://igamec.org/donations/</loc>
   </url>
 </urlset>
