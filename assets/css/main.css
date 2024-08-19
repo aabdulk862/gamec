@@ -1588,6 +1588,80 @@ table {
 
 /* Section/Article */
 
+/* Common Section Styles */
+.donation-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.donation-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.donation-section p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.donation-section .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+/* Specific Section Styles */
+#square-donation h2 {
+  color: #004080;
+}
+
+#square-donation .button {
+  background-color: #004080;
+}
+
+#square-donation .button:hover {
+  background-color: #002a5a;
+}
+
+#paypal-donation h2 {
+  color: #003087;
+}
+
+#paypal-donation .button {
+  background-color: #003087;
+}
+
+#paypal-donation .button:hover {
+  background-color: #001f5a;
+}
+
+#zelle-donation h2 {
+  color: #228B22;
+}
+
+#zelle-donation p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#zelle-donation .button {
+  background-color: #228B22;
+}
+
+#zelle-donation .button:hover {
+  background-color: #006400;
+}
+
+
 section,
 article {
   margin-bottom: 4em;
