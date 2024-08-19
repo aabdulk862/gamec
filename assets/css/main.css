@@ -1621,31 +1621,31 @@ table {
 
 /* Specific Section Styles */
 #square-donation h2 {
-  color: #004080;
+  color: #000;
 }
 
 #square-donation .button {
-  background-color: #004080;
+  background-color: #000;
 }
 
 #square-donation .button:hover {
-  background-color: #002a5a;
+  background-color: #3E4348;
 }
 
 #paypal-donation h2 {
-  color: #003087;
+  color: #002C8B;
 }
 
 #paypal-donation .button {
-  background-color: #003087;
+  background-color: #002C8B;
 }
 
 #paypal-donation .button:hover {
-  background-color: #001f5a;
+  background-color: #019BE1;
 }
 
 #zelle-donation h2 {
-  color: #228B22;
+  color: #6C1CD3;
 }
 
 #zelle-donation p {
