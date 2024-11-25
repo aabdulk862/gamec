@@ -357,13 +357,7 @@ table {
   }
 }
 
-/* Border */
-.card1 {
-  padding: 1.4em;
-  background: rgb(236, 236, 236);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
+
 
 .bottom-border {
   border-bottom: 2px double #444;
@@ -1625,6 +1619,154 @@ table {
 
 
 /* Common Section Styles */
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  margin: 20px auto;
+  max-width: 1200px; /* Optional, centers content with a fixed max width */
+}
+
+.card1 {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensures cards shrink to fit */
+  max-width: 400px; /* Limits card size */
+}
+
+.card1 h3 {
+  color: #4D888E;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.card1 p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.card1 h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card1 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px;
+}
+
+.card1 ul li {
+  color: #666;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.signup .button {
+  display: inline-block;
+  background: #4D888E;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.signup .button:hover {
+  background: #4D888E;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column; /* Stacks cards on smaller screens */
+    align-items: center;
+  }
+
+  .card1 {
+    width: 90%; /* Adjusts width for better appearance on smaller screens */
+  }
+}
+
+/* Programs section styling */
+.programs-section {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Heading */
+.programs-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* List container */
+.programs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Individual program cards */
+.program-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 300px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.program-card h4 {
+  font-size: 1.4rem;
+  color: #4D888E;
+  margin: 0.5rem 0;
+}
+
+.program-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Hover effect */
+.program-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Link styling */
+.gameclist {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .program-card {
+    max-width: 100%;
+  }
+}
+
 .donation-section {
   margin-bottom: 40px;
   padding: 20px;
