@@ -113,6 +113,15 @@ ul {
   list-style: none;
 }
 
+#quote {
+ font-style: italic;
+  font-size: 0.8em;
+  border: none;
+  padding-left: 10px;
+  color: #333;
+  margin: .5em 0;
+}
+
 blockquote,
 q {
   quotes: none;
@@ -356,8 +365,6 @@ table {
     width: 100%;
   }
 }
-
-
 
 .bottom-border {
   border-bottom: 2px double #444;
@@ -1617,7 +1624,6 @@ table {
   text-decoration: underline;
 }
 
-
 /* Common Section Styles */
 .card-container {
   display: flex;
@@ -1639,7 +1645,7 @@ table {
 }
 
 .card1 h3 {
-  color: #4D888E;
+  color: #4d888e;
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
@@ -1671,7 +1677,7 @@ table {
 
 .signup .button {
   display: inline-block;
-  background: #4D888E;
+  background: #4d888e;
   color: #fff;
   padding: 10px 20px;
   font-size: 1rem;
@@ -1681,7 +1687,7 @@ table {
 }
 
 .signup .button:hover {
-  background: #4D888E;
+  background: #4d888e;
   text-decoration: none;
 }
 
@@ -1736,7 +1742,7 @@ table {
 
 .program-card h4 {
   font-size: 1.4rem;
-  color: #4D888E;
+  color: #4d888e;
   margin: 0.5rem 0;
 }
 
@@ -1807,23 +1813,23 @@ table {
 }
 
 #square-donation .button:hover {
-  background-color: #3E4348;
+  background-color: #3e4348;
 }
 
 #paypal-donation h2 {
-  color: #002C8B;
+  color: #002c8b;
 }
 
 #paypal-donation .button {
-  background-color: #002C8B;
+  background-color: #002c8b;
 }
 
 #paypal-donation .button:hover {
-  background-color: #019BE1;
+  background-color: #019be1;
 }
 
 #zelle-donation h2 {
-  color: #6C1CD3;
+  color: #6c1cd3;
 }
 
 #zelle-donation p {
@@ -1832,7 +1838,7 @@ table {
 }
 
 #zelle-donation .button {
-  background-color: #228B22;
+  background-color: #228b22;
 }
 
 #zelle-donation .button:hover {
@@ -1865,7 +1871,7 @@ table {
 }
 
 .membership-content ul li::before {
-  content: '•'; /* Custom bullet point */
+  content: "•"; /* Custom bullet point */
   position: absolute;
   left: 0;
   top: 0;
@@ -1884,12 +1890,10 @@ table {
 }
 
 .membership-content ul ul li::before {
-  content: '✔'; /* Custom bullet for sub-lists */
-  color: #4CAF50; /* Green color for sub-list bullets */
+  content: "✔"; /* Custom bullet for sub-lists */
+  color: #4caf50; /* Green color for sub-list bullets */
   font-size: 1em;
 }
-
-
 
 section,
 article {
@@ -2704,7 +2708,7 @@ ul.menu li:first-child {
   .gbutton {
     width: 100%;
   }
-  .gameclist2{
+  .gameclist2 {
     display: flex;
   }
 }
@@ -2718,10 +2722,10 @@ ul.menu li:first-child {
 
 @media screen and (max-width: 980px) {
   /* Basic */
-  .gameclist2{
+  .gameclist2 {
     display: unset;
   }
-  
+
   html,
   body {
     overflow-x: hidden;
