@@ -1,62 +1,72 @@
-// Set active navigation item based on current page
+// Function to highlight the current page in the menu
 function setActiveNav() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  // 1. Get the current page filename (e.g., "membership.html")
+  const path = window.location.pathname;
+  // If the path ends in /, it's index.html
+  const currentPage = path.split('/').pop() || 'index.html';
+
+  // 2. Select all links in the nav
   const navLinks = document.querySelectorAll('#nav a');
-  
+
   navLinks.forEach(link => {
+    // Get the raw href value (e.g., "./membership.html")
     const href = link.getAttribute('href');
     
-    // Remove any existing active classes
+    // Remove "current" class from the parent <li> just in case
     link.parentElement.classList.remove('current');
     
-    // Check if this link matches current page
-    if (href === currentPage || href === './' + currentPage) {
+    // 3. Compare logic
+    // Case A: Exact match (e.g. href="contact.html" === "contact.html")
+    if (href === currentPage) {
       link.parentElement.classList.add('current');
     }
-    
-    // Special case for index/home
-    if (currentPage === 'index.html' && (href === 'index.html' || href === './index.html')) {
+    // Case B: Relative match (e.g. href="./contact.html" === "./" + "contact.html")
+    else if (href === './' + currentPage) {
+      link.parentElement.classList.add('current');
+    }
+    // Case C: Homepage special cases
+    else if (currentPage === 'index.html' && (href === './' || href === '.')) {
       link.parentElement.classList.add('current');
     }
   });
 }
 
-// Load HTML includes (header, footer, etc.)
+// Function to load external HTML files
 function loadHTML() {
-  // Load header
-  const headerElement = document.getElementById('header-wrapper');
-  if (headerElement) {
+  
+  // 1. LOAD HEADER
+  const headerWrapper = document.getElementById('header-wrapper');
+  if (headerWrapper) {
     fetch('header.html')
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) throw new Error("Header file not found");
+        return response.text();
+      })
       .then(data => {
-        headerElement.innerHTML = data;
-        
-        // Set active navigation
+        headerWrapper.innerHTML = data;
+
+        // A. Highlight the active link (CALLING THE FIXED FUNCTION)
         setActiveNav();
-        
-        // Re-initialize dropotron after header is loaded
-        if (typeof jQuery !== 'undefined' && jQuery.fn.dropotron) {
-          jQuery('#nav > ul').dropotron({
-            mode: 'fade',
-            noOpenerFade: true,
-            alignment: 'center'
-          });
+
+        // B. Initialize the Mobile Menu & Dropdowns
+        if (typeof window.initNavigation === 'function') {
+           window.initNavigation();
         }
       })
       .catch(err => console.error('Error loading header:', err));
   }
 
-  // Load footer
-  const footerElement = document.getElementById('footer-wrapper');
-  if (footerElement) {
+  // 2. LOAD FOOTER
+  const footerWrapper = document.getElementById('footer-wrapper');
+  if (footerWrapper) {
     fetch('footer.html')
       .then(response => response.text())
       .then(data => {
-        footerElement.innerHTML = data;
+        footerWrapper.innerHTML = data;
       })
       .catch(err => console.error('Error loading footer:', err));
   }
 }
 
-// Run when DOM is ready
+// Run immediately when DOM is ready
 document.addEventListener('DOMContentLoaded', loadHTML);
