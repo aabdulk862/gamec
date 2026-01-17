@@ -18,8 +18,6 @@ function getFileName(path) {
 function setActiveNav() {
   // 1. Get the actual current filename loaded in the browser
   const currentFile = getFileName(window.location.pathname);
-  console.log("Current Page Detected:", currentFile); // DEBUG LOG
-
   const navLinks = document.querySelectorAll('#nav a');
 
   navLinks.forEach(link => {
@@ -33,7 +31,6 @@ function setActiveNav() {
     // 3. Compare just the filenames
     // This ignores "./" prefixes and folder paths, fixing deployment mismatches
     if (linkFile === currentFile) {
-      console.log("Active Link Found:", linkFile); // DEBUG LOG
       link.parentElement.classList.add('current');
     }
   });
