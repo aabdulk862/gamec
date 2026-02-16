@@ -25,61 +25,61 @@
 
 /* 2. VARIABLES (:root) */
 :root {
-  /* Primary Colors */
-  --color-primary: #437D6F;
-  --color-primary-hover: #437d6fc9;
-  --color-primary-dark: #2c3e50;
+  /* Primary Colors – Navy (from GAMEC text) */
+  --color-primary: #001F3F;           /* deep navy – main headings, nav, links */
+  --color-primary-hover: #002b55;     /* slightly lighter navy on hover */
+  --color-primary-dark: #0A2342;      /* even deeper navy for contrast */
 
-  /* Accent Colors */
-  --color-accent: #e67e22;
-  --color-accent-green: #239e46;
-  --color-accent-green-alt: #4caf50;
+  /* Accent Colors – Gold (from crescent moon) */
+  --color-accent: #D4AF37;            /* warm gold – buttons, highlights, icons */
+  --color-accent-green: #228B22;      /* forest/olive green – subtle nod to Eritrean flag & Islamic growth */
+  --color-accent-green-alt: #2E8B57;  /* sea green variant for secondary accents */
 
   /* Neutral Colors */
-  --color-black: black;
-  --color-white: #fff;
-  --color-background: #f0f0f0;
-  --color-background-light: #f8f9fa;
-  --color-background-alt: #f1f1f1;
-  --color-background-gray: #f9f9f9;
-  --color-background-section: #eeeeee;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-background: #E8EEF5;        /* warm off-white/cream – main page bg */
+  --color-background-light: #FDFAF5;  /* very light cream */
+  --color-background-alt: #F8F1E9;    /* slightly darker cream for cards/sections */
+  --color-background-gray: #f5f5f5;   /* light gray fallback */
+  --color-background-section: #f9f7f2;/* subtle section bg */
 
   /* Border Colors */
-  --color-border: #eee;
-  --color-border-alt: #ddd;
-  --color-border-dark: #cecece;
-  --color-border-darker: #e0e0e0;
-  --color-border-light: #e8e8e8;
-  --color-border-nav: #dfdfdf;
-  --color-border-footer: #ccc;
+  --color-border: #e0d9c9;            /* soft gold-tinted border */
+  --color-border-alt: #d9d0bd;
+  --color-border-dark: #b0a68a;
+  --color-border-darker: #8c7f5f;
+  --color-border-light: #eee8d9;
+  --color-border-nav: #d4c9b0;
+  --color-border-footer: #c0b59e;
 
   /* Text Colors */
-  --color-text: black;
-  --color-text-dark: #141829;
-  --color-text-gray: #333;
+  --color-text: #001F3F;              /* navy as default text */
+  --color-text-dark: #0A2342;
+  --color-text-gray: #2c3e50;
   --color-text-medium: #34495e;
   --color-text-light: #555;
   --color-text-lighter: #666;
   --color-text-lightest: #777;
-  --color-text-link: #3498db;
-  --color-text-muted: #444;
-  --color-text-footer: #aaa;
+  --color-text-link: #006994;         /* ocean blue from globe – for links */
+  --color-text-muted: #555;
+  --color-text-footer: #666;
 
   /* Form Colors */
-  --color-form-focus: #4e888f;
+  --color-form-focus: #D4AF37;        /* gold focus rings */
 
   /* Button Colors */
-  --color-button-alt: #e8e8e8;
-  --color-button-alt-hover: #f1f1f1;
-  --color-button-alt-active: #e4e4e4;
+  --color-button-alt: #e8e0d0;        /* light cream/gold-tinted alt button */
+  --color-button-alt-hover: #f0e8d8;
+  --color-button-alt-active: #e0d8c8;
 
   /* Widget Colors */
-  --color-widget-bg: #222222;
-  --color-widget-hover: #444444;
-  --color-widget-active: #666666;
+  --color-widget-bg: #001F3F;         /* navy for dark widgets */
+  --color-widget-hover: #003366;
+  --color-widget-active: #004080;
   --color-widget-text: #f3f3f3;
 
-  /* Donation Section Colors */
+  /* Donation Section Colors – keeping your original payment-specific ones */
   --color-donation-square: #000;
   --color-donation-square-hover: #3e4348;
   --color-donation-paypal: #002c8b;
@@ -89,23 +89,21 @@
   --color-donation-zelle-button-hover: #006400;
 
   /* Table Colors */
-  --color-table-header: #404248;
+  --color-table-header: #001F3F;      /* navy table headers */
 
-  /* Transparent Colors */
+  /* Transparent / Overlay Colors */
   --color-transparent: transparent;
-
-  /* RGBA Colors */
-  --color-overlay-dark: rgba(0, 0, 0, 0.05);
-  --color-button-alt-rgba: rgba(0, 0, 0, 0.05);
-  --color-button-alt-hover-rgba: rgba(0, 0, 0, 0.085);
-  --color-button-alt-active-rgba: rgba(0, 0, 0, 0.15);
-  --color-shadow: rgba(0, 0, 0, 0.05);
-  --color-shadow-light: rgba(0, 0, 0, 0.025);
-  --color-shadow-medium: rgba(0, 0, 0, 0.1);
-  --color-shadow-dark: rgba(0, 0, 0, 0.212);
-  --color-shadow-darker: rgba(0, 0, 0, 0.3);
-  --color-dropotron-border: rgba(0, 0, 0, 0.1);
-  --color-nav-bg: rgba(0, 0, 0, 0.5);
+  --color-overlay-dark: rgba(0, 0, 0, 0.04);
+  --color-button-alt-rgba: rgba(212, 175, 55, 0.08);   /* faint gold */
+  --color-button-alt-hover-rgba: rgba(212, 175, 55, 0.15);
+  --color-button-alt-active-rgba: rgba(212, 175, 55, 0.25);
+  --color-shadow: rgba(0, 31, 63, 0.08);               /* navy-tinted shadow */
+  --color-shadow-light: rgba(0, 31, 63, 0.04);
+  --color-shadow-medium: rgba(0, 31, 63, 0.12);
+  --color-shadow-dark: rgba(0, 31, 63, 0.20);
+  --color-shadow-darker: rgba(0, 31, 63, 0.30);
+  --color-dropotron-border: rgba(0, 0, 0, 0.08);
+  --color-nav-bg: rgba(0, 31, 63, 0.85);               /* semi-transparent navy nav */
 }
 
 /* 3. RESET & BASE STYLES */
