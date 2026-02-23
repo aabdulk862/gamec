@@ -2861,7 +2861,7 @@ article:last-child {
 .membership-hero h1 {
   font-size: 2.8rem;
   margin-bottom: 1rem;
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
 }
 
 .membership-hero p {
@@ -2875,7 +2875,7 @@ article:last-child {
 .membership-benefits h2 {
   text-align: center;
   font-size: 2.2rem;
-  color: var(--color-primary-dark);
+  color: var(--color-primary);
   margin: 0 0 2.5rem;
   position: relative;
 }
