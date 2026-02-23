@@ -58,12 +58,12 @@
   --color-text-dark: #0a2342;
   --color-text-gray: #2c3e50;
   --color-text-medium: #34495e;
-  --color-text-light: #555;
-  --color-text-lighter: #666;
-  --color-text-lightest: #777;
+  --color-text-light: #555555;
+  --color-text-lighter: #666666;
+  --color-text-lightest: #777777;
   --color-text-link: #006994; /* ocean blue from globe – for links */
-  --color-text-muted: #555;
-  --color-text-footer: #666;
+  --color-text-muted: #555555;
+  --color-text-footer: #666666;
 
   /* Form Colors */
   --color-form-focus: #d4af37; /* gold focus rings */
@@ -80,7 +80,7 @@
   --color-widget-text: #f3f3f3;
 
   /* Donation Section Colors – keeping your original payment-specific ones */
-  --color-donation-square: #000;
+  --color-donation-square: #000000;
   --color-donation-square-hover: #3e4348;
   --color-donation-paypal: #002c8b;
   --color-donation-paypal-hover: #019be1;
@@ -1919,8 +1919,7 @@ table thead {
   width: auto;
 }
 
-/* Replace entire .image-gallery block and related rules in section 9 */
-
+/* Updated gallery styles for media page */
 .image-gallery,
 .gallery-grid,
 .gallery-sub > div {
@@ -2590,22 +2589,70 @@ article:last-child {
   background-color: var(--color-donation-zelle-button-hover);
 }
 
-/* Mobile safety for small screens */
-@media (max-width: 480px) {
-  .card-icon {
-    font-size: 2.5rem;
-  }
-
-  .additional-cards-grid .program-card {
-    padding: 1.5rem;
-  }
-
-  .signup .button.large {
-    width: 100%;
-    padding: 0.9em 1em;
-  }
+/* Contact Page Styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
 }
-/* Media Page Specific Styles */
+
+.contact-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-alt);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--color-shadow-light);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px var(--color-shadow-medium);
+  border-color: var(--color-accent);
+}
+
+.contact-card .card-icon {
+  font-size: 2.8rem;
+  color: var(--color-accent-green);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 0 0 1rem;
+}
+
+.contact-card p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-text-medium);
+}
+
+.contact-card .small {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.contact-note {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-gray);
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--color-background-light);
+  border-radius: 10px;
+  border: 1px solid var(--color-border-light);
+}
+
+/* Media Page Styles */
 .media-category {
   margin: 3rem 0;
 }
@@ -2636,13 +2683,6 @@ article:last-child {
   margin-bottom: 1.5rem;
 }
 
-.intro {
-  font-size: 1.2em;
-  line-height: 1.6;
-  color: var(--color-text-gray);
-  margin-bottom: 2.5rem;
-}
-
 .coming-soon {
   text-align: center;
   font-style: italic;
@@ -2670,9 +2710,38 @@ article:last-child {
   padding: 0.8em 1.5em;
 }
 
-.social-links .button.icon:before {
-  margin-right: 0.6em;
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
+
+.video-item {
+  text-align: center;
+}
+
+.video-item h4 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+/* Mobile safety for small screens */
+@media (max-width: 480px) {
+  .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .additional-cards-grid .program-card {
+    padding: 1.5rem;
+  }
+
+  .signup .button.large {
+    width: 100%;
+    padding: 0.9em 1em;
+  }
+}
+
 /* Responsive tweaks */
 @media (max-width: 980px) {
   .additional-cards-grid {
@@ -2684,6 +2753,7 @@ article:last-child {
     padding: 1.8rem;
   }
 }
+
 /* 12. SITE STRUCTURE (Header, Wrappers, Footer) */
 /* Wrappers */
 #header-wrapper {
@@ -3030,52 +3100,6 @@ header p {
   /* Image */
   .logo-img {
     width: 35%;
-  }
-
-  /* Replace entire .image-gallery and related rules */
-  .image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .image-gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px var(--color-shadow-light);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    cursor: pointer;
-    object-fit: cover;
-    aspect-ratio: 4/3; /* Keeps consistent shape */
-  }
-
-  .image-gallery img:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px var(--color-shadow-medium);
-  }
-
-  .image-gallery .gallery-item {
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .image-gallery .gallery-item figcaption {
-    padding: 0.8rem;
-    background: rgba(0, 0, 0, 0.04);
-    text-align: center;
-    font-size: 0.95rem;
-    color: var(--color-text-medium);
-  }
-
-  @media (max-width: 980px) {
-    .image-gallery {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
   }
 
   .image.left {
