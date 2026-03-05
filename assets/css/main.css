@@ -1736,31 +1736,53 @@ form ::-moz-focus-inner {
   margin: 0 auto;
 }
 
-/* 7. BUTTONS */
+/* ==========================================================================
+   7. BUTTONS
+   ========================================================================== */
+
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
 button,
 .button {
-  -moz-transition: background-color 0.25s ease-in-out;
-  -webkit-transition: background-color 0.25s ease-in-out;
-  -ms-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
+  -moz-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
+  -webkit-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
+  -ms-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
+  transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
+
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   position: relative;
   display: inline-block;
+
   background: var(--color-primary);
   color: var(--color-white);
+
   text-decoration: none;
   border-radius: 6px;
+
   font-weight: 800;
   outline: 0;
   border: 0;
   cursor: pointer;
+
   font-size: 1.35em;
   padding: 0.6em 1.5em;
+
+  box-shadow: 0 2px 6px var(--color-shadow);
 }
 
+/* Icon buttons */
 input[type="button"].icon:before,
 input[type="submit"].icon:before,
 input[type="reset"].icon:before,
@@ -1771,50 +1793,55 @@ button.icon:before,
   top: 0.05em;
 }
 
+/* Hover */
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
   background: var(--color-primary-hover);
+  box-shadow: 0 4px 10px var(--color-shadow-medium);
 }
 
+/* Active */
 input[type="button"]:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
   background: var(--color-primary);
+  box-shadow: 0 2px 4px var(--color-shadow);
 }
 
+/* Alternate button style */
 input[type="button"].alt,
 input[type="submit"].alt,
 input[type="reset"].alt,
 button.alt,
 .button.alt {
-  background: var(--color-button-alt);
-  background: var(--color-button-alt-rgba);
-  color: var(--color-black);
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
 }
 
+/* Hover */
 input[type="button"].alt:hover,
 input[type="submit"].alt:hover,
 input[type="reset"].alt:hover,
 button.alt:hover,
 .button.alt:hover {
-  background: var(--color-button-alt-hover);
-  background: var(--color-button-alt-hover-rgba);
+  background: #e6c55c;
 }
 
+/* Active */
 input[type="button"].alt:active,
 input[type="submit"].alt:active,
 input[type="reset"].alt:active,
 button.alt:active,
 .button.alt:active {
-  background: var(--color-button-alt-active);
-  background: var(--color-button-alt-active-rgba);
+  background: #d4b44f;
 }
 
+/* Large buttons */
 input[type="button"].large,
 input[type="submit"].large,
 input[type="reset"].large,
@@ -1824,11 +1851,13 @@ button.large,
   padding: 0.8em 0.9em;
 }
 
+/* Login Button Container */
 .login-button {
   text-align: center;
   padding: 1.5em;
 }
 
+/* Signup Section */
 .signup {
   padding-top: 1em;
 }
@@ -1841,12 +1870,23 @@ button.large,
   font-size: 1rem;
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.3s ease;
+
+  -moz-transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  -ms-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
 }
 
 .signup .button:hover {
   background: var(--color-primary-hover);
   text-decoration: none;
+}
+
+.mission-actions {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 /* 8. TABLES */
@@ -2326,7 +2366,6 @@ article:last-child {
 .card1 ul li {
   color: var(--color-text-lighter);
   font-size: 1rem;
-  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
@@ -2351,25 +2390,22 @@ article:last-child {
 
 .programs-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .program-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-border-alt);
-  border-radius: 10px;
   padding: 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 8px var(--color-shadow-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .program-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px var(--color-shadow-medium);
-  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .program-card h4 {
@@ -2430,10 +2466,8 @@ article:last-child {
 
 .additional-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
 .additional-cards-grid .program-card {
@@ -3607,11 +3641,26 @@ header p {
   border-top: 0;
 }
 
-#navPanel .indent-1 { width: 1em; display: inline-block; }
-#navPanel .indent-2 { width: 2em; display: inline-block; }
-#navPanel .indent-3 { width: 3em; display: inline-block; }
-#navPanel .indent-4 { width: 4em; display: inline-block; }
-#navPanel .indent-5 { width: 5em; display: inline-block; }
+#navPanel .indent-1 {
+  width: 1em;
+  display: inline-block;
+}
+#navPanel .indent-2 {
+  width: 2em;
+  display: inline-block;
+}
+#navPanel .indent-3 {
+  width: 3em;
+  display: inline-block;
+}
+#navPanel .indent-4 {
+  width: 4em;
+  display: inline-block;
+}
+#navPanel .indent-5 {
+  width: 5em;
+  display: inline-block;
+}
 
 #navPanel .depth-0 {
   color: var(--color-text-dark);
@@ -3642,7 +3691,11 @@ body.navPanel-visible #navPanel {
     line-height: 2em;
   }
 
-  h2, h3, h4, h5, h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: 13pt;
     margin: 0 0 1em 0;
   }
@@ -3828,5 +3881,21 @@ body.navPanel-visible #navPanel {
 
   #copyright {
     text-align: left;
+  }
+}
+
+/* Vertical Divider for Desktop */
+@media screen and (min-width: 992px) {
+  #main-wrapper .row.gtr-200 {
+    display: flex;
+  }
+
+  #content {
+    padding-right: 2rem;
+    border-right: 1px solid var(--color-border-alt);
+  }
+
+  #sidebar {
+    padding-left: 0.25rem;
   }
 }
