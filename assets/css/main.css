@@ -258,7 +258,7 @@ body {
     100% 30em,
     auto;
   font-family: "Roboto", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.02em;
   color: var(--color-black);
   line-height: 1.75;
   letter-spacing: 0.02em;
@@ -2403,7 +2403,7 @@ ul.menu li:first-child {
 /* Section General */
 section,
 article {
-  margin-bottom: 4em;
+  margin-bottom: 2.5em;
 }
 
 section > :last-child,
@@ -3281,21 +3281,21 @@ article:last-child {
 }
 
 #features-wrapper {
-  padding: 5em 0;
+  padding: 3.5em 0;
 }
 
 #main-wrapper {
   background: var(--color-white);
   box-shadow: 0px 3px 0px 0px var(--color-shadow);
-  padding: 3.5em 6em 6em;
+  padding: 3em 5em 4em;
 }
 
 #main-wrapper section ~ section {
-  margin-top: 3.5em;
+  margin-top: 2.5em;
 }
 
 #footer-wrapper {
-  padding: 6em 0 10em 0;
+  padding: 4em 0 6em 0;
   background: var(--color-primary);
   color: #f0f0f0;
   border-top: 4px solid var(--color-accent);
@@ -3501,7 +3501,7 @@ header p {
 /* Banner */
 #banner {
   position: relative;
-  padding: 4.5em;
+  padding: 3.5em;
 }
 
 #banner h1 {
