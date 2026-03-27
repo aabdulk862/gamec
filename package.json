@@ -1,0 +1,26 @@
+{
+  "name": "gamec",
+  "version": "1.0.0",
+  "description": "**Project Name:** GAMEC (Global Association of Muslim Eritrean Communities) Website  \r **Organization Type:** Non-profit 501(c)(3) voluntary membership association  \r **Domain:** https://igamec.org  \r **Purpose:** Community website for Muslim Eritreans worldwide to connect, collaborate, and access resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabdulk862/gamec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aabdulk862/gamec/issues"
+  },
+  "homepage": "https://github.com/aabdulk862/gamec#readme",
+  "devDependencies": {
+    "css-tree": "^3.2.1",
+    "fast-check": "^4.6.0",
+    "vitest": "^4.1.2"
+  }
+}
