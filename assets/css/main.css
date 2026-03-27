@@ -2880,6 +2880,27 @@ article:last-child {
   border: 1px solid var(--color-border-light);
 }
 
+.dev-callout {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-background-section);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-light);
+  font-size: 0.95rem;
+  color: var(--color-text-lighter);
+}
+
+.dev-callout a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dev-callout a:hover {
+  text-decoration: underline;
+}
+
 /* Media Page Styles */
 .media-category {
   margin: 3rem 0;
@@ -3639,6 +3660,23 @@ header p {
 
 #copyright a {
   color: inherit;
+}
+
+.site-credit {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.site-credit a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.site-credit a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 /* ==========================================================================
