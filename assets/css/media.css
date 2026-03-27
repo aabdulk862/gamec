@@ -1,0 +1,132 @@
+/* Media Page Styles */
+
+.intro {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  margin-bottom: 2.5rem;
+}
+
+.media-category {
+  margin: 3rem 0;
+}
+
+.media-category h2 {
+  font-size: 2.2rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.media-category h2:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.media-category h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 2rem 0 1rem;
+}
+
+.gallery-grid,
+.gallery-sub {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--color-shadow-light);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px var(--color-shadow-medium);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/3; /* Consistent shape – adjust if needed */
+}
+
+.gallery-item figcaption {
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-text-medium);
+}
+
+.gallery-sub h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin: 2rem 0;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.video-item {
+  text-align: center;
+}
+
+.video-item h4 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.social-links .button {
+  min-width: 180px;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .gallery-grid,
+  .gallery-sub {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-item figcaption {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
