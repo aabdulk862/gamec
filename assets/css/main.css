@@ -115,9 +115,9 @@
   --transition-default: all 0.3s ease;
 
   /* Card Shadows & Radius */
-  --shadow-card: 0 4px 16px var(--color-shadow-light);
-  --shadow-card-hover: 0 12px 28px var(--color-shadow-medium);
-  --radius-card: 10px;
+  --shadow-card: 0 2px 8px var(--color-shadow-light);
+  --shadow-card-hover: 0 6px 16px var(--color-shadow);
+  --radius-card: 8px;
 }
 
 /* 3. RESET & BASE STYLES */
@@ -286,7 +286,7 @@ h4,
 h5,
 h6 {
   color: var(--color-black);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 h1,
@@ -441,12 +441,12 @@ br.clear {
 }
 
 .matrimonial-purpose-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .matrimonial-purpose-card .icon {
-  font-size: 2em;
+  font-size: 1.6em;
   color: var(--color-accent);
   margin-bottom: 0.5em;
   display: block;
@@ -596,8 +596,8 @@ blockquote cite {
 
 /* Homepage Facebook button */
 .homepage-fb-btn {
-  font-size: 1.3em;
-  padding: 1em 2em;
+  font-size: 1.1em;
+  padding: 0.8em 1.6em;
 }
 
 .fb-subtext {
@@ -1892,7 +1892,7 @@ input::-moz-focus-inner {
 
 form label {
   display: block;
-  font-weight: 800;
+  font-weight: 600;
   margin: 0 0 1em 0;
   font-size: 0.8em;
   color: var(--color-black);
@@ -2001,15 +2001,15 @@ button,
   text-decoration: none;
   border-radius: 8px;
 
-  font-weight: 800;
+  font-weight: 600;
   outline: 0;
   border: 0;
   cursor: pointer;
 
-  font-size: 1.35em;
-  padding: 0.7em 1.8em;
+  font-size: 1.1em;
+  padding: 0.65em 1.6em;
 
-  box-shadow: 0 4px 12px var(--color-shadow);
+  box-shadow: 0 2px 6px var(--color-shadow-light);
 }
 
 /* Icon buttons */
@@ -2030,8 +2030,7 @@ input[type="reset"]:hover,
 button:hover,
 .button:hover {
   background: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--color-shadow-medium);
+  box-shadow: 0 4px 10px var(--color-shadow);
 }
 
 /* Active */
@@ -2081,8 +2080,8 @@ input[type="submit"].large,
 input[type="reset"].large,
 button.large,
 .button.large {
-  font-size: 1.6em;
-  padding: 0.75em 1.6em;
+  font-size: 1.25em;
+  padding: 0.7em 1.5em;
 }
 
 /* Login Button Container */
@@ -2146,13 +2145,12 @@ button.large,
 }
 
 .vision-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card-hover);
-  border-top: 3px solid var(--color-accent);
 }
 
 .vision-card-icon {
-  font-size: 2.2em;
+  font-size: 1.6em;
   color: var(--color-accent);
   margin-bottom: 0.5em;
   line-height: 1;
@@ -2195,7 +2193,7 @@ button.large,
 }
 
 .vision-priority-icon {
-  font-size: 1.8em;
+  font-size: 1.4em;
   color: var(--color-accent-green);
   margin-bottom: 0.4em;
   line-height: 1;
@@ -2292,8 +2290,8 @@ table td {
 table th {
   text-align: left;
   padding: 0.5em 1em 0.5em 0em;
-  font-weight: 800;
-  font-size: 1.3em;
+  font-weight: 700;
+  font-size: 1.1em;
   margin: 0 0 1em 0;
 }
 
@@ -2367,8 +2365,8 @@ table thead {
 
 .image-gallery img:hover,
 .gallery-grid img:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px var(--color-shadow-medium);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px var(--color-shadow);
 }
 
 .gallery-item {
@@ -2381,9 +2379,8 @@ table thead {
 }
 
 .gallery-item:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card-hover);
-  border-top: 3px solid var(--color-accent);
 }
 
 .gallery-item img {
@@ -2490,12 +2487,12 @@ ol li {
   border-radius: 5px;
   background-color: var(--color-background-section);
   margin-bottom: 0.5em;
-  box-shadow: 0 2px 4px var(--color-shadow-darker);
+  box-shadow: 0 1px 2px var(--color-shadow-light);
 }
 
 .mission li::before {
   content: "\2713";
-  font-size: 1.5em;
+  font-size: 1.1em;
   margin-right: 10px;
   color: var(--color-accent-green);
 }
@@ -2614,8 +2611,7 @@ ul.menu li:first-child {
 
 /* Widgets */
 .widget h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 
 .widget.thumbnails .grid {
@@ -2692,9 +2688,8 @@ ul.menu li:first-child {
 .benefit-item:hover,
 .donation-section:hover,
 .contact-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card-hover);
-  border-top: 3px solid var(--color-accent);
 }
 
 .box.feature h2,
@@ -2904,8 +2899,8 @@ article:last-child {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
+  width: 50px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -2937,8 +2932,8 @@ article:last-child {
 }
 
 .additional-cards-grid .program-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px var(--color-shadow-medium);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--color-shadow);
   border-color: var(--color-accent);
 }
 
@@ -2951,7 +2946,7 @@ article:last-child {
 }
 
 .card-icon {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   line-height: 1;
 }
@@ -3161,7 +3156,7 @@ article:last-child {
 }
 
 .contact-card .card-icon {
-  font-size: 2.8rem;
+  font-size: 2rem;
   color: var(--color-accent-green);
   margin-bottom: 1rem;
   line-height: 1;
@@ -3237,8 +3232,8 @@ article:last-child {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 60px;
-  height: 3px;
+  width: 40px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3269,8 +3264,8 @@ article:last-child {
   font-weight: 900;
   font-style: normal;
   display: block;
-  font-size: 1.8rem;
-  color: var(--color-accent);
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -3354,8 +3349,8 @@ article:last-child {
 }
 
 .banner-cta .button {
-  font-size: 1.4em;
-  padding: 0.8em 2.5em;
+  font-size: 1.2em;
+  padding: 0.7em 2em;
   width: auto;
 }
 
@@ -3396,7 +3391,7 @@ article:last-child {
 
 .impact-number {
   font-family: var(--font-heading);
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1.1;
@@ -3404,7 +3399,7 @@ article:last-child {
 
 .impact-number-sm {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary);
   line-height: 1.1;
@@ -3460,12 +3455,12 @@ article:last-child {
   display: inline-block;
   background: var(--color-accent);
   color: var(--color-primary);
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.3em 1em;
-  border-radius: 20px;
+  letter-spacing: 0.06em;
+  padding: 0.25em 0.8em;
+  border-radius: 4px;
   margin-bottom: 1em;
 }
 
@@ -3526,8 +3521,8 @@ article:last-child {
   bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
+  width: 50px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3558,16 +3553,16 @@ article:last-child {
 
 .association-btn:hover {
   background: var(--color-primary-hover);
-  transform: scale(1.04) translateY(-2px);
-  box-shadow: 0 6px 14px var(--color-shadow-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--color-shadow);
 }
 
 /* Consistent hover for all cards/buttons */
 .association-btn:hover,
 .benefit-card:hover,
 .additional-cards-grid .program-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 24px var(--color-shadow-medium);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px var(--color-shadow);
   border-color: var(--color-accent);
   transition: all 0.3s ease;
 }
@@ -3631,8 +3626,8 @@ article:last-child {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
+  width: 60px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3655,7 +3650,7 @@ article:last-child {
 }
 
 .benefit-icon {
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   color: var(--color-accent-green);
   margin-bottom: 1.2rem;
   line-height: 1;
@@ -3687,10 +3682,10 @@ article:last-child {
 }
 
 .cta-container .button {
-  min-width: 260px;
-  padding: 1.2em 2.2em;
-  font-size: 1.3rem;
-  border-radius: 10px;
+  min-width: 240px;
+  padding: 1em 2em;
+  font-size: 1.1rem;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -3719,15 +3714,15 @@ article:last-child {
 
 .membership-note {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.7;
   color: var(--color-text-gray);
   font-style: italic;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   background: var(--color-background-light);
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid var(--color-border-light);
-  box-shadow: 0 4px 16px var(--color-shadow-light);
+  box-shadow: 0 2px 8px var(--color-shadow-light);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -3787,8 +3782,8 @@ article:last-child {
   position: absolute;
   bottom: -8px;
   left: 0;
-  width: 60px;
-  height: 3px;
+  width: 40px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3814,8 +3809,8 @@ article:last-child {
 }
 
 .leader-avatar {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: var(--color-primary);
   color: var(--color-white);
@@ -3823,7 +3818,7 @@ article:last-child {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.2em;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .leader-card h3 {
@@ -3885,8 +3880,8 @@ article:last-child {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
+  width: 60px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3952,8 +3947,8 @@ article:last-child {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
+  width: 60px;
+  height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
 }
@@ -3989,7 +3984,7 @@ article:last-child {
   padding: 4em 0 6em 0;
   background: var(--color-primary);
   color: #f0f0f0;
-  border-top: 4px solid var(--color-accent);
+  border-top: 2px solid var(--color-accent);
 }
 
 /* Header */
@@ -4081,13 +4076,12 @@ header p {
   -webkit-transition: background 0.2s ease;
   -ms-transition: background 0.2s ease;
   transition: background 0.2s ease;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--color-text-dark);
   text-decoration: none;
   border-radius: 6px;
   padding: 0.5em 1em 0.5em 1em;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.04em;
   font-size: 0.88em;
 }
 
@@ -4196,17 +4190,17 @@ header p {
 }
 
 #banner h1 {
-  font-size: 3.5em;
+  font-size: 2.8em;
   margin: 0.1em 0 0.5em 0;
 }
 
 #banner h2 {
-  font-size: 3.5em;
+  font-size: 2.8em;
   margin: 0.1em 0 0.35em 0;
 }
 
 #banner p {
-  font-size: 2.75em;
+  font-size: 1.6em;
   line-height: 1.35em;
   margin: 0;
 }
@@ -4288,9 +4282,9 @@ header p {
 
 /* Banner CTA buttons */
 #banner .button {
-  padding: 0.8em 2em;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--color-shadow);
+  padding: 0.7em 1.8em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--color-shadow-light);
 }
 
 /* Footer */
@@ -4300,8 +4294,7 @@ header p {
 
 #footer h3 {
   color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 
 #footer a {
@@ -4320,16 +4313,16 @@ header p {
 
 #footer .widget.contact ul li a {
   background: rgba(255, 255, 255, 0.1);
-  width: 3em;
-  height: 3em;
-  line-height: 3em;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
   border-radius: 50%;
   opacity: 1;
 }
 
 #footer .widget.contact ul li a:before {
   color: #f0f0f0;
-  font-size: 1.5em;
+  font-size: 1.2em;
   transition: color 0.25s ease;
 }
 
@@ -4802,7 +4795,7 @@ select,
 
 #navPanel .depth-0 {
   color: var(--color-text-dark);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 body.navPanel-visible #page-wrapper,
