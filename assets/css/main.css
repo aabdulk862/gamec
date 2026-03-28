@@ -3335,9 +3335,11 @@ article:last-child {
 
 /* ── Banner Redesign ── */
 .banner-tagline {
-  font-size: 2.75em;
-  line-height: 1.35em;
-  margin: 0;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  margin: 0.5em 0 0.8em;
+  font-weight: 500;
+  opacity: 0.88;
 }
 
 .banner-subtitle {
@@ -3354,6 +3356,7 @@ article:last-child {
 .banner-cta .button {
   font-size: 1.4em;
   padding: 0.8em 2.5em;
+  width: auto;
 }
 
 @media screen and (max-width: 736px) {
@@ -4194,7 +4197,7 @@ header p {
 
 #banner h1 {
   font-size: 3.5em;
-  margin: 0.1em 0 0.35em 0;
+  margin: 0.1em 0 0.5em 0;
 }
 
 #banner h2 {
