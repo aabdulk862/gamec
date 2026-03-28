@@ -3981,14 +3981,16 @@ header p {
 
 .site-credit {
   margin-top: 0.5em;
-  font-size: 0.9em;
-  opacity: 0.7;
+  font-size: 1.1em;
+  opacity: 1;
+  letter-spacing: 0.03em;
 }
 
 .site-credit a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  font-weight: 600;
+  transition: var(--transition-default);
 }
 
 .site-credit a:hover {
