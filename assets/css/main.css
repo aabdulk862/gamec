@@ -594,6 +594,17 @@ blockquote cite {
   margin-top: 1.5rem;
 }
 
+/* Homepage Facebook button */
+.homepage-fb-btn {
+  font-size: 1.3em;
+  padding: 1em 2em;
+}
+
+.fb-subtext {
+  margin-top: 1.5rem;
+  font-size: 1.1em;
+}
+
 .gameclist {
   color: var(--color-black);
   text-decoration: none;
@@ -2070,8 +2081,8 @@ input[type="submit"].large,
 input[type="reset"].large,
 button.large,
 .button.large {
-  font-size: 2.25em;
-  padding: 0.8em 0.9em;
+  font-size: 1.6em;
+  padding: 0.75em 1.6em;
 }
 
 /* Login Button Container */
@@ -2110,6 +2121,153 @@ button.large,
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+/* =============================================
+   VISION PAGE REDESIGN
+   ============================================= */
+
+/* Intro image */
+.vision-intro .image img {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* Mission & Vision Cards */
+.vision-card {
+  background: var(--color-background-light);
+  border-radius: var(--radius-card);
+  padding: 2em 1.8em;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  text-align: center;
+  transition: var(--transition-default);
+  height: 100%;
+}
+
+.vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-top: 3px solid var(--color-accent);
+}
+
+.vision-card-icon {
+  font-size: 2.2em;
+  color: var(--color-accent);
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+.vision-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin: 0 0 0.5em;
+}
+
+.vision-card p {
+  color: var(--color-text-medium);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Priorities Grid */
+.vision-priorities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2em;
+  margin-top: 1.5em;
+}
+
+.vision-priority-item {
+  background: var(--color-background-light);
+  border-radius: var(--radius-card);
+  padding: 1.5em 1.2em;
+  text-align: center;
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-default);
+}
+
+.vision-priority-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-accent);
+}
+
+.vision-priority-icon {
+  font-size: 1.8em;
+  color: var(--color-accent-green);
+  margin-bottom: 0.4em;
+  line-height: 1;
+}
+
+.vision-priority-item h3 {
+  font-size: 1.1em;
+  color: var(--color-primary);
+  margin: 0 0 0.4em;
+  font-weight: 700;
+}
+
+.vision-priority-item p {
+  color: var(--color-text-medium);
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Quote / Belief */
+.vision-belief {
+  text-align: center;
+}
+
+.vision-quote {
+  border: none;
+  padding: 1.5em 2em;
+  background: var(--color-background-section);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  margin: 0 auto 1.5em;
+  max-width: 750px;
+}
+
+.vision-quote p {
+  font-family: var(--font-heading);
+  font-size: 1.4em;
+  color: var(--color-primary);
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+}
+
+.vision-quote em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+/* Responsive: Vision Page */
+@media screen and (max-width: 980px) {
+  .vision-priorities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .vision-priorities-grid {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+
+  .vision-card {
+    padding: 1.5em 1.2em;
+  }
+
+  .vision-quote {
+    padding: 1.2em 1.5em;
+  }
+
+  .vision-quote p {
+    font-size: 1.2em;
+  }
 }
 
 /* 8. TABLES */
@@ -2429,7 +2587,7 @@ ul.menu li:first-child {
 }
 
 .box.feature .inner {
-  padding: 3em 2.5em;
+  padding: 2.5em 2em 2em;
 }
 
 .box.feature h2 {
@@ -3440,17 +3598,17 @@ article:last-child {
 }
 
 #features-wrapper {
-  padding: 3.5em 0;
+  padding: 4em 0;
 }
 
 #main-wrapper {
   background: var(--color-white);
   box-shadow: 0px 3px 0px 0px var(--color-shadow);
-  padding: 3em 5em 4em;
+  padding: 3.5em 5em 4.5em;
 }
 
 #main-wrapper section ~ section {
-  margin-top: 2.5em;
+  margin-top: 3.5em;
 }
 
 #footer-wrapper {
@@ -4045,10 +4203,8 @@ select,
   input[type="reset"],
   button,
   .button {
-    width: 100%;
     text-align: center;
     font-size: 1.35em;
-    padding: 0.85em 0 !important;
   }
 
   input[type="button"].icon,
@@ -4056,7 +4212,7 @@ select,
   input[type="reset"].icon,
   button.icon,
   .button.icon {
-    padding-right: 0.75em !important;
+    padding-right: 1.5em;
   }
 
   input[type="button"].icon:before,
@@ -4349,10 +4505,9 @@ body.navPanel-visible #navPanel {
   input[type="reset"],
   button,
   .button {
-    width: 100%;
     text-align: center;
-    font-size: 1.25em !important;
-    padding: 0.65em 0 !important;
+    font-size: 1.15em;
+    padding: 0.7em 1.5em;
   }
 
   input[type="button"].icon,
@@ -4360,7 +4515,7 @@ body.navPanel-visible #navPanel {
   input[type="reset"].icon,
   button.icon,
   .button.icon {
-    padding-right: 0.75em !important;
+    padding-right: 1.5em;
   }
 
   input[type="button"].icon:before,
@@ -4379,7 +4534,7 @@ body.navPanel-visible #navPanel {
   }
 
   .box.feature {
-    margin: 0 0 1.5em 0 !important;
+    margin: 0 0 2em 0 !important;
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -4387,7 +4542,7 @@ body.navPanel-visible #navPanel {
   }
 
   .box.feature .inner {
-    padding: 1.5em;
+    padding: 1.5em 1.2em;
   }
 
   .box.feature p {
@@ -4448,31 +4603,35 @@ body.navPanel-visible #navPanel {
   /* Banner */
   #banner {
     text-align: center;
-    padding: 2em 1.5em;
+    padding: 2.5em 1.2em;
     margin: 0 auto !important;
   }
 
   #banner h1 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   #banner h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 0.75em 0 0.5em 0;
   }
 
   #banner p {
-    font-size: 1.3em;
+    font-size: 1.2em;
     line-height: 1.5em;
-    margin: 0;
+    margin: 0 0 0.5em 0;
   }
 
   #banner ul {
-    margin: 0;
+    margin: 1em 0 0 0;
   }
 
   #banner .button {
-    margin: 0 0 1em 0;
+    margin: 0 0 0.8em 0;
+    font-size: 1.1em;
+    padding: 0.7em 1.5em;
+    width: 100%;
+    max-width: 280px;
   }
 
   /* Cards - stack full-width */
@@ -4487,18 +4646,18 @@ body.navPanel-visible #navPanel {
     margin-bottom: 1.5em !important;
   }
 
-  /* Section spacing reduced ~35% */
+  /* Section spacing for mobile */
   #features-wrapper {
-    padding: 0 15px 26px 15px;
+    padding: 1.5em 15px 2em 15px;
   }
 
   #main-wrapper {
-    padding: 26px 20px 26px 20px;
+    padding: 2em 1.2em 2.5em;
   }
 
   #main-wrapper section + section,
   #main-wrapper .row + .row {
-    margin-top: 2.3em;
+    margin-top: 2.8em;
   }
 
   /* Content */
@@ -4565,6 +4724,26 @@ body.navPanel-visible #navPanel {
   #banner h1::after {
     width: 50px;
     height: 2px;
+  }
+
+  /* Homepage Facebook button mobile */
+  .homepage-fb-btn {
+    font-size: 1.1em !important;
+    padding: 0.7em 1.5em !important;
+    width: auto;
+    max-width: 100%;
+  }
+
+  /* Homepage h2 headings breathing room */
+  #main-wrapper h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Inline style overrides for homepage */
+  .affiliated-associations h2 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
   }
 
   /* Section headings on mobile */

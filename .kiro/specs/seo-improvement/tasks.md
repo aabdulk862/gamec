@@ -1,0 +1,44 @@
+# Tasks
+
+- [x] 1. Add HTML lang attribute to all pages missing it
+  - [x] 1.1 Add `lang="en"` to `<html>` tag in index.html, programs.html, donate.html, history.html, leadership.html, relief.html, youth.html, sisters.html, seniors.html, professionals.html, resources.html, and matrimonial.html
+- [x] 2. Add canonical URLs to all pages
+  - [x] 2.1 Add `<link rel="canonical" href="https://igamec.org/">` to index.html
+  - [x] 2.2 Add `<link rel="canonical" href="https://igamec.org/{page}.html">` to all 16 inner pages
+- [x] 3. Add Open Graph meta tags to all pages
+  - [x] 3.1 Add og:title, og:description, og:url, og:type, og:image, og:site_name, og:locale meta tags to every page's `<head>`
+- [x] 4. Add Twitter Card meta tags to all pages
+  - [x] 4.1 Add twitter:card, twitter:title, twitter:description, twitter:image meta tags to every page's `<head>`
+- [x] 5. Add Organization structured data to homepage
+  - [x] 5.1 Add JSON-LD script block with NonprofitOrganization/Organization type to index.html including name, URL, logo, description, contact info, and sameAs
+- [x] 6. Add BreadcrumbList structured data to inner pages
+  - [x] 6.1 Add JSON-LD BreadcrumbList to all 16 inner pages with Home as position 1, optional parent section, and current page as final item
+- [x] 7. Add WebSite structured data to homepage
+  - [x] 7.1 Add JSON-LD WebSite script block to index.html with site name, URL, and description
+- [x] 8. Fix heading hierarchy
+  - [x] 8.1 Change multiple `<h1>` section headings in index.html (Membership, Donations, Connect on Facebook, Matrimonial Services, Resources, GAMEC Media) to `<h2>`
+  - [x] 8.2 Verify all pages have exactly one `<h1>` and no skipped heading levels; fix any violations
+- [x] 9. Optimize image alt text
+  - [x] 9.1 Update header.html logo img alt to include organization name (e.g., "GAMEC - Global Association of Muslim Eritrean Communities logo")
+  - [x] 9.2 Update generic alt text across all pages to be more descriptive (e.g., media.html gallery images, index.html feature images)
+- [x] 10. Fix sitemap.xml
+  - [x] 10.1 Convert all URLs to .html extension format (e.g., `https://igamec.org/vision.html` instead of `/vision/`), keeping homepage as `https://igamec.org/`
+  - [x] 10.2 Add `<lastmod>`, `<changefreq>`, and `<priority>` elements to every URL entry
+- [x] 11. Fix robots.txt
+  - [x] 11.1 Change sitemap URL from `https://www.igamec.org/sitemap.xml` to `https://igamec.org/sitemap.xml`
+- [x] 12. Add semantic HTML enhancements
+  - [x] 12.1 Wrap the primary content area of each page in a `<main>` element (add `<main>` around the `#main-wrapper` content or replace the wrapper div)
+- [x] 13. Add meta robots tags to all pages
+  - [x] 13.1 Add `<meta name="robots" content="index, follow">` to the `<head>` of every page
+- [x] 14. Normalize internal link format
+  - [x] 14.1 Update header.html `index.html` link to `./index.html` for consistency with all other internal links
+  - [x] 14.2 Audit and fix any other internal links not using `./page.html` format across all pages and shared components
+- [x] 15. Add security attributes to external links
+  - [x] 15.1 Audit all external links across all pages and shared components; add missing `target="_blank"` and `rel="noopener noreferrer"` attributes
+- [x] 16. Add performance meta tags
+  - [x] 16.1 Add `<link rel="dns-prefetch" href="https://fonts.googleapis.com">` to the `<head>` of every page
+  - [x] 16.2 Add `<link rel="preconnect" href="https://fonts.googleapis.com">` and `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` to every page
+- [x] 17. Write property-based tests
+  - [x] 17.1 Create `tests/seo-meta.property.test.mjs` with property tests for Properties 1-15 from the design document using vitest and fast-check
+- [x] 18. Write unit tests
+  - [x] 18.1 Create `tests/seo-meta.unit.test.mjs` with unit tests for homepage JSON-LD content, header logo alt text, robots.txt content, and semantic HTML verification

@@ -3,85 +3,136 @@
   <!-- 1. Home Page -->
   <url>
     <loc>https://igamec.org/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <!-- 2. Mission & Vision Page -->
   <url>
-    <loc>https://igamec.org/vision/</loc>
+    <loc>https://igamec.org/vision.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 3. History Page -->
   <url>
-    <loc>https://igamec.org/history/</loc>
+    <loc>https://igamec.org/history.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- 4. Leadership Team Page -->
   <url>
-    <loc>https://igamec.org/leadership/</loc>
+    <loc>https://igamec.org/leadership.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 5. Membership Page -->
+  <!-- 5. Contact Page -->
   <url>
-    <loc>https://igamec.org/membership/</loc>
+    <loc>https://igamec.org/contact.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 6. Programs Page -->
   <url>
-    <loc>https://igamec.org/programs/</loc>
+    <loc>https://igamec.org/programs.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- 7. Media Page -->
+  <!-- 7. Membership Page -->
   <url>
-    <loc>https://igamec.org/media/</loc>
+    <loc>https://igamec.org/membership.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- 8. Contact Page -->
+  <!-- 8. Donations Page -->
   <url>
-    <loc>https://igamec.org/contact/</loc>
+    <loc>https://igamec.org/donate.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 9. Resources Page -->
   <url>
-    <loc>https://igamec.org/resources/</loc>
-  </url>
-  
-  <!-- 10. Relief Page -->
-  <url>
-    <loc>https://igamec.org/relief/</loc>
+    <loc>https://igamec.org/resources.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 11. Sisters Page -->
+  <!-- 10. Media Page -->
   <url>
-    <loc>https://igamec.org/sisters/</loc>
+    <loc>https://igamec.org/media.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 12. Youth Page -->
+  <!-- 11. Relief Page -->
   <url>
-    <loc>https://igamec.org/youth/</loc>
+    <loc>https://igamec.org/relief.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 13. Seniors Page -->
+  <!-- 12. Sisters Page -->
   <url>
-    <loc>https://igamec.org/seniors/</loc>
+    <loc>https://igamec.org/sisters.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 14. Professionals Page -->
+  <!-- 13. Youth Page -->
   <url>
-    <loc>https://igamec.org/professionals/</loc>
+    <loc>https://igamec.org/youth.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
-  <!-- 15. Donations Page -->
+  <!-- 14. Seniors Page -->
   <url>
-    <loc>https://igamec.org/donate/</loc>
+    <loc>https://igamec.org/seniors.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 15. Professionals Page -->
+  <url>
+    <loc>https://igamec.org/professionals.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- 16. Health Services Page -->
   <url>
-    <loc>https://igamec.org/health/</loc>
+    <loc>https://igamec.org/health.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- 17. Matrimonial Page -->
   <url>
     <loc>https://igamec.org/matrimonial.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
