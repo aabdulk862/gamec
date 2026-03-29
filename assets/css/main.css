@@ -5207,18 +5207,65 @@ body.navPanel-visible #navPanel {
   }
 
   /* Donation sections mobile */
+  .donation-section {
+    padding: 1.2em 1em !important;
+    margin-bottom: 1.5em !important;
+    border-left-width: 3px !important;
+  }
+
   .donation-section h2 {
-    font-size: 1.4em;
+    font-size: 1.2em;
+    flex-wrap: wrap;
+    gap: 0.3em;
+  }
+
+  .donation-section h2::before {
+    font-size: 0.8em;
+  }
+
+  .donation-section p {
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+
+  .donation-section .button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.7em 1em;
+    font-size: 1rem;
+  }
+
+  #zelle-donation p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  #zelle-donation ol {
+    margin-bottom: 1em;
   }
 
   #zelle-donation ol li {
-    gap: 0.7em;
+    gap: 0.6em;
+    font-size: 0.95rem;
+    margin-bottom: 0.8em;
+    line-height: 1.5;
   }
 
   #zelle-donation ol li::before {
-    width: 1.8em;
-    height: 1.8em;
-    font-size: 0.85em;
+    width: 1.6em;
+    height: 1.6em;
+    font-size: 0.8em;
+    margin-top: 0.1em;
+  }
+
+  /* Trust badge on donate page */
+  .trust-badge {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 0.6em 0.8em;
+    margin-bottom: 1.5em;
   }
 
   /* Coming soon placeholders mobile */
