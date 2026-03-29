@@ -383,12 +383,7 @@ q:after {
 }
 
 #quote {
-  font-style: italic;
-  font-size: 0.8em;
-  border: none;
-  padding-left: 10px;
-  color: var(--color-text-gray);
-  margin: 0.5em 0;
+  display: none;
 }
 
 hr {
@@ -3329,41 +3324,59 @@ article:last-child {
 }
 
 /* ── Banner Redesign ── */
+.banner-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .banner-tagline {
-  font-size: 1.6em;
-  line-height: 1.4em;
-  margin: 0.5em 0 0.8em;
-  font-weight: 500;
-  opacity: 0.88;
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin: 0 0 1.2em;
+  color: var(--color-text-medium);
+  font-weight: 400;
+}
+
+.banner-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1em;
+  line-height: 1.7;
+  color: var(--color-text-gray);
+  margin: 0 0 1.5em;
+  opacity: 0.8;
 }
 
 .banner-subtitle {
-  font-size: 1.4em;
-  opacity: 0.85;
+  font-size: 1.15em;
+  color: var(--color-text-medium);
   margin: 0.5em 0 1.2em;
   font-weight: 400;
 }
 
 .banner-cta {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 
 .banner-cta .button {
-  font-size: 1.2em;
-  padding: 0.7em 2em;
+  font-size: 1.1em;
+  padding: 0.65em 1.8em;
   width: auto;
 }
 
 @media screen and (max-width: 736px) {
   .banner-tagline {
-    font-size: 1.2em;
+    font-size: 1.05em;
+  }
+  .banner-quote {
+    font-size: 0.95em;
   }
   .banner-subtitle {
     font-size: 1em;
     margin: 0.3em 0 1em;
   }
   .banner-cta .button {
-    font-size: 1.1em;
+    font-size: 1em;
     width: 100%;
     max-width: 300px;
   }
@@ -3970,6 +3983,10 @@ article:last-child {
   padding: 4em 0;
 }
 
+#banner-wrapper {
+  padding: 0 2em 1em;
+}
+
 #main-wrapper {
   background: var(--color-white);
   box-shadow: 0px 3px 0px 0px var(--color-shadow);
@@ -4186,22 +4203,31 @@ header p {
 /* Banner */
 #banner {
   position: relative;
-  padding: 3.5em;
+  padding: 4.5em 2em;
+  text-align: center;
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--color-shadow-light);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 #banner h1 {
-  font-size: 2.8em;
-  margin: 0.1em 0 0.5em 0;
+  font-size: 3em;
+  margin: 0 0 0.15em 0;
+  letter-spacing: 0.06em;
+  position: relative;
+  display: inline-block;
 }
 
 #banner h2 {
-  font-size: 2.8em;
+  font-size: 2.4em;
   margin: 0.1em 0 0.35em 0;
 }
 
 #banner p {
-  font-size: 1.6em;
-  line-height: 1.35em;
+  font-size: 1.1em;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -4211,10 +4237,9 @@ header p {
 }
 
 #banner .button.icon:before {
-  position: absolute;
-  right: 0.15em;
-  top: 50%;
-  margin-top: -0.5em;
+  position: relative;
+  margin-right: 0.5em;
+  top: 0.05em;
 }
 
 #banner .button.alt {
@@ -4231,53 +4256,20 @@ header p {
   padding-left: 0;
 }
 
-/* Banner gradient overlay */
-#banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 31, 63, 0.15), transparent);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ensure banner content sits above the overlay */
+/* Ensure banner content sits above any overlay */
 #banner > * {
   position: relative;
   z-index: 1;
 }
 
 /* Gold underline on banner h1 */
-#banner h1 {
-  position: relative;
-  display: inline-block;
-}
-
 #banner h1::after {
   content: "";
   display: block;
-  width: 80px;
-  height: 3px;
+  width: 60px;
+  height: 2px;
   background: var(--color-accent);
   margin: 0.3em auto 0;
-}
-
-/* Tagline styling */
-#banner p {
-  font-weight: 500;
-  opacity: 0.88;
-}
-
-/* Blockquote styling */
-#banner blockquote {
-  border-left: 4px solid var(--color-accent);
-  padding-left: 1em;
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: 0.9em;
 }
 
 /* Banner CTA buttons */
@@ -4621,8 +4613,9 @@ select,
 
   /* Banner */
   #banner {
-    padding: 4.5em 3em;
+    padding: 3em 1.5em;
     text-align: center;
+    max-width: 100%;
   }
 
   #banner ul {
@@ -4636,11 +4629,11 @@ select,
   }
 
   #banner h1 {
-    font-size: 3em;
+    font-size: 2.4em;
   }
 
   #banner p {
-    font-size: 2em;
+    font-size: 1em;
   }
 
   /* Content */
@@ -4972,8 +4965,12 @@ body.navPanel-visible #navPanel {
   /* Banner */
   #banner {
     text-align: center;
-    padding: 2.5em 1.2em;
+    padding: 2em 1.2em;
     margin: 0 auto !important;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-border-light);
   }
 
   #banner h1 {
@@ -4981,14 +4978,23 @@ body.navPanel-visible #navPanel {
   }
 
   #banner h2 {
-    font-size: 1.8em;
-    margin: 0.75em 0 0.5em 0;
+    font-size: 1.6em;
+    margin: 0.5em 0 0.4em 0;
   }
 
   #banner p {
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 0.95em;
+    line-height: 1.6;
     margin: 0 0 0.5em 0;
+  }
+
+  .banner-content {
+    max-width: 100%;
+  }
+
+  .banner-quote {
+    font-size: 0.9em;
+    margin: 0 0 1em;
   }
 
   #banner ul {
@@ -4997,8 +5003,8 @@ body.navPanel-visible #navPanel {
 
   #banner .button {
     margin: 0 0 0.8em 0;
-    font-size: 1.1em;
-    padding: 0.7em 1.5em;
+    font-size: 0.95em;
+    padding: 0.6em 1.3em;
     width: 100%;
     max-width: 280px;
   }
@@ -5017,16 +5023,87 @@ body.navPanel-visible #navPanel {
 
   /* Section spacing for mobile */
   #features-wrapper {
-    padding: 1.5em 15px 2em 15px;
+    padding: 1.5em 15px 1em 15px;
   }
 
   #main-wrapper {
-    padding: 2em 1.2em 2.5em;
+    padding: 1.5em 1rem 2em;
   }
 
   #main-wrapper section + section,
   #main-wrapper .row + .row {
-    margin-top: 2.8em;
+    margin-top: 2em;
+  }
+
+  /* Feature cards stack with spacing */
+  .box.feature {
+    margin-bottom: 1.5em !important;
+  }
+
+  .box.feature .inner {
+    padding: 1.2em 1em;
+  }
+
+  /* Impact section mobile */
+  .impact-section h2 {
+    font-size: 1.4em;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .impact-item {
+    padding: 0.8em 0.5em;
+  }
+
+  .impact-number {
+    font-size: 1.8rem;
+  }
+
+  .impact-number-sm {
+    font-size: 1.3rem;
+  }
+
+  /* Donate section mobile */
+  .donate-homepage .button.large {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .trust-badge {
+    font-size: 0.85rem;
+    padding: 0.6em 1em;
+    display: block;
+  }
+
+  /* New program callout mobile */
+  .new-program-callout {
+    padding: 1.5em 1rem;
+  }
+
+  /* Association buttons mobile */
+  .associations-compact {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .association-btn {
+    padding: 0.7em 0.8em;
+    font-size: 0.95rem;
+  }
+
+  /* Social connect links mobile */
+  .social-connect-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .social-connect-links .button {
+    width: 100%;
+    max-width: 280px;
   }
 
   /* Content */
@@ -5077,42 +5154,16 @@ body.navPanel-visible #navPanel {
     line-height: 1.7;
   }
 
-  /* Banner blockquote mobile */
-  #banner blockquote {
-    font-size: 0.85em;
-    margin: 1em 0 0;
-    padding-left: 0.8em;
-  }
-
-  /* Banner gradient - softer on mobile */
-  #banner::before {
-    background: linear-gradient(to bottom, rgba(0, 31, 63, 0.08), transparent);
-  }
-
   /* Gold underline smaller on mobile */
   #banner h1::after {
-    width: 50px;
+    width: 35px;
     height: 2px;
   }
 
-  /* Homepage Facebook button mobile */
-  .homepage-fb-btn {
-    font-size: 1.1em !important;
-    padding: 0.7em 1.5em !important;
-    width: auto;
-    max-width: 100%;
-  }
-
-  /* Homepage h2 headings breathing room */
+  /* Homepage h2 headings */
   #main-wrapper h2 {
-    font-size: 1.5em;
-    margin-bottom: 0.8em;
-  }
-
-  /* Inline style overrides for homepage */
-  .affiliated-associations h2 {
-    font-size: 1.4rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 1.35em;
+    margin-bottom: 0.7em;
   }
 
   /* Section headings on mobile */
@@ -5168,11 +5219,6 @@ body.navPanel-visible #navPanel {
     width: 1.8em;
     height: 1.8em;
     font-size: 0.85em;
-  }
-
-  /* Community groups mobile */
-  .affiliated-associations h2 {
-    font-size: 1.4rem !important;
   }
 
   /* Coming soon placeholders mobile */
