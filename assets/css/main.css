@@ -4046,14 +4046,13 @@ article:last-child {
 .professionals-list li {
   position: relative;
   padding: 1rem 0 1rem 2rem;
-  border-bottom: 1px solid var(--color-border-light);
   line-height: 1.75;
   font-size: 1.05rem;
   color: var(--color-text-gray);
 }
 
 .professionals-list li:last-child {
-  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .professionals-list li::before {
