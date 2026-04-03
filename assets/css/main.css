@@ -3973,6 +3973,189 @@ article:last-child {
   }
 }
 
+/* ── Professionals Page ── */
+
+.professionals-page h1 {
+  text-align: left;
+}
+
+.professionals-hero {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.professionals-hero-img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  margin: 1.5rem 0;
+}
+
+.professionals-hero h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 0.6em;
+}
+
+.professionals-salam {
+  font-size: 1.1rem;
+  color: var(--color-text-medium);
+  margin-bottom: 0.3em;
+}
+
+.professionals-tagline {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.2em;
+}
+
+.professionals-section {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.professionals-section h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  position: relative;
+  padding-bottom: 0.8em;
+  margin-bottom: 1.5em;
+}
+
+.professionals-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.professionals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.professionals-list li {
+  position: relative;
+  padding: 1rem 0 1rem 2rem;
+  border-bottom: 1px solid var(--color-border-light);
+  line-height: 1.75;
+  font-size: 1.05rem;
+  color: var(--color-text-gray);
+}
+
+.professionals-list li:last-child {
+  border-bottom: none;
+}
+
+.professionals-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.45rem;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.professionals-closing {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  background: var(--color-background-light);
+  border-radius: 12px;
+  border: 1px solid var(--color-border-light);
+}
+
+.professionals-closing p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text-gray);
+  max-width: 700px;
+  margin: 0 auto 1em;
+}
+
+.professionals-ready {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.professionals-closing h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0;
+}
+
+.professionals-whatsapp {
+  padding: 1.5rem 2rem;
+  margin-bottom: 3rem;
+  background: var(--color-background-alt);
+  border-radius: 12px;
+  border-left: 4px solid #25d366;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.professionals-whatsapp > i {
+  font-size: 2rem;
+  color: #25d366;
+  flex-shrink: 0;
+}
+
+.professionals-whatsapp p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-text-gray);
+}
+
+.professionals-dashboard-note {
+  margin-top: 1em;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.professionals-page .membership-cta {
+  text-align: center;
+}
+
+.professionals-page .cta-container {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .professionals-hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .professionals-tagline {
+    font-size: 1.2rem;
+  }
+
+  .professionals-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .professionals-closing {
+    padding: 2rem 1.5rem;
+  }
+
+  .professionals-closing h2 {
+    font-size: 1.6rem;
+  }
+}
+
 /* 12. SITE STRUCTURE (Header, Wrappers, Footer) */
 /* Wrappers */
 #header-wrapper {
