@@ -413,7 +413,6 @@ br.clear {
 }
 
 .matrimonial-section h2 {
-  border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.4em;
   margin-bottom: 1em;
 }
@@ -2143,15 +2142,6 @@ table thead {
   padding-bottom: 0.5rem;
 }
 
-.gallery-sub h3::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0.5rem auto 0;
-}
-
 @media (max-width: 980px) {
   .image-gallery,
   .gallery-grid,
@@ -2356,7 +2346,7 @@ ul.menu li:first-child {
 }
 
 .box.feature .inner {
-  padding: 2.5em 2em 2em;
+  padding: 2.5em 2em 2.5em;
 }
 
 .box.feature h2 {
@@ -2504,7 +2494,6 @@ article:last-child {
 .resource-section h2 {
   font-size: 1.8em;
   color: var(--color-primary-dark);
-  border-bottom: 2px solid var(--color-accent);
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
@@ -2791,18 +2780,6 @@ article:last-child {
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
-}
-
-.additional-programs h2:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
 }
 
 .additional-programs p {
@@ -3141,17 +3118,6 @@ article:last-child {
   padding-bottom: 0.5rem;
 }
 
-.media-category h2:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
 .media-category p {
   font-size: 1.1rem;
   line-height: 1.7;
@@ -3302,6 +3268,15 @@ article:last-child {
 }
 
 /* ── Impact Section ── */
+.homepage #main-wrapper section {
+  margin-bottom: 1em;
+}
+
+.homepage #main-wrapper {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
 .impact-section {
   margin-bottom: 2em;
 }
@@ -3447,18 +3422,6 @@ article:last-child {
   display: inline-block;
 }
 
-.affiliated-associations h2:after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
 .associations-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -3550,18 +3513,6 @@ article:last-child {
   color: var(--color-primary-dark);
   margin: 0 0 2.5rem;
   position: relative;
-}
-
-.membership-benefits h2:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
 }
 
 .benefits-grid {
@@ -3709,17 +3660,6 @@ article:last-child {
   display: inline-block;
 }
 
-.leadership-section h2:after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
 .leadership-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -3806,18 +3746,6 @@ article:last-child {
   position: relative;
 }
 
-.membership-faq h2:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
 .faq-list {
   max-width: 750px;
   margin: 0 auto;
@@ -3871,18 +3799,6 @@ article:last-child {
   color: var(--color-primary-dark);
   margin: 0 0 2.5rem;
   position: relative;
-}
-
-.membership-details h2:after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
 }
 
 @media (max-width: 600px) {
@@ -3943,17 +3859,6 @@ article:last-child {
   position: relative;
   padding-bottom: 0.8em;
   margin-bottom: 1.5em;
-}
-
-.professionals-section h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
 }
 
 .professionals-list {
@@ -4077,15 +3982,15 @@ article:last-child {
 /* 12. SITE STRUCTURE (Header, Wrappers, Footer) */
 /* Wrappers */
 #header-wrapper {
-  padding: 4.5em 0 2em 0;
+  padding: 3em 0 1.5em 0;
 }
 
 #features-wrapper {
-  padding: 5em 0;
+  padding: 6em 0 7em;
 }
 
 #banner-wrapper {
-  padding: 1em 2em 2.5em;
+  padding: 2em 2em 4em;
   background: linear-gradient(to bottom, rgba(0, 31, 63, 0.82), rgba(0, 31, 63, 0.9)),
               url('../images/city.jpg') center/cover no-repeat;
 }
@@ -4111,6 +4016,7 @@ article:last-child {
 #header {
   position: relative;
   border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: 2em;
 }
 
 header {
@@ -4152,7 +4058,10 @@ header p {
 }
 
 .logo-img {
-  width: 22%;
+  width: 30%;
+  min-width: 160px;
+  max-width: 280px;
+  height: auto;
 }
 
 .logo-login {
@@ -4168,9 +4077,8 @@ header p {
 #nav {
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 2em;
   font-size: 1.2em;
-  padding-top: 40px;
 }
 
 #nav > ul {
@@ -4182,8 +4090,12 @@ header p {
   float: left;
   line-height: 4.5em;
   padding-left: 0;
-  margin-left: 0.25em;
+  margin-left: 1em;
   position: relative;
+}
+
+#nav > ul > li:first-child {
+  margin-left: 0;
 }
 
 .hide-arrow {
@@ -4229,8 +4141,7 @@ header p {
   display: none;
   position: absolute;
   top: 100%;
-  left: auto;
-  right: 0;
+  left: 0;
   min-width: 14em;
   background: var(--color-white);
   border: 1px solid var(--color-border-light);
@@ -4295,7 +4206,7 @@ header p {
 }
 
 #banner h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   margin: 0 0 0.15em 0;
   letter-spacing: 0.06em;
   position: relative;
@@ -4304,13 +4215,13 @@ header p {
 }
 
 #banner h2 {
-  font-size: 2.4em;
+  font-size: 2.8em;
   margin: 0.1em 0 0.35em 0;
   color: var(--color-white);
 }
 
 #banner p {
-  font-size: 1.1em;
+  font-size: 1.25em;
   line-height: 1.6;
   margin: 0;
   color: rgba(255, 255, 255, 0.9);
@@ -4345,16 +4256,6 @@ header p {
 #banner > * {
   position: relative;
   z-index: 1;
-}
-
-/* Gold underline on banner h1 */
-#banner h1::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0.3em auto 0;
 }
 
 /* Banner CTA buttons */
@@ -4608,7 +4509,7 @@ select,
 
   /* Image */
   .logo-img {
-    max-width: 120px;
+    max-width: 180px;
     width: auto;
     display: block;
     margin: 0 auto;
@@ -5260,12 +5161,6 @@ select,
     line-height: 1.7;
   }
 
-  /* Gold underline smaller on mobile */
-  #banner h1::after {
-    width: 35px;
-    height: 2px;
-  }
-
   /* Homepage h2 headings */
   #main-wrapper h2 {
     font-size: 1.35em;
@@ -5436,5 +5331,146 @@ select,
 
   #sidebar {
     padding-left: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS & EFFECTS
+   ========================================================================== */
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Banner entrance */
+#banner .banner-content {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+#banner .banner-content h1 {
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+#banner .banner-content p {
+  animation: fadeInUp 0.8s ease-out 0.25s both;
+}
+
+#banner .banner-content .button {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Scroll reveal — elements start hidden, JS adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+
+/* Feature card hover lift */
+.box.feature {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover glow */
+.button {
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Image hover zoom */
+.image.featured img {
+  transition: transform 0.4s ease;
+}
+
+.image.featured:hover img {
+  transform: scale(1.03);
+}
+
+/* Association buttons hover */
+.association-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.association-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Impact numbers subtle pulse on hover */
+.impact-item {
+  transition: transform 0.3s ease;
+}
+
+.impact-item:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
   }
 }
