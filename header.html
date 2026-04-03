@@ -1,4 +1,5 @@
-<header id="header" class="container">
+<header id="header" class="container" role="banner">
+  <a href="#main-wrapper" class="skip-link visually-hidden">Skip to main content</a>
   <!-- Logo -->
   <div id="logo">
     <div>
@@ -9,11 +10,11 @@
   </div>
 
   <!-- Nav -->
-  <nav id="nav">
+  <nav id="nav" role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="./index.html">Home</a></li>
       <li>
-        <a href="./vision.html">About Us <span class="hide-arrow">⏷</span></a>
+        <a href="./vision.html" aria-haspopup="true" aria-expanded="false">About Us <span class="hide-arrow">⏷</span></a>
         <ul>
           <li>
             <a href="./vision.html">Mission and Vision</a>
@@ -21,10 +22,11 @@
           <li><a href="./history.html">History</a></li>
           <li><a href="./leadership.html">Leadership Team</a></li>
           <li><a href="./contact.html">Contact Us</a></li>
+          <li><a href="./donate.html">Donate</a></li>
         </ul>
       </li>
       <li>
-        <a href="./programs.html">Programs <span class="hide-arrow">⏷</span></a>
+        <a href="./programs.html" aria-haspopup="true" aria-expanded="false">Programs <span class="hide-arrow">⏷</span></a>
         <ul>
           <li>
             <a href="./relief.html">GAMEC Charity</a>
@@ -42,7 +44,6 @@
         </ul>
       </li>
       <li><a href="./membership.html">Membership</a></li>
-      <li><a href="./donate.html">Donate</a></li>
       <li><a href="./media.html">Media</a></li>
       <li><a href="./resources.html">Resources</a></li>
     </ul>

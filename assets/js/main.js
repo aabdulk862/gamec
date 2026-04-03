@@ -26,26 +26,89 @@
 
     // Only run if the #nav element actually exists
     if ($nav.length > 0) {
-      
-      // 1. Initialize Dropdowns (Desktop)
-      if ($nav.find("ul").length > 0) {
-        $nav.find("ul").dropotron({
-          mode: "fade",
-          noOpenerFade: true,
-          speed: 300,
+
+      // 1. Desktop Dropdowns — WAI-ARIA disclosure pattern (replaces Dropotron)
+      var $parentItems = $nav.find("> ul > li").has("ul");
+
+      $parentItems.each(function() {
+        var $li = $(this);
+        var $link = $li.children("a");
+        var $dropdown = $li.children("ul");
+        var closeTimer = null;
+
+        function openDropdown() {
+          clearTimeout(closeTimer);
+          // Close any other open dropdowns first
+          $parentItems.not($li).each(function() {
+            var $other = $(this).children("ul");
+            $other.removeClass("is-open");
+            $(this).children("a").attr("aria-expanded", "false");
+          });
+          $dropdown.addClass("is-open");
+          $link.attr("aria-expanded", "true");
+        }
+
+        function closeDropdown() {
+          $dropdown.removeClass("is-open");
+          $link.attr("aria-expanded", "false");
+        }
+
+        function closeDropdownDelayed() {
+          closeTimer = setTimeout(closeDropdown, 200);
+        }
+
+        // Mouse hover
+        $li.on("mouseenter", openDropdown);
+        $li.on("mouseleave", closeDropdownDelayed);
+
+        // Keyboard on parent link
+        $link.on("keydown", function(e) {
+          var key = e.key;
+          if (key === "Enter" || key === " " || key === "ArrowDown") {
+            if ($dropdown.length) {
+              e.preventDefault();
+              openDropdown();
+              $dropdown.find("a").first().focus();
+            }
+          } else if (key === "Escape") {
+            closeDropdown();
+            $link.focus();
+          }
         });
-      }
+
+        // Keyboard within dropdown items
+        $dropdown.find("a").on("keydown", function(e) {
+          var key = e.key;
+          var $items = $dropdown.find("a");
+          var idx = $items.index(this);
+
+          if (key === "ArrowDown") {
+            e.preventDefault();
+            if (idx < $items.length - 1) $items.eq(idx + 1).focus();
+          } else if (key === "ArrowUp") {
+            e.preventDefault();
+            if (idx > 0) $items.eq(idx - 1).focus();
+            else $link.focus();
+          } else if (key === "Escape") {
+            e.preventDefault();
+            closeDropdown();
+            $link.focus();
+          } else if (key === "Tab") {
+            closeDropdown();
+          }
+        });
+      });
 
       // 2. Mobile Menu: Clean up old instances first
       $('#navToggle').remove();
       $('#navPanel').remove();
       $body.removeClass('navPanel-visible');
 
-      // 3. Create Mobile Toggle Button
+      // 3. Create Mobile Toggle Button (accessible <button>)
       $(
-        '<div id="navToggle">' +
-          '<a href="#navPanel" class="toggle"></a>' +
-          "</div>"
+        '<button id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">' +
+          '<span class="toggle"></span>' +
+        "</button>"
       ).appendTo($body);
 
       // 4. Create Mobile Panel
@@ -61,7 +124,31 @@
           target: $body,
           visibleClass: "navPanel-visible",
         });
-        
+
+      // 5. Toggle button ARIA state management
+      var $toggle = $("#navToggle");
+      $toggle.on("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var isOpen = $body.hasClass("navPanel-visible");
+        if (isOpen) {
+          $body.removeClass("navPanel-visible");
+          $toggle.attr("aria-expanded", "false").attr("aria-label", "Open menu");
+        } else {
+          $body.addClass("navPanel-visible");
+          $toggle.attr("aria-expanded", "true").attr("aria-label", "Close menu");
+        }
+      });
+
+      // Watch for panel close from other sources (swipe, link click, body tap)
+      var observer = new MutationObserver(function() {
+        if (!$body.hasClass("navPanel-visible")) {
+          $toggle.attr("aria-expanded", "false").attr("aria-label", "Open menu");
+        }
+      });
+      observer.observe($body[0], { attributes: true, attributeFilter: ["class"] });
+
       console.log("Navigation initialized successfully.");
     }
   };

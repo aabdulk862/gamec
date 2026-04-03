@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=1"
     />
     <meta
       name="description"
@@ -61,12 +61,26 @@
   </head>
 
   <body class="is-preload no-sidebar">
-    <div id="page-wrapper">
+
+    <noscript>
+      <div style="padding: 2em; text-align: center; background: #faf8f5; border-bottom: 2px solid #d4af37; font-family: Roboto, sans-serif;">
+        <p style="margin: 0 0 1em; font-size: 1.1em; color: #001f3f;">
+          <strong>JavaScript is required for full site functionality.</strong>
+        </p>
+        <nav style="font-size: 1em;">
+          <a href="./index.html" style="margin: 0 0.5em; color: #006994;">Home</a> |
+          <a href="./vision.html" style="margin: 0 0.5em; color: #006994;">About</a> |
+          <a href="./programs.html" style="margin: 0 0.5em; color: #006994;">Programs</a> |
+          <a href="./contact.html" style="margin: 0 0.5em; color: #006994;">Contact</a> |
+          <a href="./donate.html" style="margin: 0 0.5em; color: #006994;">Donate</a>
+        </nav>
+      </div>
+    </noscript>    <div id="page-wrapper">
       <!-- Header -->
       <div id="header-wrapper"></div>
 
       <!-- Main -->
-      <main id="main-wrapper">
+      <main id="main-wrapper" tabindex="-1">
         <div class="container">
           <div id="content">
             <article>
@@ -228,7 +242,6 @@
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
