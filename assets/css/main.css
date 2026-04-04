@@ -4691,6 +4691,10 @@ select,
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: transparent;
+    font-size: 0;
   }
 
   #navToggle .toggle {
