@@ -276,18 +276,26 @@
       .then(function (page) {
         var viewport;
 
+        // Account for high-DPI displays (Retina, etc.)
+        var dpr = window.devicePixelRatio || 1;
+
         if (ViewerState.scale === null) {
           // Fit-to-width: use canvas wrapper width
-          var wrapperWidth = canvasWrapper.clientWidth || 800;
+          var wrapperWidth = canvasWrapper.clientWidth || 600;
           var unscaledViewport = page.getViewport({ scale: 1 });
           var fitScale = wrapperWidth / unscaledViewport.width;
-          viewport = page.getViewport({ scale: fitScale });
+          viewport = page.getViewport({ scale: fitScale * dpr });
         } else {
-          viewport = page.getViewport({ scale: ViewerState.scale });
+          viewport = page.getViewport({ scale: ViewerState.scale * dpr });
         }
 
+        // Set actual canvas pixel dimensions (high-res)
         canvas.height = viewport.height;
         canvas.width = viewport.width;
+
+        // Scale down with CSS so it fits the container at the right visual size
+        canvas.style.width = Math.floor(viewport.width / dpr) + "px";
+        canvas.style.height = Math.floor(viewport.height / dpr) + "px";
 
         var renderContext = {
           canvasContext: ctx,

@@ -2491,6 +2491,7 @@ article:last-child {
 /* Resources */
 .resource-section {
   margin-bottom: 40px;
+  margin-top: 2em;
 }
 
 .resource-section h2 {
@@ -5984,7 +5985,7 @@ html {
 
 #quran-viewer {
   max-width: 600px;
-  margin: 2em auto;
+  margin: 1.5em auto 2.5em;
   background: var(--color-white);
   border-radius: 12px;
   border: none;
