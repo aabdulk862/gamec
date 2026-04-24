@@ -452,6 +452,43 @@
           goToPage(ViewerState.currentPage + 1);
         }
       });
+
+      // Swipe navigation for touch devices
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var touchStartTime = 0;
+
+      canvasWrapper.addEventListener(
+        "touchstart",
+        function (e) {
+          if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+          }
+        },
+        { passive: true },
+      );
+
+      canvasWrapper.addEventListener(
+        "touchend",
+        function (e) {
+          if (e.changedTouches.length !== 1) return;
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          var dy = e.changedTouches[0].clientY - touchStartY;
+          var dt = Date.now() - touchStartTime;
+
+          // Must be a quick horizontal swipe: >50px horizontal, <80px vertical, <400ms
+          if (Math.abs(dx) > 50 && Math.abs(dy) < 80 && dt < 400) {
+            if (dx > 0) {
+              goToPage(ViewerState.currentPage - 1);
+            } else {
+              goToPage(ViewerState.currentPage + 1);
+            }
+          }
+        },
+        { passive: true },
+      );
     }
 
     // Check if pdfjsLib is available
@@ -465,9 +502,16 @@
     // Set the worker URL
     pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER_URL;
 
-    // Load the PDF document
+    // Load the PDF document with lazy loading (range requests).
+    // disableAutoFetch prevents PDF.js from downloading the entire file in the background.
+    // disableStream disables streaming to rely purely on range requests per page.
     pdfjsLib
-      .getDocument(PDF_URL)
+      .getDocument({
+        url: PDF_URL,
+        disableAutoFetch: true,
+        disableStream: true,
+        rangeChunkSize: 65536,
+      })
       .promise.then(function (pdfDoc) {
         ViewerState.pdfDoc = pdfDoc;
         ViewerState.totalPages = pdfDoc.numPages;
