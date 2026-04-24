@@ -4,22 +4,27 @@
   <head>
     <title>Resources | GAMEC</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community."
     />
     <link rel="icon" href="/images/favicon.ico" sizes="any" />
-    <link rel="icon" href="/images/favicon.png" type="image/png" sizes="32x32" />
+    <link
+      rel="icon"
+      href="/images/favicon.png"
+      type="image/png"
+      sizes="32x32"
+    />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="canonical" href="https://igamec.org/resources.html" />
     <meta property="og:title" content="Resources | GAMEC" />
-    <meta property="og:description" content="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community." />
+    <meta
+      property="og:description"
+      content="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community."
+    />
     <meta property="og:url" content="https://igamec.org/resources.html" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://igamec.org/images/logo-bg.png" />
@@ -27,49 +32,78 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Resources | GAMEC" />
-    <meta name="twitter:description" content="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community." />
-    <meta name="twitter:image" content="https://igamec.org/images/logo-bg.png" />
+    <meta
+      name="twitter:description"
+      content="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community."
+    />
+    <meta
+      name="twitter:image"
+      content="https://igamec.org/images/logo-bg.png"
+    />
     <meta name="robots" content="index, follow" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://igamec.org/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Resources",
-          "item": "https://igamec.org/resources.html"
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://igamec.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Resources",
+            "item": "https://igamec.org/resources.html"
+          }
+        ]
+      }
     </script>
   </head>
   <body class="is-preload no-sidebar">
-
     <noscript>
-      <div style="padding: 2em; text-align: center; background: #faf8f5; border-bottom: 2px solid #d4af37; font-family: Roboto, sans-serif;">
-        <p style="margin: 0 0 1em; font-size: 1.1em; color: #001f3f;">
+      <div
+        style="
+          padding: 2em;
+          text-align: center;
+          background: #faf8f5;
+          border-bottom: 2px solid #d4af37;
+          font-family: Roboto, sans-serif;
+        "
+      >
+        <p style="margin: 0 0 1em; font-size: 1.1em; color: #001f3f">
           <strong>JavaScript is required for full site functionality.</strong>
         </p>
-        <nav style="font-size: 1em;">
-          <a href="./index.html" style="margin: 0 0.5em; color: #006994;">Home</a> |
-          <a href="./vision.html" style="margin: 0 0.5em; color: #006994;">About</a> |
-          <a href="./programs.html" style="margin: 0 0.5em; color: #006994;">Programs</a> |
-          <a href="./contact.html" style="margin: 0 0.5em; color: #006994;">Contact</a> |
-          <a href="./donate.html" style="margin: 0 0.5em; color: #006994;">Donate</a>
+        <nav style="font-size: 1em">
+          <a href="./index.html" style="margin: 0 0.5em; color: #006994"
+            >Home</a
+          >
+          |
+          <a href="./vision.html" style="margin: 0 0.5em; color: #006994"
+            >About</a
+          >
+          |
+          <a href="./programs.html" style="margin: 0 0.5em; color: #006994"
+            >Programs</a
+          >
+          |
+          <a href="./contact.html" style="margin: 0 0.5em; color: #006994"
+            >Contact</a
+          >
+          |
+          <a href="./donate.html" style="margin: 0 0.5em; color: #006994"
+            >Donate</a
+          >
         </nav>
       </div>
-    </noscript>    <div id="page-wrapper">
+    </noscript>
+    <div id="page-wrapper">
       <!-- Header -->
       <div id="header-wrapper"></div>
 
@@ -90,13 +124,63 @@
                 welfare resources and interfaith materials.
               </p>
 
-              <a class="image featured" style="max-width: 500px; margin: 0 auto 2em; display: block;">
-                <img
-                  src="images/quran.png"
-                  alt="Open Quran with warm lighting"
-                  loading="lazy"
-                />
-              </a>
+              <div id="quran-viewer" tabindex="0">
+                <div class="qv-toolbar">
+                  <button
+                    class="qv-btn qv-prev"
+                    aria-label="Previous page"
+                    disabled
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <span class="qv-page-indicator" aria-live="polite"
+                    >Page 1 of …</span
+                  >
+                  <button class="qv-btn qv-next" aria-label="Next page">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                  <span class="qv-toolbar-separator"></span>
+                  <button
+                    class="qv-btn qv-toc-toggle"
+                    aria-label="Table of contents"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-list"></i>
+                  </button>
+                  <span class="qv-toolbar-separator"></span>
+                  <button class="qv-btn qv-zoom-out" aria-label="Zoom out">
+                    <i class="fas fa-search-minus"></i>
+                  </button>
+                  <button class="qv-btn qv-zoom-in" aria-label="Zoom in">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+                <div class="qv-canvas-wrapper">
+                  <canvas
+                    id="qv-canvas"
+                    role="img"
+                    aria-label="Quran page 1"
+                  ></canvas>
+                </div>
+                <div class="qv-toc-panel" aria-hidden="true">
+                  <!-- TOC entries populated by JS -->
+                </div>
+                <div class="qv-loading-overlay">
+                  <div class="qv-spinner"></div>
+                  <p>Loading Quran…</p>
+                </div>
+                <noscript>
+                  <p style="text-align: center; padding: 2em">
+                    <a
+                      href="https://pub-859f42e20e3a4f7bb6787dd54417300a.r2.dev/quran.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Download the Quran PDF
+                    </a>
+                  </p>
+                </noscript>
+              </div>
 
               <section id="islamic-resources" class="resource-section">
                 <h2>Islamic Resources</h2>
@@ -200,5 +284,11 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="./assets/js/includes.js"></script>
+    <script type="module">
+      import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.8.69/pdf.min.mjs";
+      window.pdfjsLib = pdfjsLib;
+      window.dispatchEvent(new Event("pdfjsReady"));
+    </script>
+    <script src="assets/js/quran-viewer.js"></script>
   </body>
 </html>
