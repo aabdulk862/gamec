@@ -2523,6 +2523,78 @@ article:last-child {
   text-decoration: underline;
 }
 
+/* Quran Viewer CTA Card (homepage) */
+.quran-cta {
+  margin: 1.8em 0;
+}
+
+.quran-cta-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 1.2em 1.5em;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--color-border-light, #eee);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.quran-cta-link:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.quran-cta-cover {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.quran-cta-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.quran-cta-text h3 {
+  margin: 0 0 0.3em;
+  font-size: 1.2em;
+  color: var(--color-primary-dark);
+}
+
+.quran-cta-text p {
+  margin: 0 0 0.8em;
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.quran-cta-text .button {
+  font-size: 0.85em;
+  padding: 0.4em 1.2em;
+}
+
+@media screen and (max-width: 736px) {
+  .quran-cta-link {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5em 1em;
+    gap: 1em;
+  }
+
+  .quran-cta-cover {
+    width: 120px;
+  }
+}
+
 .resource-list {
   list-style-type: none;
   margin: 0;
