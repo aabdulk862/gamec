@@ -450,6 +450,84 @@
       });
     }
 
+    // Wire download button with progress bar
+    var downloadBtn = document.querySelector(".qv-download");
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", function () {
+        downloadBtn.disabled = true;
+
+        // Create progress bar overlay
+        var overlay = document.createElement("div");
+        overlay.className = "qv-download-overlay";
+        overlay.innerHTML =
+          '<div class="qv-download-progress-box">' +
+          '<p class="qv-download-status">Downloading Quran…</p>' +
+          '<div class="qv-download-track">' +
+          '<div class="qv-download-fill"></div>' +
+          "</div>" +
+          '<p class="qv-download-percent">0%</p>' +
+          "</div>";
+        var viewer = document.getElementById("quran-viewer");
+        viewer.appendChild(overlay);
+
+        var fill = overlay.querySelector(".qv-download-fill");
+        var pct = overlay.querySelector(".qv-download-percent");
+        var status = overlay.querySelector(".qv-download-status");
+
+        fetch(PDF_URL)
+          .then(function (res) {
+            var total = parseInt(res.headers.get("content-length"), 10);
+            if (!total || !res.body) {
+              // Fallback: no content-length or no ReadableStream
+              return res.blob().then(function (blob) {
+                fill.style.width = "100%";
+                pct.textContent = "100%";
+                return blob;
+              });
+            }
+            var loaded = 0;
+            var reader = res.body.getReader();
+            var chunks = [];
+
+            function pump() {
+              return reader.read().then(function (result) {
+                if (result.done) {
+                  fill.style.width = "100%";
+                  pct.textContent = "100%";
+                  return new Blob(chunks, { type: "application/pdf" });
+                }
+                chunks.push(result.value);
+                loaded += result.value.length;
+                var percent = Math.min(Math.round((loaded / total) * 100), 100);
+                fill.style.width = percent + "%";
+                pct.textContent = percent + "%";
+                return pump();
+              });
+            }
+            return pump();
+          })
+          .then(function (blob) {
+            status.textContent = "Complete!";
+            setTimeout(function () {
+              var a = document.createElement("a");
+              a.href = URL.createObjectURL(blob);
+              a.download = "quran.pdf";
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              URL.revokeObjectURL(a.href);
+              overlay.remove();
+              downloadBtn.disabled = false;
+            }, 400);
+          })
+          .catch(function () {
+            overlay.remove();
+            window.open(PDF_URL, "_blank");
+            downloadBtn.disabled = false;
+          });
+      });
+    }
+
     // Keyboard navigation on the viewer container
     var viewerContainer = document.getElementById("quran-viewer");
     if (viewerContainer) {
