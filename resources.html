@@ -125,25 +125,18 @@
               </p>
 
               <div id="quran-viewer" tabindex="0">
+                <div class="qv-header">
+                  <i class="fas fa-quran"></i>
+                  <span>Holy Quran</span>
+                </div>
                 <div class="qv-toolbar">
-                  <button
-                    class="qv-btn qv-prev"
-                    aria-label="Previous page"
-                    disabled
-                  >
-                    <i class="fas fa-chevron-left"></i>
-                    <span class="qv-btn-label">Prev</span>
-                  </button>
                   <span class="qv-page-indicator" aria-live="polite"
                     >Page 1 of …</span
                   >
-                  <button class="qv-btn qv-next" aria-label="Next page">
-                    <span class="qv-btn-label">Next</span>
-                    <i class="fas fa-chevron-right"></i>
-                  </button>
                   <span class="qv-toolbar-separator"></span>
                   <button
                     class="qv-btn qv-toc-toggle"
+                    title="Browse all 114 surahs"
                     aria-label="Table of contents"
                     aria-expanded="false"
                   >
@@ -151,27 +144,92 @@
                     <span class="qv-btn-label">Surahs</span>
                   </button>
                   <span class="qv-toolbar-separator"></span>
-                  <button class="qv-btn qv-zoom-out" aria-label="Zoom out">
+                  <button
+                    class="qv-btn qv-zoom-out"
+                    title="Make text smaller"
+                    aria-label="Zoom out"
+                  >
                     <i class="fas fa-search-minus"></i>
                   </button>
-                  <button class="qv-btn qv-zoom-in" aria-label="Zoom in">
+                  <button
+                    class="qv-btn qv-zoom-in"
+                    title="Make text bigger"
+                    aria-label="Zoom in"
+                  >
                     <i class="fas fa-search-plus"></i>
+                  </button>
+                  <button
+                    class="qv-btn qv-zoom-reset"
+                    title="Reset to normal size"
+                    aria-label="Reset zoom to fit width"
+                    disabled
+                  >
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <span class="qv-btn-label">Reset Size</span>
                   </button>
                   <span class="qv-toolbar-separator"></span>
                   <button
                     class="qv-btn qv-download"
+                    title="Save the Quran PDF to your device"
                     aria-label="Download Quran PDF"
                   >
                     <i class="fas fa-download"></i>
                     <span class="qv-btn-label">Download</span>
                   </button>
                 </div>
-                <div class="qv-canvas-wrapper">
-                  <canvas
-                    id="qv-canvas"
-                    role="img"
-                    aria-label="Quran page 1"
-                  ></canvas>
+                <div class="qv-reader-area">
+                  <button
+                    class="qv-side-nav qv-prev"
+                    title="Previous page"
+                    aria-label="Previous page"
+                    disabled
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                    <span class="qv-nav-label">Previous</span>
+                  </button>
+                  <div class="qv-canvas-wrapper">
+                    <canvas
+                      id="qv-canvas"
+                      role="img"
+                      aria-label="Quran page 1"
+                    ></canvas>
+                  </div>
+                  <button
+                    class="qv-side-nav qv-next"
+                    title="Next page"
+                    aria-label="Next page"
+                  >
+                    <span class="qv-nav-label">Next</span>
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+                <div class="qv-surah-bar" aria-live="polite"></div>
+                <div class="qv-audio-bar">
+                  <button
+                    class="qv-audio-play"
+                    title="Listen to this surah being recited"
+                    aria-label="Play surah recitation"
+                  >
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="qv-audio-info">
+                    <span class="qv-audio-title"
+                      ><i class="fas fa-volume-up qv-audio-icon"></i> Tap play
+                      to listen</span
+                    >
+                    <span class="qv-audio-reciter"
+                      >Reciter: Mahmoud Khalil Al-Hussary</span
+                    >
+                  </div>
+                  <div class="qv-audio-progress-wrap">
+                    <div
+                      class="qv-audio-progress"
+                      title="Click anywhere to skip forward or back"
+                    >
+                      <div class="qv-audio-progress-fill"></div>
+                    </div>
+                    <span class="qv-audio-time">0:00 / 0:00</span>
+                  </div>
                 </div>
                 <div class="qv-toc-panel" aria-hidden="true">
                   <!-- TOC entries populated by JS -->

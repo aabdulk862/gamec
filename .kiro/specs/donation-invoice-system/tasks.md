@@ -6,8 +6,8 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
 
 ## Tasks
 
-- [ ] 1. Create the HTML page and JS module skeleton
-  - [ ] 1.1 Create `donation-receipts.html` with the page structure
+- [x] 1. Create the HTML page and JS module skeleton
+  - [x] 1.1 Create `donation-receipts.html` with the page structure
     - Follow the existing GAMEC page pattern (see `donate.html`)
     - Include `<meta name="robots" content="noindex, nofollow">`
     - No canonical URL, no OG tags, no sitemap entry (internal page)
@@ -24,7 +24,7 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - Include script tags for jQuery, browser, breakpoints, util, main, includes, and `assets/js/donation-receipts.js`
     - _Requirements: 1.1, 4.1, 4.2, 4.3, 4.4, 5.3, 6.1, 6.3, 7.3, 7.4, 8.1, 9.1_
 
-  - [ ] 1.2 Create `assets/js/donation-receipts.js` with exported utility functions
+  - [x] 1.2 Create `assets/js/donation-receipts.js` with exported utility functions
     - Implement `formatCurrency(amount)` — formats number as USD string with `$`, commas, 2 decimal places
     - Implement `formatReceiptNumber(year, seq)` — returns `GAMEC-YYYY-NNNN` zero-padded
     - Implement `getNextSequence(year)` — reads localStorage key `gamec-receipt-sequences`, returns next number, writes it back
@@ -34,23 +34,23 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - Export all functions for testability (attach to `window` or use ES module pattern consistent with existing site)
     - _Requirements: 3.5, 3.6, 5.1, 5.2, 5.4, 8.3, 8.4, 9.2_
 
-- [ ] 2. Implement form validation and CSV parsing
-  - [ ] 2.1 Implement `validateForm(formData)` in `donation-receipts.js`
+- [x] 2. Implement form validation and CSV parsing
+  - [x] 2.1 Implement `validateForm(formData)` in `donation-receipts.js`
     - Validate required fields: name, address, amount, date, paymentMethod
     - Validate amount is a positive number
     - Validate paymentMethod is one of "Square", "PayPal", "Zelle"
     - Return `{ valid: true/false, errors: [...] }` with per-field error messages
     - _Requirements: 1.3, 1.4_
 
-  - [ ]\* 2.2 Write property test: validation rejects invalid records
+  - [x] 2.2 Write property test: validation rejects invalid records
     - **Property 1: Form validation rejects invalid donor records**
     - **Validates: Requirements 1.3, 1.4**
 
-  - [ ]\* 2.3 Write property test: valid data produces receipt
+  - [x] 2.3 Write property test: valid data produces receipt
     - **Property 2: Valid form data produces a receipt**
     - **Validates: Requirements 1.2**
 
-  - [ ] 2.4 Implement `parseCSV(text)` in `donation-receipts.js`
+  - [x] 2.4 Implement `parseCSV(text)` in `donation-receipts.js`
     - Parse CSV string with header row (name, address, amount, date, paymentMethod, email, memo)
     - Handle quoted fields containing commas
     - Validate each row using `validateForm`
@@ -58,19 +58,19 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - Handle edge cases: empty input, unreadable format, no valid rows
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
 
-  - [ ]\* 2.5 Write property test: CSV round-trip parsing
+  - [x] 2.5 Write property test: CSV round-trip parsing
     - **Property 3: CSV round-trip parsing**
     - **Validates: Requirements 2.1, 2.2**
 
-  - [ ]\* 2.6 Write property test: CSV validation catches missing fields
+  - [x] 2.6 Write property test: CSV validation catches missing fields
     - **Property 4: CSV validation catches rows with missing required fields**
     - **Validates: Requirements 2.3**
 
-- [ ] 3. Checkpoint - Ensure all tests pass
+- [x] 3. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 4. Implement receipt rendering
-  - [ ] 4.1 Implement `generateReceipt(donorRecord, year, sequenceNum)` in `donation-receipts.js`
+- [x] 4. Implement receipt rendering
+  - [x] 4.1 Implement `generateReceipt(donorRecord, year, sequenceNum)` in `donation-receipts.js`
     - Create a `<section class="receipt">` DOM element containing:
       - GAMEC logo (`images/logo-circle.png`)
       - Organization name "GAMEC Inc.", address "3420 13th St SE, Washington, DC 20032", phone "+1 (202) 440-9089"
@@ -84,57 +84,57 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - Return the DOM element
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 8.2, 8.5_
 
-  - [ ] 4.2 Implement `renderPreviewTable(records, errors)` in `donation-receipts.js`
+  - [x] 4.2 Implement `renderPreviewTable(records, errors)` in `donation-receipts.js`
     - Render a table showing parsed CSV records in the preview container
     - Highlight invalid rows in red with per-field error messages
     - _Requirements: 2.2, 2.3_
 
-  - [ ]\* 4.3 Write property test: receipt count matches donor count
+  - [x] 4.3 Write property test: receipt count matches donor count
     - **Property 5: Receipt count matches donor record count**
     - **Validates: Requirements 2.5**
 
-  - [ ]\* 4.4 Write property test: receipt contains required static content
+  - [x] 4.4 Write property test: receipt contains required static content
     - **Property 6: Receipt contains all required static content**
     - **Validates: Requirements 3.1, 3.2, 3.3, 3.4, 3.7, 3.8**
 
-  - [ ]\* 4.5 Write property test: receipt number format
+  - [x] 4.5 Write property test: receipt number format
     - **Property 7: Receipt number format**
     - **Validates: Requirements 3.5**
 
-  - [ ]\* 4.6 Write property test: receipt contains donor-specific content
+  - [x] 4.6 Write property test: receipt contains donor-specific content
     - **Property 8: Receipt contains donor-specific content and tax year**
     - **Validates: Requirements 3.6, 3.9, 9.3**
 
-  - [ ]\* 4.7 Write property test: currency formatting
+  - [x] 4.7 Write property test: currency formatting
     - **Property 14: Currency formatting**
     - **Validates: Requirements 3.6**
 
-- [ ] 5. Checkpoint - Ensure all tests pass
+- [x] 5. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 6. Implement sequence management and year filtering
-  - [ ]\* 6.1 Write property test: sequence increment and persistence
+- [x] 6. Implement sequence management and year filtering
+  - [x] 6.1 Write property test: sequence increment and persistence
     - **Property 9: Sequence number increment and persistence**
     - **Validates: Requirements 5.1, 5.2**
 
-  - [ ]\* 6.2 Write property test: manual sequence override
+  - [x] 6.2 Write property test: manual sequence override
     - **Property 10: Manual sequence override**
     - **Validates: Requirements 5.4**
 
-  - [ ]\* 6.3 Write property test: email button presence
+  - [x] 6.3 Write property test: email button presence
     - **Property 11: Email button presence based on donor email**
     - **Validates: Requirements 8.2, 8.5**
 
-  - [ ]\* 6.4 Write property test: mailto link correctness
+  - [x] 6.4 Write property test: mailto link correctness
     - **Property 12: Mailto link correctness**
     - **Validates: Requirements 8.3, 8.4**
 
-  - [ ]\* 6.5 Write property test: year filtering
+  - [x] 6.5 Write property test: year filtering
     - **Property 13: Year filtering**
     - **Validates: Requirements 9.2**
 
-- [ ] 7. Wire everything together with event listeners
-  - [ ] 7.1 Implement `initReceiptGenerator()` and bind all UI event listeners
+- [x] 7. Wire everything together with event listeners
+  - [x] 7.1 Implement `initReceiptGenerator()` and bind all UI event listeners
     - Tab toggle between Single Entry and CSV Import views
     - Single entry form submit: validate → generate receipt → append to `#receipt-output` → increment sequence
     - CSV file input change: read file → parse → render preview table
@@ -147,7 +147,7 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - Handle localStorage unavailable gracefully (fallback to sequence 1, show warning)
     - _Requirements: 1.2, 2.5, 4.1, 5.1, 5.2, 5.3, 5.4, 6.1, 6.2, 9.1, 9.2_
 
-  - [ ]\* 7.2 Write unit tests for UI and integration concerns
+  - [x] 7.2 Write unit tests for UI and integration concerns
     - Form renders with all required fields (Req 1.1)
     - Print button exists (Req 4.1)
     - Sequence number override field exists (Req 5.3)
@@ -160,13 +160,13 @@ Build a client-side donation receipt generator page for GAMEC administrators. Th
     - localStorage unavailable fallback (edge case)
     - _Requirements: 1.1, 2.4, 4.1, 5.3, 7.2, 7.3, 7.4, 8.1, 9.1_
 
-- [ ] 8. Verify internal-only access constraints
-  - [ ] 8.1 Confirm `donation-receipts.html` is not linked from navigation, footer, or any public page
+- [x] 8. Verify internal-only access constraints
+  - [x] 8.1 Confirm `donation-receipts.html` is not linked from navigation, footer, or any public page
     - Check `header.html` and `footer.html` do not reference `donation-receipts.html`
     - Check `sitemap.xml` does not include the page
     - _Requirements: 7.1, 7.2_
 
-- [ ] 9. Final checkpoint - Ensure all tests pass
+- [x] 9. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes

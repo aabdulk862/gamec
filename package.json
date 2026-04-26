@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "css-tree": "^3.2.1",
     "fast-check": "^4.6.0",
+    "jsdom": "^29.0.2",
     "vitest": "^4.1.2"
   }
 }

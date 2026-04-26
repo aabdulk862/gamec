@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Donation Receipts | GAMEC</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/images/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="/images/favicon.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      .internal-banner {
+        background: #c0392b;
+        color: #fff;
+        text-align: center;
+        padding: 0.75em 1em;
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-bottom: 1.5em;
+        border-radius: 6px;
+      }
+      .receipt-controls {
+        margin-bottom: 2em;
+      }
+      .receipt-controls label {
+        font-weight: 600;
+        margin-right: 0.5em;
+      }
+      .receipt-controls select,
+      .receipt-controls input[type="number"] {
+        padding: 0.4em 0.8em;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1em;
+      }
+      .sequence-section {
+        display: flex;
+        align-items: center;
+        gap: 1.5em;
+        flex-wrap: wrap;
+        margin-top: 1em;
+      }
+      .tab-toggle {
+        display: flex;
+        gap: 0;
+        margin-bottom: 1.5em;
+      }
+      .tab-toggle button {
+        padding: 0.6em 1.5em;
+        border: 2px solid #437d6f;
+        background: #fff;
+        color: #437d6f;
+        font-weight: 700;
+        font-size: 1em;
+        cursor: pointer;
+        transition:
+          background-color 0.25s ease-in-out,
+          color 0.25s ease-in-out;
+      }
+      .tab-toggle button:first-child {
+        border-radius: 6px 0 0 6px;
+      }
+      .tab-toggle button:last-child {
+        border-radius: 0 6px 6px 0;
+      }
+      .tab-toggle button.active {
+        background: #437d6f;
+        color: #fff;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .single-entry-form .form-row {
+        margin-bottom: 1em;
+      }
+      .single-entry-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.3em;
+      }
+      .single-entry-form input,
+      .single-entry-form select,
+      .single-entry-form textarea {
+        width: 100%;
+        padding: 0.5em 0.8em;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        font-size: 1em;
+        line-height: 2em;
+      }
+      .single-entry-form textarea {
+        min-height: 4em;
+        resize: vertical;
+      }
+      .csv-upload-area {
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        padding: 2em;
+        text-align: center;
+        margin-bottom: 1.5em;
+      }
+      .csv-upload-area input[type="file"] {
+        margin-top: 1em;
+      }
+      #csv-preview {
+        margin-top: 1em;
+        overflow-x: auto;
+      }
+      .action-buttons {
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+        margin: 1.5em 0;
+      }
+      .action-buttons button {
+        padding: 0.6em 1.5em;
+        border: none;
+        border-radius: 6px;
+        font-size: 1em;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.25s ease-in-out;
+      }
+      #btn-generate {
+        background: #437d6f;
+        color: #fff;
+      }
+      #btn-generate:hover {
+        background: #437d6fc9;
+      }
+      #btn-print {
+        background: #2c3e50;
+        color: #fff;
+      }
+      #btn-print:hover {
+        background: #1a252f;
+      }
+      #btn-clear {
+        background: #e67e22;
+        color: #fff;
+      }
+      #btn-clear:hover {
+        background: #cf6d17;
+      }
+      #receipt-output {
+        margin-top: 2em;
+      }
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #receipt-output,
+        #receipt-output * {
+          visibility: visible;
+        }
+        #receipt-output {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+        }
+        #receipt-output .receipt {
+          page-break-after: always;
+          width: 8.5in;
+          min-height: 11in;
+          padding: 1in;
+          box-sizing: border-box;
+        }
+        #receipt-output .receipt:last-child {
+          page-break-after: auto;
+        }
+        #header-wrapper,
+        #footer-wrapper,
+        #copyright,
+        .internal-banner,
+        .receipt-controls,
+        .tab-toggle,
+        .tab-content,
+        .action-buttons,
+        #nav,
+        .navPanel,
+        .skip-link,
+        noscript {
+          display: none !important;
+        }
+        .receipt .email-donor-btn {
+          display: none !important;
+        }
+        @page {
+          size: letter;
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="is-preload no-sidebar">
+    <noscript>
+      <div
+        style="
+          padding: 2em;
+          text-align: center;
+          background: #faf8f5;
+          border-bottom: 2px solid #d4af37;
+          font-family: Roboto, sans-serif;
+        "
+      >
+        <p style="margin: 0 0 1em; font-size: 1.1em; color: #001f3f">
+          <strong>JavaScript is required for full site functionality.</strong>
+        </p>
+        <nav style="font-size: 1em">
+          <a href="./index.html" style="margin: 0 0.5em; color: #006994"
+            >Home</a
+          >
+          |
+          <a href="./vision.html" style="margin: 0 0.5em; color: #006994"
+            >About</a
+          >
+          |
+          <a href="./programs.html" style="margin: 0 0.5em; color: #006994"
+            >Programs</a
+          >
+          |
+          <a href="./contact.html" style="margin: 0 0.5em; color: #006994"
+            >Contact</a
+          >
+          |
+          <a href="./donate.html" style="margin: 0 0.5em; color: #006994"
+            >Donate</a
+          >
+        </nav>
+      </div>
+    </noscript>
+    <div id="page-wrapper">
+      <!-- Header -->
+      <div id="header-wrapper"></div>
+      <!-- Main -->
+      <main id="main-wrapper" tabindex="-1">
+        <div class="container">
+          <div id="content">
+            <article>
+              <div class="internal-banner" id="internal-banner">
+                Internal Use Only &#8212; GAMEC Administration
+              </div>
+              <h1>Donation Receipt Generator</h1>
+              <!-- Year Selector & Sequence Management -->
+              <div class="receipt-controls">
+                <div>
+                  <label for="year-select">Tax Year:</label>
+                  <select id="year-select"></select>
+                </div>
+                <div class="sequence-section">
+                  <span
+                    >Next Receipt Number:
+                    <strong id="next-receipt-number"></strong
+                  ></span>
+                  <label for="sequence-override"
+                    >Override starting number:</label
+                  >
+                  <input
+                    type="number"
+                    id="sequence-override"
+                    min="1"
+                    placeholder="e.g. 1"
+                  />
+                </div>
+              </div>
+              <!-- Tab Toggle -->
+              <div class="tab-toggle" role="tablist">
+                <button
+                  type="button"
+                  id="tab-single"
+                  class="active"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-single"
+                >
+                  Single Entry
+                </button>
+                <button
+                  type="button"
+                  id="tab-csv"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-csv"
+                >
+                  CSV Import
+                </button>
+              </div>
+              <!-- Single Entry Form -->
+              <div
+                id="panel-single"
+                class="tab-content active"
+                role="tabpanel"
+                aria-labelledby="tab-single"
+              >
+                <form
+                  id="single-entry-form"
+                  class="single-entry-form"
+                  novalidate
+                >
+                  <div class="form-row">
+                    <label for="donor-name"
+                      >Donor Full Name <span aria-hidden="true">*</span></label
+                    >
+                    <input type="text" id="donor-name" name="name" required />
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-address"
+                      >Donor Address <span aria-hidden="true">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="donor-address"
+                      name="address"
+                      required
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-amount"
+                      >Donation Amount (USD)
+                      <span aria-hidden="true">*</span></label
+                    >
+                    <input
+                      type="number"
+                      id="donor-amount"
+                      name="amount"
+                      min="0.01"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-date"
+                      >Donation Date <span aria-hidden="true">*</span></label
+                    >
+                    <input type="date" id="donor-date" name="date" required />
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-payment-method"
+                      >Payment Method <span aria-hidden="true">*</span></label
+                    >
+                    <select
+                      id="donor-payment-method"
+                      name="paymentMethod"
+                      required
+                    >
+                      <option value="">&#8212; Select &#8212;</option>
+                      <option value="Square">Square</option>
+                      <option value="PayPal">PayPal</option>
+                      <option value="Zelle">Zelle</option>
+                    </select>
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-email">Donor Email (optional)</label>
+                    <input type="email" id="donor-email" name="email" />
+                  </div>
+                  <div class="form-row">
+                    <label for="donor-memo">Memo / Purpose (optional)</label>
+                    <textarea id="donor-memo" name="memo"></textarea>
+                  </div>
+                </form>
+              </div>
+              <!-- CSV Import -->
+              <div
+                id="panel-csv"
+                class="tab-content"
+                role="tabpanel"
+                aria-labelledby="tab-csv"
+              >
+                <div class="csv-upload-area">
+                  <p>
+                    Upload a CSV file with columns: name, address, amount, date,
+                    paymentMethod, email, memo
+                  </p>
+                  <input
+                    type="file"
+                    id="csv-file-input"
+                    accept=".csv,text/csv"
+                  />
+                </div>
+                <div id="csv-preview"></div>
+              </div>
+              <!-- Action Buttons -->
+              <div class="action-buttons">
+                <button type="button" id="btn-generate" class="button">
+                  Generate
+                </button>
+                <button type="button" id="btn-print" class="button">
+                  Print All
+                </button>
+                <button type="button" id="btn-clear" class="button">
+                  Clear
+                </button>
+              </div>
+              <!-- Receipt Output -->
+              <div id="receipt-output"></div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <div id="footer-wrapper"></div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/includes.js"></script>
+    <script src="./assets/js/donation-receipts.js"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
   var SURAH_DATA = [
     [1, "Al-Fatihah", 1],
     [2, "Al-Baqarah", 2],
-    [3, "Ali 'Imran", 50],
+    [3, "Al Imran", 50],
     [4, "An-Nisa", 77],
     [5, "Al-Ma'idah", 106],
     [6, "Al-An'am", 128],
@@ -32,16 +32,16 @@
     [14, "Ibrahim", 255],
     [15, "Al-Hijr", 262],
     [16, "An-Nahl", 267],
-    [17, "Al-Isra", 282],
+    [17, "Al-Isra'", 282],
     [18, "Al-Kahf", 293],
     [19, "Maryam", 305],
     [20, "Taha", 312],
-    [21, "Al-Anbya", 322],
+    [21, "Al-Anbiya'", 322],
     [22, "Al-Hajj", 332],
     [23, "Al-Mu'minun", 342],
     [24, "An-Nur", 350],
     [25, "Al-Furqan", 359],
-    [26, "Ash-Shu'ara", 367],
+    [26, "Ash-Shu'ara'", 367],
     [27, "An-Naml", 377],
     [28, "Al-Qasas", 385],
     [29, "Al-'Ankabut", 396],
@@ -49,7 +49,7 @@
     [31, "Luqman", 411],
     [32, "As-Sajdah", 415],
     [33, "Al-Ahzab", 418],
-    [34, "Saba", 428],
+    [34, "Saba'", 428],
     [35, "Fatir", 434],
     [36, "Ya-Sin", 440],
     [37, "As-Saffat", 446],
@@ -57,7 +57,7 @@
     [39, "Az-Zumar", 458],
     [40, "Ghafir", 467],
     [41, "Fussilat", 477],
-    [42, "Ash-Shuraa", 483],
+    [42, "Ash-Shura", 483],
     [43, "Az-Zukhruf", 489],
     [44, "Ad-Dukhan", 496],
     [45, "Al-Jathiyah", 499],
@@ -73,10 +73,10 @@
     [55, "Ar-Rahman", 531],
     [56, "Al-Waqi'ah", 534],
     [57, "Al-Hadid", 537],
-    [58, "Al-Mujadila", 542],
+    [58, "Al-Mujadilah", 542],
     [59, "Al-Hashr", 545],
     [60, "Al-Mumtahanah", 549],
-    [61, "As-Saf", 551],
+    [61, "As-Saff", 551],
     [62, "Al-Jumu'ah", 553],
     [63, "Al-Munafiqun", 554],
     [64, "At-Taghabun", 556],
@@ -108,7 +108,7 @@
     [90, "Al-Balad", 594],
     [91, "Ash-Shams", 595],
     [92, "Al-Layl", 595],
-    [93, "Ad-Duhaa", 596],
+    [93, "Ad-Duha", 596],
     [94, "Ash-Sharh", 596],
     [95, "At-Tin", 597],
     [96, "Al-'Alaq", 597],
@@ -167,6 +167,37 @@
       }
     }
     return idx;
+  }
+
+  /* ── State persistence via localStorage ── */
+  var STORAGE_KEY = "qv-state";
+
+  function saveState() {
+    try {
+      var data = {
+        page: ViewerState.currentPage,
+        scale: ViewerState.scale,
+        audioSurah:
+          typeof audioCurrentSurah !== "undefined" ? audioCurrentSurah : 0,
+        audioTime:
+          typeof audioEl !== "undefined" && audioEl.currentTime
+            ? audioEl.currentTime
+            : 0,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      /* storage full or blocked */
+    }
+  }
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {
+      /* corrupted or blocked */
+    }
+    return null;
   }
 
   /* ── DOM references (populated on init) ── */
@@ -229,7 +260,7 @@
   /**
    * Adjust zoom by delta, clamping to [0.5, 3.0], then re-render.
    * If scale is null (fit-to-width), compute the current fit scale first.
-   * @param {number} delta - zoom increment (e.g. +0.25 or -0.25)
+   * @param {number} delta - zoom increment (e.g. +0.15 or -0.15)
    */
   function doZoom(delta) {
     var currentScale = ViewerState.scale;
@@ -249,6 +280,14 @@
       currentScale = 1;
     }
     ViewerState.scale = adjustZoom(currentScale, delta, 0.5, 3.0);
+    renderPage(ViewerState.currentPage);
+  }
+
+  /**
+   * Reset zoom to fit-to-width mode.
+   */
+  function resetZoom() {
+    ViewerState.scale = null;
     renderPage(ViewerState.currentPage);
   }
 
@@ -308,9 +347,16 @@
             ViewerState.rendering = false;
             ViewerState.currentPage = pageNum;
 
-            // Update page indicator
-            pageIndicator.textContent =
-              "Page " + pageNum + " of " + ViewerState.totalPages;
+            // Update page indicator (show Quran page, not PDF page)
+            var displayPage = pageNum - PAGE_OFFSET;
+            var displayTotal = ViewerState.totalPages - PAGE_OFFSET;
+            if (displayPage >= 1) {
+              pageIndicator.textContent =
+                "Page " + displayPage + " of " + displayTotal;
+            } else {
+              pageIndicator.textContent =
+                "Page " + pageNum + " of " + ViewerState.totalPages;
+            }
 
             // Update canvas aria-label
             canvas.setAttribute("aria-label", "Quran page " + pageNum);
@@ -340,11 +386,16 @@
               zoomOutBtn.disabled =
                 ViewerState.scale !== null && ViewerState.scale <= 0.5;
             }
+            var zoomResetBtn2 = document.querySelector(".qv-zoom-reset");
+            if (zoomResetBtn2) {
+              zoomResetBtn2.disabled = ViewerState.scale === null;
+            }
 
-            // Highlight the active surah in the TOC
+            // Highlight the active surah in the TOC and update surah bar
+            var quranPage = pageNum - PAGE_OFFSET;
+            var activeIdx = getCurrentSurah(quranPage, SURAH_DATA);
+
             if (tocPanel) {
-              var quranPage = pageNum - PAGE_OFFSET;
-              var activeIdx = getCurrentSurah(quranPage, SURAH_DATA);
               var entries = tocPanel.querySelectorAll(".qv-toc-entry");
               for (var i = 0; i < entries.length; i++) {
                 if (i === activeIdx) {
@@ -353,6 +404,38 @@
                   entries[i].classList.remove("qv-toc-active");
                 }
               }
+            }
+
+            // Update surah bar
+            var surahBar = document.querySelector(".qv-surah-bar");
+            var audioTitleEl = document.querySelector(".qv-audio-title");
+            if (surahBar && quranPage >= 1) {
+              var surah = SURAH_DATA[activeIdx];
+              surahBar.textContent = "Surah " + surah[0] + ". " + surah[1];
+
+              // If audio is playing and we navigated to a different surah, switch audio
+              // Skip if a playSurah call is already loading (button has loading class)
+              var audioBtn = document.querySelector(".qv-audio-play");
+              var isLoading =
+                audioBtn && audioBtn.classList.contains("qv-audio-loading");
+              if (
+                ViewerState.audioPlaying &&
+                !isLoading &&
+                ViewerState.audioCurrentSurah !== surah[0] &&
+                ViewerState.playSurah
+              ) {
+                ViewerState.playSurah(surah[0], surah[1]);
+              } else if (
+                audioTitleEl &&
+                !ViewerState.audioPlaying &&
+                !isLoading
+              ) {
+                audioTitleEl.innerHTML =
+                  '<i class="fas fa-volume-up qv-audio-icon"></i> Tap play to listen to ' +
+                  surah[1];
+              }
+            } else if (surahBar) {
+              surahBar.textContent = "";
             }
           })
           .catch(function () {
@@ -428,14 +511,20 @@
     // Wire zoom buttons
     zoomInBtn = document.querySelector(".qv-zoom-in");
     zoomOutBtn = document.querySelector(".qv-zoom-out");
+    var zoomResetBtn = document.querySelector(".qv-zoom-reset");
     if (zoomInBtn) {
       zoomInBtn.addEventListener("click", function () {
-        doZoom(0.25);
+        doZoom(0.15);
       });
     }
     if (zoomOutBtn) {
       zoomOutBtn.addEventListener("click", function () {
-        doZoom(-0.25);
+        doZoom(-0.15);
+      });
+    }
+    if (zoomResetBtn) {
+      zoomResetBtn.addEventListener("click", function () {
+        resetZoom();
       });
     }
 
@@ -528,6 +617,194 @@
       });
     }
 
+    // Audio player for surah recitation (Mahmoud Khalil Al-Hussary)
+    var AUDIO_SERVER = "https://server13.mp3quran.net/husr/";
+    var audioEl = new Audio();
+    var audioPlaying = false;
+    ViewerState.audioPlaying = false;
+    var audioCurrentSurah = 0;
+    ViewerState.audioCurrentSurah = 0;
+    ViewerState.playSurah = null;
+
+    function setPlaying(val) {
+      audioPlaying = val;
+      ViewerState.audioPlaying = val;
+    }
+
+    var audioPlayBtn = document.querySelector(".qv-audio-play");
+    var audioTitle = document.querySelector(".qv-audio-title");
+    var audioProgressFill = document.querySelector(".qv-audio-progress-fill");
+    var audioProgress = document.querySelector(".qv-audio-progress");
+    var audioTime = document.querySelector(".qv-audio-time");
+
+    function formatTime(sec) {
+      if (isNaN(sec)) return "0:00";
+      var m = Math.floor(sec / 60);
+      var s = Math.floor(sec % 60);
+      return m + ":" + (s < 10 ? "0" : "") + s;
+    }
+
+    function getAudioUrl(surahNum) {
+      var padded = String(surahNum);
+      while (padded.length < 3) padded = "0" + padded;
+      return AUDIO_SERVER + padded + ".mp3";
+    }
+
+    function playSurah(surahNum, surahName) {
+      audioCurrentSurah = surahNum;
+      ViewerState.audioCurrentSurah = surahNum;
+      audioEl.src = getAudioUrl(surahNum);
+      if (audioPlayBtn) {
+        audioPlayBtn.classList.add("qv-audio-loading");
+        audioPlayBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+      }
+      if (audioTitle) {
+        audioTitle.innerHTML =
+          '<i class="fas fa-volume-up qv-audio-icon"></i> Loading ' +
+          surahName +
+          "…";
+      }
+      audioEl
+        .play()
+        .then(function () {
+          setPlaying(true);
+          if (audioPlayBtn) {
+            audioPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            audioPlayBtn.classList.remove("qv-audio-loading");
+          }
+        })
+        .catch(function () {
+          setPlaying(false);
+          if (audioPlayBtn) {
+            audioPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+            audioPlayBtn.classList.remove("qv-audio-loading");
+          }
+          if (audioTitle) {
+            audioTitle.innerHTML =
+              '<i class="fas fa-exclamation-circle"></i> Could not play. Tap to retry.';
+          }
+        });
+    }
+
+    ViewerState.playSurah = playSurah;
+
+    function toggleAudio() {
+      // If nothing loaded or finished, play the current page's surah
+      if (audioCurrentSurah === 0) {
+        var quranPage = ViewerState.currentPage - PAGE_OFFSET;
+        var idx = getCurrentSurah(quranPage, SURAH_DATA);
+        var surah = SURAH_DATA[idx];
+        playSurah(surah[0], surah[1]);
+        return;
+      }
+      if (audioPlaying) {
+        audioEl.pause();
+        setPlaying(false);
+        if (audioPlayBtn)
+          audioPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+      } else {
+        audioEl
+          .play()
+          .then(function () {
+            setPlaying(true);
+            if (audioPlayBtn)
+              audioPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          })
+          .catch(function () {
+            setPlaying(false);
+            if (audioTitle) {
+              audioTitle.innerHTML =
+                '<i class="fas fa-exclamation-circle"></i> Could not play. Tap to retry.';
+            }
+          });
+      }
+    }
+
+    if (audioPlayBtn) {
+      audioPlayBtn.addEventListener("click", toggleAudio);
+    }
+
+    audioEl.addEventListener("timeupdate", function () {
+      if (audioEl.duration) {
+        var pct = (audioEl.currentTime / audioEl.duration) * 100;
+        if (audioProgressFill) audioProgressFill.style.width = pct + "%";
+        if (audioTime) {
+          audioTime.textContent =
+            formatTime(audioEl.currentTime) +
+            " / " +
+            formatTime(audioEl.duration);
+        }
+      }
+    });
+
+    audioEl.addEventListener("ended", function () {
+      setPlaying(false);
+      if (audioPlayBtn) audioPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+
+      // Auto-play next surah if available
+      var nextIdx = -1;
+      for (var i = 0; i < SURAH_DATA.length; i++) {
+        if (
+          SURAH_DATA[i][0] === audioCurrentSurah &&
+          i + 1 < SURAH_DATA.length
+        ) {
+          nextIdx = i + 1;
+          break;
+        }
+      }
+      if (nextIdx >= 0) {
+        playSurah(SURAH_DATA[nextIdx][0], SURAH_DATA[nextIdx][1]);
+      } else {
+        audioCurrentSurah = 0;
+        ViewerState.audioCurrentSurah = 0;
+        if (audioProgressFill) audioProgressFill.style.width = "0%";
+        if (audioTime) audioTime.textContent = "0:00 / 0:00";
+        if (audioTitle) {
+          audioTitle.innerHTML =
+            '<i class="fas fa-check-circle"></i> Finished. Tap play to listen again.';
+        }
+      }
+    });
+
+    // Click on progress bar to seek
+    if (audioProgress) {
+      audioProgress.addEventListener("click", function (e) {
+        if (audioEl.duration) {
+          var rect = audioProgress.getBoundingClientRect();
+          var ratio = (e.clientX - rect.left) / rect.width;
+          audioEl.currentTime = ratio * audioEl.duration;
+        }
+      });
+    }
+
+    // Audio error handling
+    audioEl.addEventListener("error", function () {
+      setPlaying(false);
+      if (audioPlayBtn) audioPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+      if (audioTitle) {
+        audioTitle.innerHTML =
+          '<i class="fas fa-exclamation-circle"></i> Could not load audio. Try again.';
+      }
+      if (audioProgressFill) audioProgressFill.style.width = "0%";
+      if (audioTime) audioTime.textContent = "";
+    });
+
+    // Update play button text when audio starts playing
+    audioEl.addEventListener("playing", function () {
+      if (audioTitle && audioCurrentSurah > 0) {
+        var name = "";
+        for (var i = 0; i < SURAH_DATA.length; i++) {
+          if (SURAH_DATA[i][0] === audioCurrentSurah) {
+            name = SURAH_DATA[i][1];
+            break;
+          }
+        }
+        audioTitle.innerHTML =
+          '<i class="fas fa-volume-up qv-audio-icon qv-audio-icon-pulse"></i> Playing: ' +
+          name;
+      }
+    });
+
     // Keyboard navigation on the viewer container
     var viewerContainer = document.getElementById("quran-viewer");
     if (viewerContainer) {
@@ -576,6 +853,32 @@
         { passive: true },
       );
     }
+
+    // Re-render on resize / orientation change so the canvas fits the new width
+    var resizeTimer;
+    function handleResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        if (ViewerState.pdfDoc && !ViewerState.rendering) {
+          // If in fit-to-width mode, just re-render; otherwise reset to fit
+          if (ViewerState.scale === null) {
+            renderPage(ViewerState.currentPage);
+          } else {
+            // On mobile, reset to fit-to-width on resize for best experience
+            var isMobile = window.innerWidth <= 736;
+            if (isMobile) {
+              ViewerState.scale = null;
+            }
+            renderPage(ViewerState.currentPage);
+          }
+        }
+      }, 200);
+    }
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", function () {
+      // Orientation change fires before dimensions update, so delay a bit more
+      setTimeout(handleResize, 300);
+    });
 
     // Check if pdfjsLib is available
     if (typeof window.pdfjsLib === "undefined") {
@@ -640,6 +943,7 @@
     getCurrentSurah: getCurrentSurah,
     goToPage: goToPage,
     doZoom: doZoom,
+    resetZoom: resetZoom,
     toggleToc: toggleToc,
     initQuranViewer: initQuranViewer,
     renderPage: renderPage,
