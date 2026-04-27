@@ -66,7 +66,7 @@
       }
     </script>
   </head>
-  <body class="is-preload no-sidebar">
+  <body class="is-preload no-sidebar" data-page="resources">
     <noscript>
       <div
         style="
@@ -124,7 +124,8 @@
                 welfare resources and interfaith materials.
               </p>
 
-              <div id="quran-viewer" tabindex="0">
+              <!-- Section: Quran Viewer -->
+              <div id="quran-viewer" tabindex="0" data-section="quran-viewer">
                 <div class="qv-header">
                   <i class="fas fa-quran"></i>
                   <span>Holy Quran</span>
@@ -250,8 +251,14 @@
                   </p>
                 </noscript>
               </div>
+              <!-- /Section: Quran Viewer -->
 
-              <section id="islamic-resources" class="resource-section">
+              <!-- Section: Islamic Resources -->
+              <section
+                id="islamic-resources"
+                class="resource-section"
+                data-section="islamic-resources"
+              >
                 <h2>Islamic Resources</h2>
                 <ul>
                   <li>
@@ -302,8 +309,14 @@
                   </li>
                 </ul>
               </section>
+              <!-- /Section: Islamic Resources -->
 
-              <section id="educational-resources" class="resource-section">
+              <!-- Section: Educational Resources -->
+              <section
+                id="educational-resources"
+                class="resource-section"
+                data-section="educational-resources"
+              >
                 <h2>Educational Resources</h2>
                 <ul>
                   <li>
@@ -336,6 +349,7 @@
                   </li>
                 </ul>
               </section>
+              <!-- /Section: Educational Resources -->
             </article>
           </div>
         </div>

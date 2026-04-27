@@ -203,7 +203,7 @@
       }
     </style>
   </head>
-  <body class="is-preload no-sidebar">
+  <body class="is-preload no-sidebar" data-page="donation-receipts">
     <noscript>
       <div
         style="
@@ -241,10 +241,11 @@
       </div>
     </noscript>
     <div id="page-wrapper">
-      <!-- Header -->
-      <div id="header-wrapper"></div>
-      <!-- Main -->
-      <main id="main-wrapper" tabindex="-1">
+      <!-- Section: Header -->
+      <div id="header-wrapper" data-section="header"></div>
+      <!-- /Section: Header -->
+      <!-- Section: Receipt Generator -->
+      <main id="main-wrapper" tabindex="-1" data-section="receipt-generator">
         <div class="container">
           <div id="content">
             <article>
@@ -252,8 +253,8 @@
                 Internal Use Only &#8212; GAMEC Administration
               </div>
               <h1>Donation Receipt Generator</h1>
-              <!-- Year Selector & Sequence Management -->
-              <div class="receipt-controls">
+              <!-- Section: Receipt Controls -->
+              <div class="receipt-controls" data-section="receipt-controls">
                 <div>
                   <label for="year-select">Tax Year:</label>
                   <select id="year-select"></select>
@@ -274,7 +275,8 @@
                   />
                 </div>
               </div>
-              <!-- Tab Toggle -->
+              <!-- /Section: Receipt Controls -->
+              <!-- Section: Single Entry Form -->
               <div class="tab-toggle" role="tablist">
                 <button
                   type="button"
@@ -296,12 +298,12 @@
                   CSV Import
                 </button>
               </div>
-              <!-- Single Entry Form -->
               <div
                 id="panel-single"
                 class="tab-content active"
                 role="tabpanel"
                 aria-labelledby="tab-single"
+                data-section="single-entry-form"
               >
                 <form
                   id="single-entry-form"
@@ -370,12 +372,14 @@
                   </div>
                 </form>
               </div>
-              <!-- CSV Import -->
+              <!-- /Section: Single Entry Form -->
+              <!-- Section: CSV Import -->
               <div
                 id="panel-csv"
                 class="tab-content"
                 role="tabpanel"
                 aria-labelledby="tab-csv"
+                data-section="csv-import"
               >
                 <div class="csv-upload-area">
                   <p>
@@ -390,7 +394,8 @@
                 </div>
                 <div id="csv-preview"></div>
               </div>
-              <!-- Action Buttons -->
+              <!-- /Section: CSV Import -->
+              <!-- Section: Receipt Output -->
               <div class="action-buttons">
                 <button type="button" id="btn-generate" class="button">
                   Generate
@@ -402,14 +407,16 @@
                   Clear
                 </button>
               </div>
-              <!-- Receipt Output -->
-              <div id="receipt-output"></div>
+              <div id="receipt-output" data-section="receipt-output"></div>
+              <!-- /Section: Receipt Output -->
             </article>
           </div>
         </div>
       </main>
-      <!-- Footer -->
-      <div id="footer-wrapper"></div>
+      <!-- /Section: Receipt Generator -->
+      <!-- Section: Footer -->
+      <div id="footer-wrapper" data-section="footer"></div>
+      <!-- /Section: Footer -->
     </div>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>

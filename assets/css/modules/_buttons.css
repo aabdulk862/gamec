@@ -1,0 +1,213 @@
+/* _buttons.css — Button variants (primary, alt, large, icon) */
+
+/* ==========================================================================
+   7. BUTTONS
+   ========================================================================== */
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+.button {
+  -moz-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
+  -webkit-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
+  -ms-transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
+  transition:
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: relative;
+  display: inline-block;
+
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  text-decoration: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+  border: 0;
+  cursor: pointer;
+
+  font-size: 1.1em;
+  padding: 0.65em 1.6em;
+
+  box-shadow: 0 2px 6px var(--color-shadow-light);
+}
+
+/* Icon buttons */
+input[type="button"].icon:before,
+input[type="submit"].icon:before,
+input[type="reset"].icon:before,
+button.icon:before,
+.button.icon:before {
+  position: relative;
+  margin-right: 0.5em;
+  top: 0.05em;
+}
+
+/* Hover */
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover,
+.button:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+/* Active */
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+button:active,
+.button:active {
+  background: var(--color-primary);
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+/* Alternate button style */
+input[type="button"].alt,
+input[type="submit"].alt,
+input[type="reset"].alt,
+button.alt,
+.button.alt {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  border: 2px solid var(--color-accent);
+}
+
+/* Hover */
+input[type="button"].alt:hover,
+input[type="submit"].alt:hover,
+input[type="reset"].alt:hover,
+button.alt:hover,
+.button.alt:hover {
+  background: #c9a432;
+  color: var(--color-primary-dark);
+}
+
+/* Active */
+input[type="button"].alt:active,
+input[type="submit"].alt:active,
+input[type="reset"].alt:active,
+button.alt:active,
+.button.alt:active {
+  background: #b8952d;
+  color: var(--color-primary-dark);
+}
+
+/* Large buttons */
+input[type="button"].large,
+input[type="submit"].large,
+input[type="reset"].large,
+button.large,
+.button.large {
+  font-size: 1.25em;
+  padding: 0.7em 1.5em;
+}
+
+.mission-actions {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* =============================================
+   VISION PAGE REDESIGN
+   ============================================= */
+
+/* Intro image */
+.vision-intro .image img {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* Mission & Vision Cards */
+.vision-card {
+  background: var(--color-background-light);
+  border-radius: var(--radius-card);
+  padding: 2em 1.8em;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  text-align: center;
+  transition: var(--transition-default);
+  height: 100%;
+}
+
+.vision-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.vision-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin: 0 0 0.5em;
+}
+
+.vision-card p {
+  color: var(--color-text-medium);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Quote / Belief */
+.vision-belief {
+  text-align: center;
+}
+
+.vision-quote {
+  border: none;
+  padding: 1.5em 2em;
+  background: var(--color-background-section);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  margin: 0 auto 1.5em;
+  max-width: 750px;
+}
+
+.vision-quote p {
+  font-family: var(--font-heading);
+  font-size: 1.4em;
+  color: var(--color-primary);
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+}
+
+.vision-quote em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+/* Responsive: Vision Page */
+@media screen and (max-width: 736px) {
+  .vision-card {
+    padding: 1.5em 1.2em;
+  }
+
+  .vision-quote {
+    padding: 1.2em 1.5em;
+  }
+
+  .vision-quote p {
+    font-size: 1.2em;
+  }
+}

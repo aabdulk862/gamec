@@ -1,6 +1,8 @@
 /**
- * Quran PDF Viewer — GAMEC Resources Page
- * Uses PDF.js to render a Quran PDF with navigation, TOC, and zoom controls.
+ * @file Quran PDF Viewer — PDF.js-based Quran page viewer with navigation
+ * controls for resources.html. Renders a hosted Quran PDF onto a canvas with
+ * page navigation, surah table of contents, zoom controls, audio recitation,
+ * swipe/keyboard navigation, and localStorage state persistence.
  */
 (function () {
   "use strict";
@@ -144,19 +146,50 @@
 
   /* ── Pure helper functions (exported for testing) ── */
 
+  /**
+   * @description Clamp a page number to the valid range [1, totalPages].
+   * Returns 1 if totalPages is zero or negative.
+   * @param {number} page - The desired page number.
+   * @param {number} totalPages - The total number of pages in the PDF.
+   * @returns {number} The clamped page number.
+   */
   function clampPage(page, totalPages) {
     if (totalPages <= 0) return 1;
     return Math.max(1, Math.min(page, totalPages));
   }
 
+  /**
+   * @description Clamp a zoom scale value to the range [min, max].
+   * @param {number} scale - The desired zoom scale.
+   * @param {number} min - The minimum allowed scale.
+   * @param {number} max - The maximum allowed scale.
+   * @returns {number} The clamped scale value.
+   */
   function clampZoom(scale, min, max) {
     return Math.max(min, Math.min(scale, max));
   }
 
+  /**
+   * @description Calculate a new zoom scale by adding a delta to the current
+   * scale, rounding to two decimal places, and clamping within [min, max].
+   * @param {number} currentScale - The current zoom scale.
+   * @param {number} delta - The zoom increment (positive to zoom in, negative to zoom out).
+   * @param {number} min - The minimum allowed scale.
+   * @param {number} max - The maximum allowed scale.
+   * @returns {number} The adjusted and clamped scale value.
+   */
   function adjustZoom(currentScale, delta, min, max) {
     return clampZoom(Math.round((currentScale + delta) * 100) / 100, min, max);
   }
 
+  /**
+   * @description Determine the index of the current surah based on a Quran
+   * page number. Iterates through surahData to find the last surah whose
+   * starting page is less than or equal to pageNum.
+   * @param {number} pageNum - The current Quran page number (1-indexed, offset-adjusted).
+   * @param {Array<[number, string, number]>} surahData - Array of [surahNumber, surahName, startPage] tuples.
+   * @returns {number} The zero-based index into surahData for the active surah.
+   */
   function getCurrentSurah(pageNum, surahData) {
     var idx = 0;
     for (var i = 0; i < surahData.length; i++) {
@@ -172,6 +205,13 @@
   /* ── State persistence via localStorage ── */
   var STORAGE_KEY = "qv-state";
 
+  /**
+   * @description Persist the current viewer state (page, zoom scale, audio
+   * surah, and audio playback time) to localStorage under the "qv-state" key.
+   * Silently catches errors if storage is full or blocked.
+   * @returns {void}
+   * @sideeffect Writes to localStorage.
+   */
   function saveState() {
     try {
       var data = {
@@ -190,6 +230,12 @@
     }
   }
 
+  /**
+   * @description Load the previously saved viewer state from localStorage.
+   * Returns the parsed state object or null if no state exists or parsing fails.
+   * @returns {?{page: number, scale: ?number, audioSurah: number, audioTime: number}}
+   *   The saved state object, or null if unavailable.
+   */
   function loadState() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -218,8 +264,11 @@
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.8.69/pdf.worker.min.mjs";
 
   /**
-   * Build the TOC panel entries from SURAH_DATA.
+   * @description Build the table of contents panel entries from SURAH_DATA.
    * Each entry is a button showing "surahNumber. surahName — p. pageNumber".
+   * Clicking an entry navigates to that surah's starting page and closes the TOC.
+   * @returns {void}
+   * @sideeffect Clears and repopulates the tocPanel DOM element with button entries.
    */
   function buildToc() {
     if (!tocPanel) return;
@@ -243,8 +292,11 @@
   }
 
   /**
-   * Toggle the TOC panel visibility.
-   * Updates ViewerState.tocOpen, the panel class, and aria attributes.
+   * @description Toggle the TOC panel visibility. Flips ViewerState.tocOpen,
+   * adds or removes the "qv-toc-open" class on the panel, and updates
+   * aria-hidden / aria-expanded attributes for accessibility.
+   * @returns {void}
+   * @sideeffect Toggles CSS class and ARIA attributes on tocPanel and tocToggleBtn.
    */
   function toggleToc() {
     ViewerState.tocOpen = !ViewerState.tocOpen;
@@ -258,9 +310,12 @@
   }
 
   /**
-   * Adjust zoom by delta, clamping to [0.5, 3.0], then re-render.
-   * If scale is null (fit-to-width), compute the current fit scale first.
-   * @param {number} delta - zoom increment (e.g. +0.15 or -0.15)
+   * @description Adjust zoom by a delta value, clamping to [0.5, 3.0], then
+   * re-render the current page. If the current scale is null (fit-to-width
+   * mode), resolves the numeric fit scale from the PDF page dimensions first.
+   * @param {number} delta - Zoom increment (e.g. +0.15 to zoom in, -0.15 to zoom out).
+   * @returns {void}
+   * @sideeffect Updates ViewerState.scale and triggers a canvas re-render.
    */
   function doZoom(delta) {
     var currentScale = ViewerState.scale;
@@ -284,7 +339,10 @@
   }
 
   /**
-   * Reset zoom to fit-to-width mode.
+   * @description Reset zoom to fit-to-width mode by setting ViewerState.scale
+   * to null and re-rendering the current page.
+   * @returns {void}
+   * @sideeffect Sets ViewerState.scale to null and triggers a canvas re-render.
    */
   function resetZoom() {
     ViewerState.scale = null;
@@ -292,8 +350,11 @@
   }
 
   /**
-   * Navigate to a specific page, clamping to valid range.
-   * @param {number} pageNum - desired 1-indexed page number
+   * @description Navigate to a specific PDF page, clamping to the valid range
+   * [1, totalPages]. Updates ViewerState.currentPage and renders the target page.
+   * @param {number} pageNum - The desired 1-indexed PDF page number.
+   * @returns {void}
+   * @sideeffect Updates ViewerState.currentPage and triggers a canvas re-render.
    */
   function goToPage(pageNum) {
     var clamped = clampPage(pageNum, ViewerState.totalPages);
@@ -302,9 +363,16 @@
   }
 
   /**
-   * Render a single page of the PDF onto the canvas.
-   * Uses a rendering lock to prevent concurrent renders.
-   * @param {number} pageNum - 1-indexed page number
+   * @description Render a single PDF page onto the canvas element. Accounts for
+   * high-DPI displays, fit-to-width mode, and explicit zoom scales. Uses a
+   * rendering lock (ViewerState.rendering) to prevent concurrent renders.
+   * After rendering, updates the page indicator, navigation button states,
+   * zoom button states, active TOC entry highlight, and surah bar text.
+   * @param {number} pageNum - The 1-indexed PDF page number to render.
+   * @returns {void}
+   * @sideeffect Draws on the canvas, updates DOM elements (page indicator,
+   *   button disabled states, TOC active class, surah bar, aria-label),
+   *   hides the loading overlay on first render, and may trigger audio switching.
    */
   function renderPage(pageNum) {
     if (ViewerState.rendering || !ViewerState.pdfDoc) return;
@@ -448,9 +516,14 @@
   }
 
   /**
-   * Show an error overlay inside the viewer with a message and retry button.
-   * Reuses the loading overlay element, replacing its content.
-   * @param {string} message - Error message to display
+   * @description Show an error overlay inside the viewer with a message and a
+   * retry button. Reuses the loading overlay element, replacing its content
+   * with the error message and a button that re-initializes the viewer on click.
+   * @param {string} message - The error message to display. Falls back to a
+   *   default connection error message if empty.
+   * @returns {void}
+   * @sideeffect Replaces loadingOverlay innerHTML, removes "qv-hidden" class,
+   *   and attaches a click handler to the retry button.
    */
   function showError(message) {
     if (!loadingOverlay) return;
@@ -475,8 +548,16 @@
   }
 
   /**
-   * Initialize the Quran viewer: load the PDF and render the first page.
-   * Listens for the 'pdfjsReady' event if pdfjsLib is not yet available.
+   * @description Initialize the Quran viewer: grab DOM references, build the
+   * TOC, wire navigation/zoom/download/audio controls, set up keyboard and
+   * swipe navigation, attach resize handlers, configure PDF.js worker, and
+   * load the PDF document. Renders the first page once the PDF is ready.
+   * Listens for the "pdfjsReady" event if pdfjsLib is not yet available.
+   * @returns {void}
+   * @sideeffect Queries and caches DOM elements, attaches event listeners
+   *   (click, keydown, touchstart, touchend, resize, orientationchange),
+   *   creates an Audio element for surah recitation, and initiates the PDF
+   *   fetch via PDF.js.
    */
   function initQuranViewer() {
     // Grab DOM references

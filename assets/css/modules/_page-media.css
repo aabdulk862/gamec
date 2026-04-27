@@ -1,0 +1,23 @@
+/* _page-media.css — Media gallery and video embed styles */
+
+/* Media Page Styles */
+.media-category {
+  margin: 3rem 0;
+}
+
+.media-category h2 {
+  font-size: 2.2rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.media-category p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-medium);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}

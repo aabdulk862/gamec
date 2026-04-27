@@ -1,0 +1,320 @@
+/* _page-home.css — Homepage-specific styles (hero banner, impact section, Quran CTA, program callout, affiliated associations, stay connected) */
+
+/* Quran Viewer CTA Card (homepage) */
+.quran-cta {
+  margin: 1.8em 0;
+}
+
+.quran-cta-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 1.2em 1.5em;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--color-border-light, #eee);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.quran-cta-link:hover {
+  box-shadow: 0 6px 20px var(--color-shadow-black);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.quran-cta-cover {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px var(--color-shadow-black-md);
+  flex-shrink: 0;
+}
+
+.quran-cta-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.quran-cta-text h3 {
+  margin: 0 0 0.3em;
+  font-size: 1.2em;
+  color: var(--color-primary-dark);
+}
+
+.quran-cta-text p {
+  margin: 0 0 0.8em;
+  font-size: 0.95em;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.quran-cta-text .button {
+  font-size: 0.85em;
+  padding: 0.4em 1.2em;
+}
+
+@media screen and (max-width: 736px) {
+  .quran-cta-link {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5em 1em;
+    gap: 1em;
+  }
+
+  .quran-cta-cover {
+    width: 120px;
+  }
+}
+
+/* ── Banner Redesign ── */
+.banner-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.banner-tagline {
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin: 0 0 1.2em;
+  color: var(--color-text-medium);
+  font-weight: 400;
+}
+
+.banner-quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1em;
+  line-height: 1.7;
+  color: var(--color-text-gray);
+  margin: 0 0 1.5em;
+  opacity: 0.8;
+}
+
+.banner-cta {
+  margin-top: 1.5em;
+}
+
+.banner-cta .button {
+  font-size: 1.1em;
+  padding: 0.65em 1.8em;
+  width: auto;
+}
+
+@media screen and (max-width: 736px) {
+  .banner-tagline {
+    font-size: 1.05em;
+  }
+  .banner-quote {
+    font-size: 0.95em;
+  }
+  .banner-cta .button {
+    font-size: 1em;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ── Impact Section ── */
+.homepage #main-wrapper section {
+  margin-bottom: 1em;
+}
+
+.homepage #main-wrapper {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.impact-section {
+  margin-bottom: 2em;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.impact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em 1em;
+}
+
+.impact-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.impact-number-sm {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.impact-label {
+  font-size: 1rem;
+  color: var(--color-text-medium);
+  margin-top: 0.4em;
+}
+
+@media screen and (max-width: 736px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .impact-item {
+    padding: 1em;
+  }
+  .impact-number {
+    font-size: 2.2rem;
+  }
+}
+
+/* ── New Program Callout ── */
+.new-program-callout {
+  position: relative;
+  padding: 2.5em 2em;
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+  margin-bottom: 1em;
+}
+
+.new-badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25em 0.8em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+.matrimonial-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+@media screen and (max-width: 736px) {
+  .new-program-callout {
+    padding: 2em 1.2em;
+  }
+  .matrimonial-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .matrimonial-buttons .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ── Stay Connected ── */
+.social-connect-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+@media screen and (max-width: 736px) {
+  .social-connect-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-connect-links .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Ultra-compact + elegant Affiliated Associations */
+.affiliated-associations h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.associations-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.association-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: var(--color-primary);
+  color: white;
+  padding: 0.9em 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px var(--color-shadow-light);
+}
+
+.association-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+/* Consistent hover for all cards/buttons */
+.association-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px var(--color-shadow);
+  border-color: var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.association-btn i {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 980px) {
+  .associations-compact {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .association-btn {
+    padding: 1em 0.9em;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .associations-compact {
+    grid-template-columns: 1fr;
+  }
+}

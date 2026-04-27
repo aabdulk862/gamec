@@ -1,0 +1,33 @@
+/* _tables.css — Table styling (header, rows, cells) */
+
+/* 8. TABLES */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr {
+  border-top: solid 1px var(--color-border-dark);
+}
+
+table tr:first-child {
+  border-top: 0;
+}
+
+table td {
+  padding: 0.5em 1em 0.5em 0em;
+}
+
+table th {
+  text-align: left;
+  padding: 0.5em 1em 0.5em 0em;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 0 0 1em 0;
+}
+
+table thead {
+  background: var(--color-table-header);
+  color: var(--color-white);
+}

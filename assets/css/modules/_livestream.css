@@ -1,0 +1,140 @@
+/* _livestream.css — Holy Cities livestream embed styles */
+
+/* ===================== Holy Cities Livestream ===================== */
+
+.livestream-section {
+  margin: 3rem 0;
+}
+
+.livestream-section h2 {
+  text-align: center;
+}
+
+.livestream-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.livestream-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.livestream-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.livestream-card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.livestream-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.livestream-card:hover .livestream-card__image img {
+  transform: scale(1.03);
+}
+
+.livestream-card__live-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(220, 38, 38, 0.9);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.livestream-card__live-badge i {
+  font-size: 0.5em;
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.livestream-card__body {
+  padding: 1.5rem 1.5rem 1.75rem;
+  text-align: center;
+}
+
+.livestream-card__body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+
+.livestream-card__body p {
+  color: var(--color-text-medium);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.livestream-card__body .button {
+  font-size: 1rem;
+}
+
+/* Medium (737px–980px): maintain 2-col with tighter gap */
+@media screen and (max-width: 980px) {
+  .livestream-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Small (≤736px): single column stack */
+@media screen and (max-width: 736px) {
+  .livestream-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .livestream-card__body {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .livestream-card__body h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .livestream-card,
+  .livestream-card__image img,
+  .livestream-card__live-badge i {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

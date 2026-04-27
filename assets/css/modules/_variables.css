@@ -1,0 +1,121 @@
+/* _variables.css — CSS custom properties: all :root color, spacing, typography tokens */
+
+:root {
+  /* Primary Colors – Navy (from GAMEC text) */
+  --color-primary: #001f3f;
+  --color-primary-hover: #002b55;
+  --color-primary-dark: #0a2342;
+
+  /* Accent Colors – Gold (from crescent moon) */
+  --color-accent: #d4af37;
+  --color-accent-green: #228b22;
+  --color-accent-green-alt: #2e8b57;
+
+  /* Neutral Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-background: #faf8f5;
+  --color-background-light: #fdf9f3;
+  --color-background-alt: #f5efe6;
+  --color-background-gray: #f5f5f5;
+  --color-background-section: #f8f4ed;
+
+  /* Border Colors */
+  --color-border: #e0d9c9;
+  --color-border-alt: #d9d0bd;
+  --color-border-dark: #b0a68a;
+  --color-border-darker: #8c7f5f;
+  --color-border-light: #eee8d9;
+  --color-border-nav: #d4c9b0;
+  --color-border-footer: #c0b59e;
+
+  /* Text Colors */
+  --color-text: #001f3f;
+  --color-text-dark: #0a2342;
+  --color-text-gray: #2c3e50;
+  --color-text-medium: #34495e;
+  --color-text-light: #4a4a4a;
+  --color-text-lighter: #525252;
+  --color-text-lightest: #5a5a5a;
+  --color-text-link: #006994;
+  --color-text-muted: #555555;
+  --color-text-footer: #666666;
+
+  /* Form Colors */
+  --color-form-focus: #d4af37;
+
+  /* Button Colors */
+  --color-button-alt: #e8e0d0;
+  --color-button-alt-hover: #f0e8d8;
+  --color-button-alt-active: #e0d8c8;
+
+  /* Widget Colors */
+  --color-widget-bg: #001f3f;
+  --color-widget-hover: #003366;
+  --color-widget-active: #004080;
+  --color-widget-text: #f3f3f3;
+
+  /* Donation Section Colors */
+  --color-donation-square: #000000;
+  --color-donation-square-hover: #3e4348;
+  --color-donation-paypal: #002c8b;
+  --color-donation-paypal-hover: #019be1;
+  --color-donation-zelle: #6c1cd3;
+  --color-donation-zelle-button: #228b22;
+  --color-donation-zelle-button-hover: #006400;
+
+  /* Table Colors */
+  --color-table-header: #001f3f;
+
+  /* Transparent / Overlay Colors */
+  --color-transparent: transparent;
+  --color-overlay-dark: rgba(0, 0, 0, 0.04);
+  --color-button-alt-rgba: rgba(212, 175, 55, 0.08);
+  --color-button-alt-hover-rgba: rgba(212, 175, 55, 0.15);
+  --color-button-alt-active-rgba: rgba(212, 175, 55, 0.25);
+  --color-shadow: rgba(0, 31, 63, 0.08);
+  --color-shadow-light: rgba(0, 31, 63, 0.04);
+  --color-shadow-medium: rgba(0, 31, 63, 0.12);
+  --color-shadow-dark: rgba(0, 31, 63, 0.2);
+  --color-shadow-darker: rgba(0, 31, 63, 0.3);
+  --color-dropotron-border: rgba(0, 0, 0, 0.08);
+  --color-nav-bg: rgba(0, 31, 63, 0.85);
+
+  /* Heading Font */
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  /* Quran Viewer Colors */
+  --color-qv-dark-green: #1a3a32;
+  --color-qv-medium-green: #2a5548;
+  --color-qv-toolbar-green: #356b5f;
+  --color-qv-parchment: #f5f0e8;
+  --color-qv-audio-bg: #1a1a1a;
+  --color-qv-audio-text: #e0e0e0;
+  --color-qv-gold-light: #e8c84a;
+  --color-qv-btn-border: rgba(255, 255, 255, 0.18);
+  --color-qv-btn-bg: rgba(255, 255, 255, 0.08);
+
+  /* Shared Utility Colors */
+  --color-text-muted-light: #777;
+  --color-border-subtle: #eee;
+  --color-footer-text-light: #f0f0f0;
+  --color-whatsapp: #25d366;
+  --color-overlay-white-subtle: rgba(255, 255, 255, 0.1);
+
+  /* Shadow Colors (black-based) */
+  --color-shadow-black-sm: rgba(0, 0, 0, 0.06);
+  --color-shadow-black: rgba(0, 0, 0, 0.1);
+  --color-shadow-black-md: rgba(0, 0, 0, 0.12);
+  --color-shadow-black-lg: rgba(0, 0, 0, 0.15);
+
+  /* Accent Subtle */
+  --color-accent-subtle: rgba(212, 175, 55, 0.12);
+
+  /* Transitions */
+  --transition-default: all 0.3s ease;
+
+  /* Card Shadows & Radius */
+  --shadow-card: 0 2px 8px var(--color-shadow-light);
+  --shadow-card-hover: 0 6px 16px var(--color-shadow);
+  --radius-card: 8px;
+}

@@ -1,0 +1,812 @@
+/* _quran-viewer.css — Quran PDF viewer component styles */
+
+/* ==========================================================================
+   QURAN PDF VIEWER
+   ========================================================================== */
+
+#quran-viewer {
+  max-width: 600px;
+  margin: 1.5em auto 2.5em;
+  background: var(--color-white);
+  border-radius: 12px;
+  border: none;
+  box-shadow:
+    0 4px 24px var(--color-dropotron-border),
+    0 1px 3px var(--color-shadow-black-sm);
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+#quran-viewer:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Header strip */
+.qv-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.7em 1em;
+  background: linear-gradient(
+    135deg,
+    var(--color-qv-dark-green) 0%,
+    var(--color-qv-medium-green) 100%
+  );
+  color: var(--color-accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.qv-header i {
+  font-size: 1.2em;
+}
+
+/* Toolbar */
+.qv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  padding: 0.55em 1em;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-qv-toolbar-green) 100%
+  );
+  color: var(--color-white);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+.qv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  height: 38px;
+  min-height: 38px;
+  padding: 0 0.8em;
+  border: 1px solid var(--color-qv-btn-border);
+  border-radius: 8px;
+  background: var(--color-qv-btn-bg);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.qv-btn-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Icon-only buttons (zoom) stay square */
+.qv-zoom-in,
+.qv-zoom-out {
+  width: 38px;
+  min-width: 38px;
+  padding: 0;
+}
+
+.qv-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.qv-btn:active {
+  transform: translateY(0);
+  background: var(--color-qv-btn-border);
+}
+
+.qv-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.qv-toolbar-separator {
+  width: 1px;
+  height: 20px;
+  background: var(--color-qv-btn-border);
+  margin: 0 0.1em;
+}
+
+.qv-page-indicator {
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0 0.5em;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  opacity: 0.92;
+}
+
+/* Reader area with side navigation */
+.qv-reader-area {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.qv-side-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  min-width: 52px;
+  border: none;
+  background: var(--color-qv-parchment);
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 12px var(--color-overlay-dark);
+}
+
+.qv-side-nav:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: inset 0 0 12px var(--color-dropotron-border);
+}
+
+.qv-side-nav:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  background: var(--color-qv-parchment);
+  color: var(--color-primary);
+  box-shadow: none;
+}
+
+/* Nav labels — hidden on desktop, shown on mobile */
+.qv-nav-label {
+  display: none;
+}
+
+/* Canvas wrapper */
+.qv-canvas-wrapper {
+  overflow: auto;
+  text-align: center;
+  background: var(--color-qv-parchment);
+  min-height: 300px;
+  padding: 1.2em 0;
+  flex: 1;
+  min-width: 0;
+}
+
+#qv-canvas {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  box-shadow:
+    0 1px 8px var(--color-shadow-black),
+    0 4px 20px var(--color-shadow-black-sm);
+}
+
+/* Surah bar at bottom */
+.qv-surah-bar {
+  text-align: center;
+  padding: 0.5em 1em;
+  background: linear-gradient(
+    135deg,
+    var(--color-qv-dark-green) 0%,
+    var(--color-qv-medium-green) 100%
+  );
+  color: var(--color-accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  min-height: 1.6em;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Audio player bar */
+.qv-audio-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  padding: 0.6em 1em;
+  background: var(--color-qv-audio-bg);
+  color: var(--color-qv-audio-text);
+}
+
+.qv-audio-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qv-audio-play:hover {
+  background: var(--color-accent);
+  color: var(--color-qv-audio-bg);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-audio-play.qv-audio-loading {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.qv-audio-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.qv-audio-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.qv-audio-reciter {
+  font-size: 0.72rem;
+  color: #999;
+  white-space: nowrap;
+}
+
+.qv-audio-progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  min-width: 0;
+}
+
+.qv-audio-progress {
+  width: 100%;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.qv-audio-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-qv-gold-light)
+  );
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.qv-audio-time {
+  font-size: 0.68rem;
+  color: var(--color-text-muted-light);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.qv-audio-icon {
+  margin-right: 0.25em;
+  font-size: 0.85em;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-audio-icon-pulse {
+  animation: qv-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes qv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* TOC panel */
+.qv-toc-panel {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  max-height: 55vh;
+  overflow-y: auto;
+  background: var(--color-white);
+  border-bottom: 3px solid var(--color-primary);
+  box-shadow: 0 8px 32px var(--color-shadow-black-lg);
+  z-index: 10;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-toc-panel.qv-toc-open {
+  display: block;
+  animation: qv-slide-down 0.2s ease-out;
+}
+
+@keyframes qv-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dynamic: generated by quran-viewer.js */
+/* TOC entry buttons */
+.qv-toc-entry {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.6em 1.2em;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.88rem;
+  color: var(--color-text-dark, #333);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition:
+    background 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-toc-entry:hover {
+  background: var(--color-qv-parchment);
+  padding-left: 1.5em;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-toc-entry.qv-toc-active {
+  background: linear-gradient(
+    135deg,
+    var(--color-qv-dark-green) 0%,
+    var(--color-qv-medium-green) 100%
+  );
+  color: var(--color-accent);
+  font-weight: 600;
+  border-bottom-color: var(--color-overlay-white-subtle);
+}
+
+/* Loading overlay */
+.qv-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 20;
+  backdrop-filter: blur(4px);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-loading-overlay.qv-hidden {
+  display: none;
+}
+
+.qv-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--color-dropotron-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: qv-spin 0.7s linear infinite;
+}
+
+@keyframes qv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.qv-loading-overlay p {
+  margin-top: 1.2em;
+  color: var(--color-text-footer);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+/* Error overlay */
+.qv-error-message {
+  margin: 0 0 1.2em;
+  color: #c0392b;
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-retry-btn {
+  width: auto;
+  min-width: 110px;
+  padding: 0.6em 1.8em;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-retry-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-retry-btn:active {
+  transform: translateY(0);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+/* Download progress overlay */
+.qv-download-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 20;
+  backdrop-filter: blur(4px);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-download-progress-box {
+  text-align: center;
+  width: 280px;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-download-status {
+  margin: 0 0 0.8em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-download-track {
+  width: 100%;
+  height: 10px;
+  background: var(--color-qv-audio-text);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-download-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent-green, #239e46)
+  );
+  border-radius: 5px;
+  transition: width 0.15s ease;
+}
+
+/* Dynamic: generated by quran-viewer.js */
+.qv-download-percent {
+  margin: 0.6em 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Responsive: medium breakpoint (tablets) */
+@media screen and (max-width: 980px) {
+  #quran-viewer {
+    max-width: 100%;
+    border-radius: 0;
+    margin: 1em auto;
+  }
+}
+
+/* Responsive: small breakpoint (mobile) */
+@media screen and (max-width: 736px) {
+  #quran-viewer {
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .qv-header {
+    padding: 0.55em 0.8em;
+    font-size: 1rem;
+  }
+
+  .qv-toolbar {
+    gap: 0.25em;
+    padding: 0.4em 0.3em;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .qv-btn {
+    height: 40px;
+    min-height: 40px;
+    padding: 0 0.55em;
+    border-radius: 10px;
+    font-size: 0.85rem;
+  }
+
+  /* Hide text labels on mobile toolbar to prevent overflow */
+  .qv-btn-label {
+    display: none;
+  }
+
+  .qv-zoom-in,
+  .qv-zoom-out {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .qv-page-indicator {
+    font-size: 0.76rem;
+    padding: 0 0.25em;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Take full row so buttons wrap to next line */
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+
+  /* Bottom page-turn bar on mobile */
+  .qv-reader-area {
+    flex-wrap: wrap;
+  }
+
+  .qv-side-nav {
+    min-width: 0;
+    flex: 0 0 50%;
+    order: 2;
+    height: 48px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: linear-gradient(
+      135deg,
+      var(--color-qv-dark-green) 0%,
+      var(--color-qv-medium-green) 100%
+    );
+    color: var(--color-accent);
+    border: none;
+    border-top: 1px solid var(--color-button-alt-active-rgba);
+    box-shadow: none;
+    gap: 0.4em;
+  }
+
+  /* Divider between the two buttons */
+  .qv-prev {
+    border-right: 1px solid var(--color-button-alt-active-rgba);
+  }
+
+  .qv-side-nav:hover {
+    background: linear-gradient(
+      135deg,
+      var(--color-qv-dark-green) 0%,
+      var(--color-qv-toolbar-green) 100%
+    );
+    color: var(--color-qv-gold-light);
+  }
+
+  .qv-side-nav:active {
+    background: var(--color-qv-dark-green);
+  }
+
+  .qv-side-nav:disabled {
+    background: linear-gradient(
+      135deg,
+      var(--color-qv-dark-green) 0%,
+      var(--color-qv-medium-green) 100%
+    );
+    color: var(--color-accent);
+    opacity: 0.25;
+    box-shadow: none;
+  }
+
+  .qv-nav-label {
+    display: inline;
+  }
+
+  .qv-canvas-wrapper {
+    order: 1;
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0.3em 0 0;
+    min-height: 60vh;
+    background: #f0ebe3;
+    /* Touch scrolling for zoomed-in content */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #qv-canvas {
+    box-shadow: none;
+    /* Ensure canvas fills available width */
+    max-width: 100%;
+  }
+
+  .qv-surah-bar {
+    font-size: 0.8rem;
+    padding: 0.45em 0.8em;
+  }
+
+  /* Audio bar: stack vertically on mobile */
+  .qv-audio-bar {
+    flex-wrap: wrap;
+    gap: 0.4em;
+    padding: 0.5em 0.6em;
+  }
+
+  .qv-audio-play {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 0.8rem;
+  }
+
+  /* Show audio info on mobile but truncate */
+  .qv-audio-info {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .qv-audio-title {
+    font-size: 0.75rem;
+  }
+
+  .qv-audio-reciter {
+    display: none;
+  }
+
+  /* Progress bar takes full width on its own row */
+  .qv-audio-progress-wrap {
+    width: 100%;
+    order: 3;
+  }
+
+  .qv-audio-time {
+    font-size: 0.65rem;
+  }
+
+  .qv-toc-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: none;
+    z-index: 100;
+    border-bottom: none;
+    padding-top: 3em;
+  }
+
+  .qv-toc-panel::before {
+    content: "Surahs";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.7em 1em;
+    background: linear-gradient(
+      135deg,
+      var(--color-qv-dark-green) 0%,
+      var(--color-qv-medium-green) 100%
+    );
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 101;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  /* Dynamic: generated by quran-viewer.js */
+  .qv-toc-entry {
+    padding: 0.85em 1.2em;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .qv-toolbar-separator {
+    display: none;
+  }
+}
+
+/* ── Page Hero Images (Unsplash accents) ── */
+
+.page-hero-img {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+  border-radius: var(--radius-card, 8px);
+  box-shadow: 0 4px 20px var(--color-dropotron-border);
+  margin: 0 0 2em;
+  display: block;
+}
+
+/* Taller ratio for pages with very little content */
+.page-hero-img--tall {
+  aspect-ratio: 16 / 7;
+}
+
+/* Side accent image (used next to text blocks) */
+.page-accent-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-card, 8px);
+  box-shadow: 0 4px 20px var(--color-dropotron-border);
+}
+
+@media (max-width: 980px) {
+  .page-hero-img {
+    aspect-ratio: 16 / 7;
+    margin: 0 0 1.5em;
+  }
+}
+
+@media (max-width: 736px) {
+  .page-hero-img {
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+    margin: 0 0 1.25em;
+  }
+
+  .page-hero-img--tall {
+    aspect-ratio: 16 / 9;
+  }
+
+  .page-accent-img {
+    aspect-ratio: 16 / 9;
+    margin-bottom: 1.25em;
+  }
+}

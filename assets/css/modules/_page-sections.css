@@ -1,0 +1,227 @@
+/* _page-sections.css — Shared page section styles (general section/article spacing, common cards, banner, contact, leadership, trust badge, intro) */
+
+/* Section General */
+section,
+article {
+  margin-bottom: 3em;
+}
+
+section > :last-child,
+article > :last-child,
+section:last-child,
+article:last-child {
+  margin-bottom: 0;
+}
+
+/* Coming Soon placeholder */
+.coming-soon {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 1.15rem;
+  margin: 2rem 0;
+  padding: 2rem 1.5rem;
+  background: var(--color-background-section);
+  border-radius: var(--radius-card);
+  border: 1px dashed var(--color-border);
+}
+
+.coming-soon::before {
+  content: "\f017";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  display: block;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* Social Links (shared) */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.social-links .button {
+  min-width: 180px;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 0.8em 1.5em;
+}
+
+/* Trust Badge */
+.trust-badge {
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 0.8em 1.5em;
+  background: var(--color-background-section);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+  font-size: 0.95rem;
+  color: var(--color-text-medium);
+}
+
+.trust-badge i {
+  color: var(--color-accent-green);
+  margin-right: 0.4em;
+}
+
+/* Contact Page Styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.contact-card {
+  text-align: center;
+}
+
+.contact-card .card-icon {
+  font-size: 2rem;
+  color: var(--color-accent-green);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 0 0 1rem;
+}
+
+.contact-card p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-text-medium);
+}
+
+.contact-card .small {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.contact-note {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-text-gray);
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--color-background-light);
+  border-radius: 10px;
+  border: 1px solid var(--color-border-light);
+}
+
+.dev-callout {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--color-background-section);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-light);
+  font-size: 0.95rem;
+  color: var(--color-text-lighter);
+}
+
+.dev-callout a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dev-callout a:hover {
+  text-decoration: underline;
+}
+
+/* ── Leadership Page ── */
+.leadership-section {
+  margin: 3rem 0;
+}
+
+.leadership-section h2 {
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.leader-card {
+  text-align: center;
+  padding: 2em 1.5em;
+  background: var(--color-background-light);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-light);
+  transition: var(--transition-default);
+}
+
+.leader-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.leader-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2em;
+  font-size: 1.5rem;
+}
+
+.leader-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin: 0 0 0.3em;
+}
+
+.leader-role {
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: 0 0 0.8em;
+}
+
+.leader-card p:last-child {
+  color: var(--color-text-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.leadership-cta {
+  text-align: center;
+  margin: 3rem 0 0;
+  padding: 2em;
+  background: var(--color-background-section);
+  border-radius: var(--radius-card);
+}
+
+.leadership-cta p {
+  max-width: 600px;
+  margin: 0 auto 1.5em;
+  color: var(--color-text-medium);
+}
+
+@media (max-width: 736px) {
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+}

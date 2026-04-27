@@ -1,0 +1,13 @@
+/* _page-matrimonial.css — Matrimonial page styles (accordion, cards, CTA)
+ *
+ * NOTE: Core matrimonial page styles (.matrimonial-intro, .matrimonial-section,
+ * .matrimonial-purposes, .matrimonial-nikah-elements, .matrimonial-rights-group,
+ * .matrimonial-cta, .matrimonial-accordion, etc.) were extracted to
+ * _typography.css in task 5.3 alongside other page-level typography.
+ *
+ * Homepage matrimonial callout styles (.new-program-callout, .matrimonial-buttons
+ * in homepage context) are in _page-home.css.
+ *
+ * This file is reserved for any future matrimonial-specific styles that don't
+ * belong in _typography.css or _page-home.css.
+ */

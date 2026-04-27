@@ -1,8 +1,15 @@
+/**
+ * @file CSV-based donation receipt generator for donation-receipts.html.
+ * Provides single-entry and bulk CSV modes for generating printable tax-deductible
+ * donation receipts with sequential numbering, form validation, preview tables,
+ * and mailto links. Receipt sequences are persisted in localStorage.
+ */
 (function () {
   /**
-   * Formats a number as a USD currency string with $, commas, and 2 decimal places.
-   * @param {number} amount
-   * @returns {string} e.g. "$1,250.00"
+   * @description Formats a number as a USD currency string with $, commas, and 2 decimal places.
+   * Returns "$0.00" for non-numeric input.
+   * @param {number} amount - The numeric amount to format
+   * @returns {string} Formatted currency string, e.g. "$1,250.00"
    */
   function formatCurrency(amount) {
     var num = Number(amount);
@@ -13,10 +20,11 @@
   }
 
   /**
-   * Returns a formatted receipt number string: GAMEC-YYYY-NNNN (zero-padded).
-   * @param {number} year
-   * @param {number} seq
-   * @returns {string} e.g. "GAMEC-2025-0001"
+   * @description Returns a formatted receipt number string: GAMEC-YYYY-NNNN
+   * with the sequence zero-padded to 4 digits.
+   * @param {number} year - The tax year for the receipt
+   * @param {number} seq - The sequence number within that year
+   * @returns {string} Formatted receipt number, e.g. "GAMEC-2025-0001"
    */
   function formatReceiptNumber(year, seq) {
     var paddedSeq = String(seq).padStart(4, "0");
@@ -24,11 +32,12 @@
   }
 
   /**
-   * Reads localStorage key `gamec-receipt-sequences`, increments the value for
-   * the given year, writes it back, and returns the new number.
-   * If no entry exists for that year, starts at 1.
-   * @param {number|string} year
-   * @returns {number}
+   * @description Reads the `gamec-receipt-sequences` key from localStorage,
+   * increments the sequence value for the given year, writes it back, and
+   * returns the new number. If no entry exists for that year, starts at 1.
+   * @param {number|string} year - The tax year to get the next sequence for
+   * @returns {number} The next sequence number for the given year
+   * @sideeffect Writes updated sequence to localStorage under `gamec-receipt-sequences`
    */
   function getNextSequence(year) {
     var key = "gamec-receipt-sequences";
@@ -54,9 +63,12 @@
   }
 
   /**
-   * Writes a sequence number to localStorage for the given year.
-   * @param {number|string} year
-   * @param {number} num
+   * @description Writes a sequence number to localStorage for the given year,
+   * overwriting any existing value for that year.
+   * @param {number|string} year - The tax year to set the sequence for
+   * @param {number} num - The sequence number to store
+   * @returns {void}
+   * @sideeffect Writes to localStorage under `gamec-receipt-sequences`
    */
   function setSequence(year, num) {
     var key = "gamec-receipt-sequences";
@@ -78,12 +90,12 @@
   }
 
   /**
-   * Returns a mailto: URL with pre-filled subject and body.
-   * Subject: "Your GAMEC Donation Receipt — [Receipt_Number]"
-   * Body: Thank-you message with reminder to attach PDF.
-   * @param {string} email
-   * @param {string} receiptNumber
-   * @returns {string}
+   * @description Returns a mailto: URL with pre-filled subject and body.
+   * Subject: "Your GAMEC Donation Receipt — [Receipt_Number]".
+   * Body: Thank-you message with a reminder to attach the PDF.
+   * @param {string} email - The donor's email address
+   * @param {string} receiptNumber - The formatted receipt number (e.g. "GAMEC-2025-0001")
+   * @returns {string} A fully-encoded mailto: URL string
    */
   function buildMailtoLink(email, receiptNumber) {
     var subject = "Your GAMEC Donation Receipt \u2014 " + receiptNumber;
@@ -109,12 +121,11 @@
   }
 
   /**
-   * Validates a single donor record.
-   * Required fields: name, address, amount, date, paymentMethod.
-   * Amount must be a positive number.
-   * paymentMethod must be one of "Square", "PayPal", "Zelle".
-   * @param {Object} formData
-   * @returns {{ valid: boolean, errors: Array<{ field: string, message: string }> }}
+   * @description Validates a single donor record. Required fields: name, address,
+   * amount, date, paymentMethod. Amount must be a positive number. paymentMethod
+   * must be one of "Square", "PayPal", or "Zelle".
+   * @param {Object} formData - Donor record with name, address, amount, date, paymentMethod fields
+   * @returns {{ valid: boolean, errors: Array<{ field: string, message: string }> }} Validation result with error details
    */
   function validateForm(formData) {
     var errors = [];
@@ -188,9 +199,10 @@
   }
 
   /**
-   * Parses a single CSV line, handling quoted fields that may contain commas.
-   * @param {string} line
-   * @returns {string[]}
+   * @description Parses a single CSV line into an array of trimmed field values,
+   * handling quoted fields that may contain commas and escaped double-quotes.
+   * @param {string} line - A single line of CSV text
+   * @returns {string[]} Array of parsed and trimmed field values
    */
   function parseCSVLine(line) {
     var fields = [];
@@ -225,11 +237,11 @@
   }
 
   /**
-   * Parses a CSV string with a header row into donor records.
-   * Expected columns: name, address, amount, date, paymentMethod, email, memo
-   * Validates each row using validateForm.
-   * @param {string} text
-   * @returns {{ records: Array<Object>, errors: Array<{ row: number, fields: Array, message: string }> }}
+   * @description Parses a CSV string with a header row into donor records.
+   * Expected columns: name, address, amount, date, paymentMethod, email, memo.
+   * Each data row is validated using validateForm; invalid rows are collected as errors.
+   * @param {string} text - The full CSV text content including header row
+   * @returns {{ records: Array<Object>, errors: Array<{ row: number, fields: Array, message: string }> }} Parsed records and any validation errors
    */
   function parseCSV(text) {
     if (!text || typeof text !== "string" || text.trim() === "") {
@@ -345,11 +357,14 @@
   }
 
   /**
-   * Generates a receipt DOM element for a single donor record.
+   * @description Generates a receipt DOM element for a single donor record.
+   * Builds a complete printable receipt section with organization header, donor
+   * details, tax disclosure, signature lines, and an optional mailto link.
    * @param {Object} donorRecord - Donor data (name, address, amount, date, paymentMethod, email, memo)
    * @param {number|string} year - Tax year for the receipt
    * @param {number} sequenceNum - Sequence number for receipt numbering
    * @returns {HTMLElement} A <section class="receipt"> DOM element
+   * @sideeffect Creates DOM elements (not yet appended to the document)
    */
   function generateReceipt(donorRecord, year, sequenceNum) {
     var receiptNumber = formatReceiptNumber(year, sequenceNum);
@@ -483,9 +498,10 @@
   }
 
   /**
-   * Escapes HTML special characters in a string.
-   * @param {string} str
-   * @returns {string}
+   * @description Escapes HTML special characters in a string by leveraging
+   * the browser's DOM text node encoding.
+   * @param {string} str - The raw string to escape
+   * @returns {string} The HTML-escaped string safe for innerHTML insertion
    */
   function escapeHTML(str) {
     var div = document.createElement("div");
@@ -494,10 +510,13 @@
   }
 
   /**
-   * Renders a preview table showing parsed CSV records with error highlighting.
+   * @description Renders a preview table showing parsed CSV records with error
+   * highlighting. Valid rows display donor data; error rows are highlighted in
+   * red with the validation message in the Status column.
    * @param {Array<Object>} records - Array of valid donor record objects
    * @param {Array<Object>} errors - Array of error objects with { row, fields, message }
-   * @returns {HTMLTableElement} A <table> DOM element
+   * @returns {HTMLTableElement} A <table> DOM element with class "csv-preview-table"
+   * @sideeffect Creates DOM elements (not yet appended to the document)
    */
   function renderPreviewTable(records, errors) {
     var table = document.createElement("table");
@@ -594,11 +613,12 @@
   }
 
   /**
-   * Filters donor records by donation date year.
-   * Records must have a `date` field in YYYY-MM-DD format.
-   * @param {Array} records
-   * @param {number|string} year
-   * @returns {Array}
+   * @description Filters donor records by donation date year. Records must have
+   * a `date` field in YYYY-MM-DD format; the first 4 characters are compared
+   * against the target year.
+   * @param {Array<Object>} records - Array of donor record objects with a `date` field
+   * @param {number|string} year - The target year to filter by
+   * @returns {Array<Object>} Subset of records whose date matches the target year
    */
   function filterByYear(records, year) {
     var targetYear = String(year);
@@ -615,8 +635,10 @@
   var activeTab = "single";
 
   /**
-   * Checks whether localStorage is available and functional.
-   * @returns {boolean}
+   * @description Checks whether localStorage is available and functional by
+   * attempting a write/remove cycle with a test key.
+   * @returns {boolean} True if localStorage is accessible and writable
+   * @sideeffect Briefly writes and removes a test key in localStorage
    */
   function isLocalStorageAvailable() {
     try {
@@ -630,8 +652,11 @@
   }
 
   /**
-   * Updates the displayed next receipt number for the selected year.
-   * Reads the current sequence from localStorage without incrementing.
+   * @description Updates the displayed next receipt number for the selected year.
+   * Reads the current sequence from localStorage without incrementing it, then
+   * sets the text content of the `#next-receipt-number` element.
+   * @returns {void}
+   * @sideeffect Reads from localStorage; updates `#next-receipt-number` DOM element text
    */
   function updateNextReceiptDisplay() {
     var yearSelect = document.getElementById("year-select");
@@ -653,7 +678,10 @@
   }
 
   /**
-   * Clears all inline validation errors from the single entry form.
+   * @description Clears all inline validation errors from the single entry form.
+   * Removes `.field-error` elements and `.input-error` classes from inputs.
+   * @returns {void}
+   * @sideeffect Removes error DOM elements and CSS classes from `#single-entry-form`
    */
   function clearFormErrors() {
     var form = document.getElementById("single-entry-form");
@@ -669,8 +697,12 @@
   }
 
   /**
-   * Displays inline validation errors on the single entry form.
-   * @param {Array<{field: string, message: string}>} errors
+   * @description Displays inline validation errors on the single entry form.
+   * Adds `.input-error` class to each invalid input and appends a `.field-error`
+   * span with the error message below it.
+   * @param {Array<{field: string, message: string}>} errors - Validation errors to display
+   * @returns {void}
+   * @sideeffect Adds error DOM elements and CSS classes to form inputs in `#single-entry-form`
    */
   function showFormErrors(errors) {
     var fieldMap = {
@@ -698,8 +730,13 @@
   }
 
   /**
-   * Entry point. Populates year selector, binds all UI event listeners.
-   * Called on DOMContentLoaded.
+   * @description Entry point for the donation receipt generator. Populates the
+   * year selector dropdown, displays the next receipt number, and binds all UI
+   * event listeners (tab toggle, generate, print, clear, year change, sequence
+   * override, CSV file input). Called automatically on DOMContentLoaded.
+   * @returns {void}
+   * @sideeffect Manipulates multiple DOM elements; reads/writes localStorage;
+   * registers event listeners on form controls and buttons
    */
   function initReceiptGenerator() {
     // --- Check localStorage availability ---

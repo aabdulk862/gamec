@@ -1,353 +1,325 @@
-# GAMEC Website — Unsplash Image Recommendations
+# GAMEC — Unsplash Image Recommendations
 
-All images below are free to use from [Unsplash](https://unsplash.com) (no attribution required, though appreciated). Each recommendation follows the guide: max 1 image per section, people over abstract, consistency over creativity.
+Rules: no people, no Islamic/Eritrean/religious stock imagery. Objects, nature, textures only. Your own community photos stay as-is.
 
-> **How to use this:** Click any link, download the image at 1920px wide (or "Regular" size), optimize it, and drop it into your `/images` folder. Rename to match the suggested filename.
-
----
-
-## 🏠 Homepage (`index.html`)
-
-### Hero / Banner Section
-
-Currently text-only. Add ONE strong background image behind the banner overlay.
-
-| Suggested Image                                | What It Shows                        | Link                                                                                                                                           |
-| ---------------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mosque at golden hour with warm light          | Spiritual, welcoming, community feel | [unsplash.com/photos/brown-and-white-concrete-building-uouvblwaQs4](https://unsplash.com/photos/brown-and-white-concrete-building-uouvblwaQs4) |
-| **Alt option:** Diverse group praying together | Human connection, unity              | [unsplash.com/photos/men-praying-together-in-a-line-s9mbOtZuOvk](https://unsplash.com/photos/men-praying-together-in-a-line-s9mbOtZuOvk)       |
-
-**Suggested filename:** `hero-banner.jpg`
-**Placement:** CSS background on `#banner-wrapper` with dark overlay
-
-### Features Section (3 cards)
-
-Currently using: `asmara-mosque.jpg`, `event-room.jpg`, `jebena.png` — these are fine and authentic. **Keep them.** They're real community images which is better than stock.
-
-### Donate CTA Section
-
-No image needed — clean color block is better here. ✅ Already correct.
-
-### Livestream Section
-
-Already has `kaaba2.jpg` and `madinah.jpeg` — **Keep as-is.** ✅
-
-### Matrimonial Services Callout
-
-Currently no image. Could benefit from ONE subtle image.
-
-| Suggested Image                           | What It Shows                | Link                                                                                                                                                       |
-| ----------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Warm Islamic geometric pattern or lantern | Subtle, elegant, faith-based | [unsplash.com/photos/a-dark-room-with-a-stained-glass-window-3yJPV3LnDzY](https://unsplash.com/photos/a-dark-room-with-a-stained-glass-window-3yJPV3LnDzY) |
-
-**Suggested filename:** `matrimonial-accent.jpg`
-**Placement:** Small side image or subtle background
+> Click a link → download "Regular" size → optimize at [squoosh.app](https://squoosh.app) → save to `/images`.
 
 ---
 
-## 📖 Mission & Vision (`vision.html`)
+## index.html (Homepage)
 
-### "Who We Are" Section
+**Current images:**
 
-Currently using `kaaba1.jpg` — **Keep it.** ✅ Strong, relevant, spiritual.
+- Features: `asmara-mosque.jpg`, `event-room.jpg`, `jebena.png` — your own photos ✅ keep
+- Livestream: `kaaba2.jpg`, `madinah.jpeg` — tied to the feature ✅ keep
+- Quran CTA: `cover.png` — your own asset ✅ keep
 
-### Mission & Vision Cards
+**What's missing:**
 
-No image needed — text cards are clean. ✅
+1. Banner (`#banner-wrapper`) — text-only right now, no background image. This is the first thing visitors see.
 
-### Priorities Section
+   | Search                              | Mood                  | Link                                                                                             |
+   | ----------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------ |
+   | Warm golden sunrise over calm water | Hope, warmth, welcome | [unsplash.com/s/photos/golden-sunrise-water](https://unsplash.com/s/photos/golden-sunrise-water) |
+   | Soft light breaking through clouds  | Uplifting, peaceful   | [unsplash.com/s/photos/sun-rays-clouds](https://unsplash.com/s/photos/sun-rays-clouds)           |
 
-Currently text-only. Add ONE image to break up the long list.
+   Save as: `hero-banner.jpg` — use as CSS background with dark overlay on `#banner-wrapper`
 
-| Suggested Image                            | What It Shows       | Link                                                                                                                                                                             |
-| ------------------------------------------ | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Community gathering or hands joined        | Unity, togetherness | [unsplash.com/photos/group-of-middle-eastern-ethnicity-people-in-a-park-NgsX1I6xybQ](https://unsplash.com/photos/group-of-middle-eastern-ethnicity-people-in-a-park-NgsX1I6xybQ) |
-| **Alt option:** Open Quran with warm light | Faith, knowledge    | [unsplash.com/s/photos/quran-reading](https://unsplash.com/s/photos/quran-reading) — pick the top result                                                                         |
+2. "Our History" section — short text + button, no image. Fine as-is. ✅ skip
 
-**Suggested filename:** `vision-community.jpg`
-**Placement:** Side image next to the priorities list (same layout as the "Who We Are" row)
+3. "Our Impact" section — stat numbers, no image. Fine as-is. ✅ skip
 
----
+4. "Support Our Mission" (donate CTA) — text + button. Clean. ✅ skip
 
-## 🕌 History (`history.html`)
+5. "Matrimonial Services" callout — text + 2 buttons. Clean. ✅ skip
 
-### Masjid As-Sahaba Section
+6. "Community Groups" — icon buttons. Clean. ✅ skip
 
-Currently using `as-sahaba.jpg` — **Keep it.** ✅ This is the real mosque. Authentic > stock.
+7. "Stay Connected" — social links. Clean. ✅ skip
 
-### "The First Hijra" Section
-
-Currently text-only. This is a long narrative — one image would help.
-
-| Suggested Image                                           | What It Shows               | Link                                                                                                                   |
-| --------------------------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Red Sea coastline / port town                             | Evokes Massawa, the journey | [unsplash.com/s/photos/red-sea-coast](https://unsplash.com/s/photos/red-sea-coast) — pick a warm, wide coastal shot    |
-| **Alt option:** Ancient Islamic calligraphy or manuscript | Historical gravitas         | [unsplash.com/s/photos/islamic-calligraphy](https://unsplash.com/s/photos/islamic-calligraphy) — pick a warm-toned one |
-
-**Suggested filename:** `history-hijra.jpg`
-**Placement:** Wide banner image between "The First Hijra" and "A King's Protection" sections
-
-### "Legacy and Significance" Section
-
-No additional image needed — the page already has the mosque photo at top. ✅
+**Summary for homepage: add 1 image (banner background). Everything else is fine.**
 
 ---
 
-## 👥 Leadership (`leadership.html`)
+## vision.html (Mission & Vision)
 
-### Page Header
+**Current images:**
 
-Currently no image at all. This page needs ONE hero image for trust.
+- "Who We Are" section: `kaaba1.jpg` — your own photo ✅ keep
 
-| Suggested Image                                | What It Shows             | Link                                                                                                                       |
-| ---------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Conference table or meeting room (warm tones)  | Leadership, organization  | [unsplash.com/s/photos/meeting-table](https://unsplash.com/s/photos/meeting-table) — pick one with warm lighting, no faces |
-| **Alt option:** Hands on a table in discussion | Collaboration, governance | [unsplash.com/s/photos/team-discussion](https://unsplash.com/s/photos/team-discussion) — pick a diverse group              |
+**What's missing:**
 
-**Suggested filename:** `leadership-hero.jpg`
-**Placement:** Wide banner image below the H1, before the intro paragraph
+1. "Our Priorities" section — 8-item bullet list, long, no visual break.
 
-### Board Cards
+   | Search                          | Mood               | Link                                                                                       |
+   | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+   | Seedling growing from soil      | Growth, foundation | [unsplash.com/s/photos/seedling](https://unsplash.com/s/photos/seedling)                   |
+   | Notebook and pen on wooden desk | Planning, purpose  | [unsplash.com/s/photos/notebook-pen-desk](https://unsplash.com/s/photos/notebook-pen-desk) |
 
-Currently using Font Awesome user icons as placeholders — that's fine for now. When real photos are available, swap them in. **Don't use stock headshots as fake board members.**
+   Save as: `vision-priorities.jpg` — place as side image next to the list
 
----
+2. Mission/Vision cards — text cards. ✅ skip
+3. Quote section — short. ✅ skip
+4. Get Involved buttons — CTA row. ✅ skip
 
-## 📞 Contact (`contact.html`)
-
-### Page Header
-
-Currently no image. This page is short and functional — an image is optional.
-
-| Suggested Image                   | What It Shows                   | Link                                                                                                         |
-| --------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Washington DC skyline or landmark | Grounds the org in its location | [unsplash.com/s/photos/washington-dc](https://unsplash.com/s/photos/washington-dc) — pick a clean, wide shot |
-
-**Suggested filename:** `contact-dc.jpg`
-**Placement:** Optional wide banner below H1. Only add if the page feels too sparse.
+**Summary: add 1 image next to priorities list. Rest is fine.**
 
 ---
 
-## 📋 Programs (`programs.html`)
+## history.html
 
-### Core Programs Cards
+**Current images:**
 
-Currently text-only link cards. Each program card would benefit from a small icon-style image or a single hero image at the top of the page.
+- `as-sahaba.jpg` next to Masjid As-Sahaba text — your own photo ✅ keep
 
-**Option A — One hero image for the whole page:**
+**What's missing:**
 
-| Suggested Image                              | What It Shows             | Link                                                                                                                               |
-| -------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Diverse group of people in community setting | Programs serving all ages | [unsplash.com/photos/a-happy-large-muslim-family-rZAHWnx-bNo](https://unsplash.com/photos/a-happy-large-muslim-family-rZAHWnx-bNo) |
+1. "The First Hijra" + "A King's Protection" + "Legacy" — three long text sections back-to-back with zero images.
 
-**Suggested filename:** `programs-hero.jpg`
+   | Search                           | Mood              | Link                                                                                               |
+   | -------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+   | Calm ocean horizon at dawn       | Journey, crossing | [unsplash.com/s/photos/ocean-horizon-dawn](https://unsplash.com/s/photos/ocean-horizon-dawn)       |
+   | Coastline with warm golden light | Arrival, new land | [unsplash.com/s/photos/coastline-golden-hour](https://unsplash.com/s/photos/coastline-golden-hour) |
 
-**Option B — One small image per program card (preferred):**
+   Save as: `history-journey.jpg` — wide image between "The First Hijra" and "A King's Protection"
 
-| Program             | Suggested Search                  | Link to Browse                                                                                   |
-| ------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------ |
-| GAMEC Charity       | Volunteer hands, aid distribution | [unsplash.com/s/photos/charity-work](https://unsplash.com/s/photos/charity-work)                 |
-| GAMEC Sisters       | Women in hijab learning/talking   | [unsplash.com/s/photos/muslim-women](https://unsplash.com/s/photos/muslim-women)                 |
-| GAMEC Youth         | Young people, sports, energy      | [unsplash.com/s/photos/youth-soccer](https://unsplash.com/s/photos/youth-soccer)                 |
-| GAMEC Seniors       | Elderly person, warmth, dignity   | [unsplash.com/s/photos/elderly](https://unsplash.com/s/photos/elderly)                           |
-| GAMEC Professionals | Business meeting, networking      | [unsplash.com/s/photos/business-meeting](https://unsplash.com/s/photos/business-meeting)         |
-| Health Services     | Healthcare, stethoscope, wellness | [unsplash.com/s/photos/healthcare-community](https://unsplash.com/s/photos/healthcare-community) |
-
-**Keep all card images the same aspect ratio (16:9 or 3:2) and same dimensions.**
-
-### Additional Initiatives
-
-No images needed — the text blocks with buttons are clean. ✅
+**Summary: add 1 landscape image to break up the long narrative.**
 
 ---
 
-## ❤️ GAMEC Charity (`relief.html`)
+## leadership.html
 
-### Page — Currently NO images at all. Needs at least one.
+**Current images:** none at all. Just text + 4 placeholder icon cards.
 
-| Section            | Suggested Image                    | Link                                                                                                                      |
-| ------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Hero (top of page) | Hands giving/receiving, warm tones | [unsplash.com/s/photos/helping-hands](https://unsplash.com/s/photos/helping-hands) — pick one with people, not just hands |
-| **Alt option:**    | Food distribution or community aid | [unsplash.com/s/photos/food-donation](https://unsplash.com/s/photos/food-donation)                                        |
+1. Page hero — needs one image for visual weight.
 
-**Suggested filename:** `relief-hero.jpg`
-**Placement:** Wide image below H1, before "Our Commitment" text
+   | Search                             | Mood                  | Link                                                                                                   |
+   | ---------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------ |
+   | Empty conference table, warm light | Governance, structure | [unsplash.com/s/photos/conference-table-empty](https://unsplash.com/s/photos/conference-table-empty)   |
+   | Wooden table with notebooks        | Organization          | [unsplash.com/s/photos/meeting-table-notebooks](https://unsplash.com/s/photos/meeting-table-notebooks) |
 
----
+   Save as: `leadership-hero.jpg` — wide image below H1
 
-## 👩 GAMEC Sisters (`sisters.html`)
-
-### Hero Section
-
-Currently using `lantern.jpg` — this works but could be stronger.
-
-| Suggested Replacement                      | What It Shows                       | Link                                                                                                                                                                                                                   |
-| ------------------------------------------ | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Women in hijab studying or in conversation | Empowerment, education, real people | [unsplash.com/photos/cheerful-young-women-wearing-hijab-laughing-and-walking-in-the-street-p58nsafwF-c](https://unsplash.com/photos/cheerful-young-women-wearing-hijab-laughing-and-walking-in-the-street-p58nsafwF-c) |
-| **Alt option:** Woman reading/studying     | Focus, growth                       | [unsplash.com/s/photos/muslim-student](https://unsplash.com/s/photos/muslim-student) — pick a warm, natural shot                                                                                                       |
-
-**Suggested filename:** `sisters-hero.jpg`
-
-### Remaining Sections
-
-No additional images needed — the page has good structure with icons. ✅
+**Summary: add 1 image. That's it.**
 
 ---
 
-## 🧑‍🤝‍🧑 GAMEC Youth (`youth.html`)
+## contact.html
 
-### Hero Section
+**Current images:** none. Page is short — 3 contact cards + a note.
 
-Currently using `soccer-ball-grass.jpg` — decent but impersonal (no people).
-
-| Suggested Replacement                      | What It Shows                | Link                                                                                                                         |
-| ------------------------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Young people playing soccer or in a huddle | Energy, teamwork, real youth | [unsplash.com/s/photos/youth-soccer](https://unsplash.com/s/photos/youth-soccer) — pick one with kids/teens actively playing |
-| **Alt option:** Diverse teens in a group   | Community, belonging         | [unsplash.com/s/photos/diverse-teenagers](https://unsplash.com/s/photos/diverse-teenagers)                                   |
-
-**Suggested filename:** `youth-hero.jpg`
-
-### Program Sections
-
-No additional images needed — the icon + list format is clean. ✅ Don't add images to every section.
+**Verdict: skip. Page is functional and clean as-is.** ✅
 
 ---
 
-## 🧓 GAMEC Seniors (`seniors.html`)
+## programs.html
 
-### Page — Currently NO images at all. This is the most image-starved page.
+**Current images:** none. 6 text-only program link cards + 3 initiative text blocks.
 
-| Section            | Suggested Image                            | Link                                                                                                                      |
-| ------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| Hero (top of page) | Elderly person smiling, warm and dignified | [unsplash.com/s/photos/elderly](https://unsplash.com/s/photos/elderly) — pick one with a warm smile, natural setting      |
-| **Alt option:**    | Older hands holding younger hands          | [unsplash.com/s/photos/helping-elderly](https://unsplash.com/s/photos/helping-elderly) — pick one showing care/connection |
+1. Page hero or one image per program card.
 
-**Suggested filename:** `seniors-hero.jpg`
-**Placement:** Wide image below H1, before the paragraph. This page especially needs the emotional pull.
+   **Option A — one hero image at top:**
 
----
+   | Search                           | Mood              | Link                                                                                         |
+   | -------------------------------- | ----------------- | -------------------------------------------------------------------------------------------- |
+   | Colorful sticky notes on a board | Variety, planning | [unsplash.com/s/photos/sticky-notes-board](https://unsplash.com/s/photos/sticky-notes-board) |
 
-## 💼 GAMEC Professionals (`professionals.html`)
+   Save as: `programs-hero.jpg`
 
-### Hero Section
+   **Option B — one small image per card (stronger):**
 
-Currently using `city.jpg` — a city skyline. It's okay but generic.
+   | Card          | Search                   | Link                                                                                             |
+   | ------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
+   | Charity       | Cardboard donation boxes | [unsplash.com/s/photos/donation-box](https://unsplash.com/s/photos/donation-box)                 |
+   | Sisters       | Warm tea cup on table    | [unsplash.com/s/photos/tea-cup-table](https://unsplash.com/s/photos/tea-cup-table)               |
+   | Youth         | Soccer ball on grass     | [unsplash.com/s/photos/soccer-ball-grass](https://unsplash.com/s/photos/soccer-ball-grass)       |
+   | Seniors       | Reading glasses on book  | [unsplash.com/s/photos/reading-glasses-book](https://unsplash.com/s/photos/reading-glasses-book) |
+   | Professionals | Laptop + coffee on desk  | [unsplash.com/s/photos/laptop-and-coffee](https://unsplash.com/s/photos/laptop-and-coffee)       |
+   | Health        | Stethoscope on surface   | [unsplash.com/s/photos/stethescope](https://unsplash.com/s/photos/stethescope)                   |
 
-| Suggested Replacement                                    | What It Shows              | Link                                                                                                                           |
-| -------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Professionals in a meeting or networking                 | Real people, collaboration | [unsplash.com/s/photos/business-meeting](https://unsplash.com/s/photos/business-meeting) — pick a diverse group, warm lighting |
-| **Alt option:** Person working on laptop in modern space | Focus, ambition            | [unsplash.com/s/photos/professional-workspace](https://unsplash.com/s/photos/professional-workspace)                           |
+   All same aspect ratio (16:9), all same dimensions.
 
-**Suggested filename:** `professionals-hero.jpg`
-
-### Remaining Sections
-
-No additional images needed. ✅
+**Summary: pick Option A or B. Either way, max 1 image per card.**
 
 ---
 
-## 🏥 Health Services (`health.html`)
+## relief.html (Charity)
 
-### Page — Currently NO images at all.
+**Current images:** zero. Just headings + paragraphs + a bullet list.
 
-| Section            | Suggested Image                       | Link                                                                                                      |
-| ------------------ | ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Hero (top of page) | Doctor/nurse with patient, warm tones | [unsplash.com/s/photos/healthcare-community](https://unsplash.com/s/photos/healthcare-community)          |
-| **Alt option:**    | Stethoscope on warm background        | [unsplash.com/s/photos/stethoscope](https://unsplash.com/s/photos/stethoscope) — pick a clean, simple one |
+1. Page hero:
 
-**Suggested filename:** `health-hero.jpg`
-**Placement:** Wide image below H1
+   | Search                               | Mood              | Link                                                                           |
+   | ------------------------------------ | ----------------- | ------------------------------------------------------------------------------ |
+   | Cardboard boxes packed with supplies | Aid, giving       | [unsplash.com/s/photos/charity-box](https://unsplash.com/s/photos/charity-box) |
+   | Grocery bags lined up                | Provision, relief | [unsplash.com/s/photos/food-bank](https://unsplash.com/s/photos/food-banks)    |
 
----
+   Save as: `relief-hero.jpg` — wide image below H1
 
-## 🤝 Membership (`membership.html`)
-
-### Page — Currently NO images.
-
-| Section                     | Suggested Image                          | Link                                                                                                     |
-| --------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Hero or above benefits grid | People joining hands or community circle | [unsplash.com/s/photos/community-together](https://unsplash.com/s/photos/community-together)             |
-| **Alt option:**             | Warm handshake                           | [unsplash.com/s/photos/handshake](https://unsplash.com/s/photos/handshake) — pick a natural, diverse one |
-
-**Suggested filename:** `membership-hero.jpg`
-**Placement:** Between the intro paragraph and the benefits grid. One image only.
+**Summary: add 1 image.**
 
 ---
 
-## 💰 Donate (`donate.html`)
+## sisters.html
 
-### Page — Currently NO images. That's actually fine here.
+**Current images:**
 
-Donate pages should be clean and focused on the action. **Don't add images** unless you want ONE subtle background or accent.
+- Hero: `lantern.jpg` — warm object shot, no people ✅ keep
 
-| Optional                                   | Suggested Image                          | Link                                                                                           |
-| ------------------------------------------ | ---------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Subtle background for the trust badge area | Warm abstract light or geometric pattern | [unsplash.com/s/photos/warm-light-abstract](https://unsplash.com/s/photos/warm-light-abstract) |
+**Rest of page:** 4 sections with icon headers + bullet lists. No additional images needed. ✅
 
-**Verdict:** Skip images on this page. Clarity > decoration. ✅
+**Summary: no changes needed.**
 
 ---
 
-## 📸 Media (`media.html`)
+## youth.html
 
-This page is already image-heavy with the gallery. **Don't add more.** ✅
-The existing authentic community photos are the strongest asset here.
+**Current images:**
 
----
+- Hero: `soccer-ball-grass.jpg` — object on grass, no people ✅ keep
 
-## 📚 Resources (`resources.html`)
+**Rest of page:** 8 program sections with icon headers + lists + a quote. No additional images needed. ✅
 
-### Page — Currently has the Quran viewer but no decorative images.
-
-| Optional                                    | Suggested Image            | Link                                                                               |
-| ------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------- |
-| Small accent near Islamic Resources heading | Open Quran with warm light | [unsplash.com/s/photos/quran-reading](https://unsplash.com/s/photos/quran-reading) |
-
-**Verdict:** Optional. The Quran viewer is already visual. Only add if the page feels text-heavy below the viewer.
+**Summary: no changes needed.**
 
 ---
 
-## 💍 Matrimonial (`matrimonial.html`)
+## seniors.html
 
-### Page — Currently NO images. Long text-heavy page.
+**Current images:** zero. Just one H1 + one paragraph. The emptiest page on the site.
 
-| Section                                 | Suggested Image                      | Link                                                                                                                               |
-| --------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Hero (top, after intro)                 | Islamic geometric art or mosque arch | [unsplash.com/s/photos/islamic-architecture](https://unsplash.com/s/photos/islamic-architecture) — pick an elegant arch or pattern |
-| Between "Purposes" and "Nikah" sections | Warm lantern or candle light         | [unsplash.com/s/photos/islamic-lantern](https://unsplash.com/s/photos/islamic-lantern)                                             |
+1. Page hero:
 
-**Suggested filename:** `matrimonial-hero.jpg`
-**Placement:** One image near the top. Max one more as a section break halfway down. That's it.
+   | Search                                      | Mood                  | Link                                                                                             |
+   | ------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------ |
+   | Reading glasses on an open book, warm light | Wisdom, quiet dignity | [unsplash.com/s/photos/reading-glasses-book](https://unsplash.com/s/photos/reading-glasses-book) |
+   | Warm tea by a window, soft light            | Comfort, care         | [unsplash.com/s/photos/tea-window-light](https://unsplash.com/s/photos/tea-window-light)         |
+   | Garden path with soft morning light         | Peaceful journey      | [unsplash.com/s/photos/garden-pathway](https://unsplash.com/s/photos/garden-pathway)             |
 
----
+   Save as: `seniors-hero.jpg` — wide image below H1. Pick ONE.
 
-## 📏 Global Rules Recap
-
-| Rule            | Guideline                                                                |
-| --------------- | ------------------------------------------------------------------------ |
-| Max per section | 1 image                                                                  |
-| Aspect ratio    | Keep consistent across similar sections (16:9 for heroes, 3:2 for cards) |
-| File size       | Optimize to under 200KB each (use [squoosh.app](https://squoosh.app))    |
-| Format          | `.jpg` for photos, `.webp` if you want modern optimization               |
-| Naming          | Descriptive: `sisters-hero.jpg`, `relief-hero.jpg`, `seniors-hero.jpg`   |
-| Alt text        | Always descriptive and specific to GAMEC context                         |
-| Loading         | Add `loading="lazy"` to all images below the fold                        |
+**Summary: add 1 image. This page needs it the most.**
 
 ---
 
-## Priority Order (what to add first)
+## professionals.html
 
-1. **seniors.html** — most image-starved, needs emotional pull
-2. **relief.html** — charity page with zero visuals
-3. **health.html** — same issue
-4. **programs.html** — card images would transform this page
-5. **sisters.html** — swap lantern for a people-focused image
-6. **youth.html** — swap soccer ball for active youth
-7. **membership.html** — one community image above benefits
-8. **leadership.html** — one hero image for trust
-9. **history.html** — one image to break up the narrative
-10. **matrimonial.html** — one elegant accent image
+**Current images:**
+
+- Hero: `city.jpg` — city skyline, no people ✅ acceptable
+
+**Optional swap:**
+
+| Search                                     | Mood                  | Link                                                                       |
+| ------------------------------------------ | --------------------- | -------------------------------------------------------------------------- |
+| Clean desk with laptop + notebook + coffee | Professional, focused | [unsplash.com/s/photos/workspace](https://unsplash.com/s/photos/workspace) |
+
+Save as: `professionals-hero.jpg` — only if you want something warmer than the skyline.
+
+**Summary: optional swap. Current image works.**
 
 ---
 
-_All images sourced from [Unsplash](https://unsplash.com) — free for commercial use under the [Unsplash License](https://unsplash.com/license)._
+## health.html
+
+**Current images:** zero. H1 + paragraph + bullet list + "Get Involved" text.
+
+1. Page hero:
+
+   | Search                       | Mood              | Link                                                                               |
+   | ---------------------------- | ----------------- | ---------------------------------------------------------------------------------- |
+   | Stethoscope on clean surface | Healthcare, trust | [unsplash.com/s/photos/stethescope](https://unsplash.com/s/photos/stethescope)     |
+   | First aid kit                | Preparedness      | [unsplash.com/s/photos/first-aid-kit](https://unsplash.com/s/photos/first-aid-kit) |
+
+   Save as: `health-hero.jpg` — wide image below H1
+
+**Summary: add 1 image.**
+
+---
+
+## membership.html
+
+**Current images:** zero. Intro paragraph + 3 benefit icon cards + FAQ accordion + CTA buttons.
+
+1. Between intro and benefits grid:
+
+   | Search                         | Mood                | Link                                                                                   |
+   | ------------------------------ | ------------------- | -------------------------------------------------------------------------------------- |
+   | Open door with warm light      | Welcome, invitation | [unsplash.com/s/photos/open-door-light](https://unsplash.com/s/photos/open-door-light) |
+   | Puzzle pieces fitting together | Unity, belonging    | [unsplash.com/s/photos/puzzle-pieces](https://unsplash.com/s/photos/puzzle-pieces)     |
+
+   Save as: `membership-hero.jpg`
+
+**Summary: add 1 image between intro and benefits. Optional — page works without it too.**
+
+---
+
+## donate.html
+
+**Current images:** zero. Trust badge + 3 payment method sections.
+
+**Verdict: skip. Donate pages should stay clean and action-focused.** ✅
+
+---
+
+## matrimonial.html
+
+**Current images:** zero. Very long page — intro, 4 purpose cards, 3 accordion sections, closing CTA.
+
+1. Near the top, after the intro blockquote:
+
+   | Search                                | Mood                  | Link                                                                                     |
+   | ------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------- |
+   | Two rings on soft fabric              | Partnership, marriage | [unsplash.com/s/photos/wedding-rings](https://unsplash.com/s/photos/wedding-rings)       |
+   | Simple flower arrangement, warm tones | Celebration           | [unsplash.com/s/photos/wedding-bouquets](https://unsplash.com/s/photos/wedding-bouquets) |
+
+   Save as: `matrimonial-hero.jpg` — one image only, near the top.
+
+**Summary: add 1 image. Don't add more even though the page is long — the accordion sections keep it structured.**
+
+---
+
+## media.html
+
+**Current images:** `kaaba2.jpg`, `madinah.jpeg`, `logo-bg.png`, `asmara-mosque.jpg`, `as-sahaba.jpg`, `event-room.jpg`, `jebena.png`, 4x `awate-library` photos — all your own. ✅
+
+**Verdict: don't add stock here. This is your authentic gallery.** ✅
+
+---
+
+## resources.html
+
+**Current images:** Quran viewer (canvas-based) + `cover.png` on homepage CTA.
+
+**Verdict: skip. The Quran viewer is already visual.** ✅
+
+---
+
+## Priority Order
+
+| #   | Page                           | What to Add              | Urgency                        |
+| --- | ------------------------------ | ------------------------ | ------------------------------ |
+| 1   | seniors.html                   | 1 hero image             | High — completely empty        |
+| 2   | relief.html                    | 1 hero image             | High — no visuals at all       |
+| 3   | health.html                    | 1 hero image             | High — same issue              |
+| 4   | index.html                     | 1 banner background      | High — first impression        |
+| 5   | matrimonial.html               | 1 accent image           | Medium — long text wall        |
+| 6   | programs.html                  | hero or card images      | Medium — all text              |
+| 7   | leadership.html                | 1 hero image             | Medium — sparse                |
+| 8   | history.html                   | 1 landscape break        | Low — already has mosque photo |
+| 9   | membership.html                | 1 welcome image          | Low — works without it         |
+| 10  | vision.html                    | 1 accent near priorities | Low — already has kaaba photo  |
+| —   | professionals.html             | optional swap            | Optional                       |
+| —   | contact/donate/media/resources | nothing                  | Skip ✅                        |
+
+---
+
+## Technical Notes
+
+- Aspect ratio: 16:9 for all hero/banner images, 3:2 for cards
+- Max file size: 200KB after optimization
+- Format: `.jpg` (or `.webp` for modern browsers)
+- Always add `loading="lazy"` for images below the fold
+- Alt text: describe the object/scene, not the page context
+
+_All images from [Unsplash](https://unsplash.com) — free under the [Unsplash License](https://unsplash.com/license)._
