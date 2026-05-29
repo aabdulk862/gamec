@@ -3,8 +3,10 @@ import '@styles/main.css';
 import '@styles/media.css';
 import '@styles/fontawesome-all.min.css';
 
+import { ViewTransitions } from 'astro:transitions';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import { siteConfig } from '../config';
 
 interface Props {
   title?: string;
@@ -19,10 +21,10 @@ interface Props {
 }
 
 const {
-  title = "GAMEC",
-  description = "GAMEC (Global Association of Muslim Eritrean Communities) is a 501(c)(3) non-profit voluntary membership association serving the Eritrean Muslim community.",
+  title = siteConfig.name,
+  description = siteConfig.description,
   canonicalPath,
-  ogImage = "https://igamec.org/images/logo-bg.png",
+  ogImage = siteConfig.logo,
   robots = "index, follow",
   bodyClass = "",
   dataPage,
@@ -47,17 +49,19 @@ const currentPath = pathname === "/" || pathname === ""
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
 
+    <ViewTransitions />
+
     {/* Canonical URL */}
-    {canonicalPath && <link rel="canonical" href={`https://igamec.org${canonicalPath}`} />}
+    {canonicalPath && <link rel="canonical" href={`${siteConfig.url}${canonicalPath}`} />}
 
     {/* Open Graph */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={canonicalPath ? `https://igamec.org${canonicalPath}` : "https://igamec.org"} />
+    <meta property="og:url" content={canonicalPath ? `${siteConfig.url}${canonicalPath}` : siteConfig.url} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="GAMEC" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content={siteConfig.locale} />
 
     {/* Twitter Card */}
     <meta name="twitter:card" content="summary" />
