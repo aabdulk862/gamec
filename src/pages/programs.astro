@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ProgramCard from '@components/ProgramCard.astro';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "department": {
+      "@type": "Organization",
+      "name": "GAMEC Programs",
+      "description": "Community programs empowering Muslim Eritreans through education, cultural initiatives, and social services across all ages and backgrounds."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Programs | GAMEC"
+  description="Explore the programs GAMEC is building to empower and enrich the lives of Muslim Eritreans. Learn about our planned educational, cultural, and community initiatives."
+  canonicalPath="/programs.html"
+  bodyClass="no-sidebar"
+  dataPage="programs"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div id="content">
+      <article>
+        <!-- Section: Page Header -->
+        <header data-section="page-header">
+          <h1>GAMEC Programs</h1>
+        </header>
+
+        <section aria-label="Programs overview">
+          <p>
+            The Global Association of Muslim Eritrean Communities is
+            developing programs to empower, educate, and foster unity
+            within our community. These initiatives serve individuals of
+            all ages and backgrounds.
+          </p>
+        </section>
+        <!-- /Section: Page Header -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Core Programs -->
+        <section data-section="core-programs" aria-label="Core Programs">
+          <h2>Core Programs</h2>
+          <p>
+            Each program addresses a specific need within our community,
+            from charitable relief to professional development.
+          </p>
+
+          <div class="programs-dl">
+            <ProgramCard
+              title="GAMEC Charity"
+              description="Extending aid to those in need within the Muslim Eritrean community and beyond, rooted in our mission to serve through compassion."
+              href="./relief.html"
+            />
+
+            <ProgramCard
+              title="GAMEC Sisters"
+              description="Empowering women through Islamic education, leadership development, and community engagement across ages and backgrounds."
+              href="./sisters.html"
+            />
+
+            <ProgramCard
+              title="GAMEC Youth"
+              description="Nurturing spiritually grounded, culturally proud, and socially responsible young people through education, sports, and cultural activities."
+              href="./youth.html"
+            />
+
+            <ProgramCard
+              title="GAMEC Seniors"
+              description="Supporting senior members with compassionate care, community connections, and resources to maintain independence and dignity."
+              href="./seniors.html"
+            />
+
+            <ProgramCard
+              title="GAMEC Professionals"
+              description="Connecting Muslim Eritrean professionals across industries with networking, mentorship, and career development opportunities."
+              href="./professionals.html"
+            />
+
+            <ProgramCard
+              title="Health Services"
+              description="Providing essential healthcare support including medical assistance, health education, wellness programs, and community support."
+              href="./health.html"
+            />
+          </div>
+        </section>
+        <!-- /Section: Core Programs -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Additional Initiatives -->
+        <section data-section="additional-initiatives" aria-label="Additional Initiatives">
+          <h2>Additional Initiatives</h2>
+
+          <div class="initiative-block">
+            <h3>Youth Sports Program</h3>
+            <p>
+              A vibrant program where young athletes build skills and
+              friendships through football, basketball, and soccer in a
+              supportive, encouraging environment with dedicated coaches.
+            </p>
+            <a
+              href="./youth.html"
+              class="button icon solid fa-arrow-circle-right"
+              >Learn More</a
+            >
+          </div>
+
+          <div class="initiative-block">
+            <h3>Matrimonial Services</h3>
+            <p>
+              Helping individuals and families find compatible life
+              partners grounded in Islamic values, Eritrean heritage, and
+              shared principles through guidance, resources, and community
+              events.
+            </p>
+            <a
+              href="./matrimonial.html"
+              class="button icon solid fa-arrow-circle-right"
+              >Learn More</a
+            >
+          </div>
+
+          <div class="initiative-block">
+            <h3>Da'wah: Sharing the Message</h3>
+            <p>
+              Education programs dedicated to sharing the essence of Islam
+              through workshops, talks, and outreach that foster
+              understanding and unity.
+            </p>
+            <a
+              href="./contact.html"
+              class="button icon solid fa-arrow-circle-right"
+              >Get Involved</a
+            >
+          </div>
+        </section>
+        <!-- /Section: Additional Initiatives -->
+      </article>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,28 +1,29 @@
 {
-  "name": "gamec",
+  "name": "gamec-website",
   "version": "1.0.0",
-  "description": "**Project Name:** GAMEC (Global Association of Muslim Eritrean Communities) Website  \r **Organization Type:** Non-profit 501(c)(3) voluntary membership association  \r **Domain:** https://igamec.org  \r **Purpose:** Community website for Muslim Eritreans worldwide to connect, collaborate, and access resources",
-  "main": "index.js",
+  "description": "GAMEC (Global Association of Muslim Eritrean Communities) website built with Astro",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "vitest --run"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aabdulk862/gamec.git"
+  "engines": {
+    "node": ">=18.17.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/aabdulk862/gamec/issues"
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^5.0.6",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": ">=5.0.0 <6.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.9.3"
   },
-  "homepage": "https://github.com/aabdulk862/gamec#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "css-tree": "^3.2.1",
-    "fast-check": "^4.6.0",
-    "jsdom": "^29.0.2",
-    "vitest": "^4.1.2"
+    "fast-check": "^4.8.0",
+    "vitest": "^3.2.1"
   }
 }

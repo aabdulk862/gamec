@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  thumbnailSrc: ImageMetadata | string;
+  thumbnailAlt: string;
+  thumbnailWidth: number;
+  thumbnailHeight: number;
+  embedUrl: string;
+  description?: string;
+  detailed?: boolean;
+}
+
+const { title, thumbnailSrc, thumbnailAlt, thumbnailWidth, thumbnailHeight, embedUrl, description, detailed = false } = Astro.props;
+---
+
+<div class:list={["livestream-card", { "livestream-card--detailed": detailed }]}>
+  <div class="livestream-card__image">
+    {typeof thumbnailSrc === 'string' ? (
+      <img
+        src={thumbnailSrc}
+        alt={thumbnailAlt}
+        width={thumbnailWidth}
+        height={thumbnailHeight}
+        loading="lazy"
+      />
+    ) : (
+      <Image
+        src={thumbnailSrc}
+        alt={thumbnailAlt}
+        width={thumbnailWidth}
+        height={thumbnailHeight}
+        format="webp"
+        quality={75}
+        loading="lazy"
+      />
+    )}
+    <span class="livestream-card__live-badge"><i class="fas fa-circle"></i> Live</span>
+  </div>
+  <div class="livestream-card__body">
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+    <a
+      href={embedUrl}
+      class="button icon solid fa-video"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Watch Live
+      <span class="visually-hidden">(opens in new tab)</span>
+    </a>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 {
   "kiroAgent.configureMCP": "Disabled",
-  "html.autoClosingTags": false
+  "html.autoClosingTags": false,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  }
 }

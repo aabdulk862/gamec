@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import QuranViewer from '@components/react/QuranViewer.tsx';
+
+const isDev = import.meta.env.DEV;
+const pdfUrl = isDev
+  ? '/api/quran-pdf'
+  : 'https://pub-859f42e20e3a4f7bb6787dd54417300a.r2.dev/quran.pdf';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resources",
+        "item": "https://igamec.org/resources.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Resources | GAMEC"
+  description="Explore educational resources, relevant websites, event calendar, and news related to the Muslim Eritrean community."
+  canonicalPath="/resources.html"
+  bodyClass="no-sidebar"
+  dataPage="resources"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div id="content">
+      <article>
+        <h1>Resources</h1>
+
+        <p>
+          Welcome to the Resources page of the Global Association of
+          Muslim Eritrean Communities (GAMEC). Here, we have curated a
+          collection of valuable resources to empower and enrich our
+          community members. These resources cover a wide range of topics,
+          from educational materials and cultural content to social
+          welfare resources and interfaith materials.
+        </p>
+
+        <!-- Section: Quran Viewer -->
+        <QuranViewer
+          client:visible
+          pdfUrl={pdfUrl}
+          workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.8.69/pdf.worker.min.mjs"
+        />
+        <!-- /Section: Quran Viewer -->
+
+        <!-- Section: Islamic Resources -->
+        <section
+          id="islamic-resources"
+          class="resource-section"
+          data-section="islamic-resources"
+          aria-label="Islamic Resources"
+        >
+          <h2>Islamic Resources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://quran.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Quran.com</a
+              >
+              - Read, listen to, and study the Quran online.
+            </li>
+            <li>
+              <a
+                href="https://sunnah.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Sunnah</a
+              >
+              - Access to authentic Hadith collections in English.
+            </li>
+            <li>
+              <a
+                href="https://www.islamicfinder.org/world/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Prayer Times</a
+              >
+              - Accurate prayer times for locations worldwide.
+            </li>
+            <li>
+              <a
+                href="https://www.islamicfinder.org/mosques/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Mosque Directory</a
+              >
+              - Find mosques and Islamic centers around the world.
+            </li>
+            <li>
+              <a
+                href="https://www.islamic-relief.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Islamic Relief</a
+              >
+              - Charity organization providing humanitarian aid and
+              development.
+            </li>
+          </ul>
+        </section>
+        <!-- /Section: Islamic Resources -->
+
+        <!-- Section: Educational Resources -->
+        <section
+          id="educational-resources"
+          class="resource-section"
+          data-section="educational-resources"
+          aria-label="Educational Resources"
+        >
+          <h2>Educational Resources</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.whyislam.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >WhyIslam</a
+              >
+              - Information about Islam and Islamic practices.
+            </li>
+            <li>
+              <a
+                href="https://www.islamicity.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >IslamiCity</a
+              >
+              - Educational articles, videos, and resources on Islam.
+            </li>
+            <li>
+              <a
+                href="https://muslimheritage.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Muslim Heritage</a
+              >
+              - Provides resources on Islamic contributions to global
+              civilization.
+            </li>
+          </ul>
+        </section>
+        <!-- /Section: Educational Resources -->
+      </article>
+    </div>
+  </div>
+
+</BaseLayout>

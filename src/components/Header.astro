@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import logoCircleImg from '../assets/images/logo-circle.png';
+
+interface NavItem {
+  label: string;
+  href: string;
+  children?: NavItem[];
+}
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navigation: NavItem[] = [
+  { label: "Home", href: "index.html" },
+  {
+    label: "About Us",
+    href: "vision.html",
+    children: [
+      { label: "Mission and Vision", href: "vision.html" },
+      { label: "History", href: "history.html" },
+      { label: "Leadership Team", href: "leadership.html" },
+      { label: "Donate", href: "donate.html" },
+      { label: "Contact Us", href: "contact.html" },
+    ],
+  },
+  {
+    label: "Programs",
+    href: "programs.html",
+    children: [
+      { label: "GAMEC Charity", href: "relief.html" },
+      { label: "GAMEC Sisters", href: "sisters.html" },
+      { label: "GAMEC Youth", href: "youth.html" },
+      { label: "GAMEC Seniors", href: "seniors.html" },
+      { label: "GAMEC Professionals", href: "professionals.html" },
+      { label: "Health Services", href: "health.html" },
+      { label: "Matrimonial Services", href: "matrimonial.html" },
+    ],
+  },
+  { label: "Membership", href: "membership.html" },
+  { label: "Media", href: "media.html" },
+  { label: "Resources", href: "resources.html" },
+];
+
+/**
+ * Determines if a nav item or any of its children match the current page path.
+ * Returns true if the item's href or any child href matches.
+ */
+function isActive(item: NavItem, path: string): boolean {
+  if (item.href === path) return true;
+  if (item.children) {
+    return item.children.some((child) => child.href === path);
+  }
+  return false;
+}
+
+/**
+ * Determines if a specific child item matches the current page path.
+ */
+function isChildActive(child: NavItem, path: string): boolean {
+  return child.href === path;
+}
+---
+
+<header id="header" class="container" role="banner">
+  <a href="#main-wrapper" class="skip-link visually-hidden">Skip to main content</a>
+  <!-- Section: Logo -->
+  <div id="logo" data-section="logo">
+    <div>
+      <a href="./index.html"
+        ><Image
+          class="logo-img"
+          src={logoCircleImg}
+          alt="GAMEC - Global Association of Muslim Eritrean Communities logo"
+          width={850}
+          height={850}
+          format="webp"
+          quality={75}
+          loading="eager"
+          fetchpriority="high"
+      /></a>
+    </div>
+  </div>
+  <!-- /Section: Logo -->
+
+  <!-- Section: Navigation -->
+  <nav
+    id="nav"
+    role="navigation"
+    aria-label="Main navigation"
+    data-section="navigation"
+  >
+    <ul>
+      {navigation.map((item) => (
+        <li class={isActive(item, currentPath) ? "current" : undefined}>
+          {item.children ? (
+            <>
+              <a href={`./${item.href}`} aria-haspopup="true" aria-expanded="false"
+                >{item.label} <span class="hide-arrow">⏷</span></a
+              >
+              <ul>
+                {item.children.map((child) => (
+                  <li class={isChildActive(child, currentPath) ? "current" : undefined}>
+                    <a href={`./${child.href}`}>{child.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a href={`./${item.href}`}>{item.label}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <!-- /Section: Navigation -->
+</header>

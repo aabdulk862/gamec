@@ -1,0 +1,24 @@
+---
+interface StatItem {
+  label: string;
+  value: string;
+  smallValue?: boolean;
+}
+
+interface Props {
+  stats: StatItem[];
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="impact-grid reveal-stagger">
+  {stats.map((stat) => (
+    <div class="impact-item">
+      <span class:list={["impact-number", { "impact-number-sm": stat.smallValue }]}>
+        {stat.value}
+      </span>
+      <span class="impact-label">{stat.label}</span>
+    </div>
+  ))}
+</div>

@@ -964,6 +964,34 @@ Several pages contain "More coming soon" or "Coming soon" notes:
 
 ---
 
+## Future: Authentication
+
+**Planned Provider:** [Clerk](https://clerk.com) — a third-party authentication and user management platform with pre-built UI components, session management, and user APIs.
+
+### Prerequisites Already in Place
+
+| Prerequisite | Status | Details |
+|---|---|---|
+| React integration | ✅ Ready | `@astrojs/react` installed and registered in `astro.config.mjs` |
+| Reserved routes | ✅ Ready | `src/pages/sign-in.astro` and `src/pages/sign-up.astro` render "Coming Soon" placeholders |
+| Auth component directory | ✅ Ready | `src/components/auth/` reserved for sign-in button, user menu, and protected route wrapper |
+
+### Remaining Steps to Complete Integration
+
+1. **Install Clerk packages** — `npm install @clerk/astro`
+2. **Add environment variables** — Configure `PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` in `.env`
+3. **Wrap layouts with ClerkProvider** — Add Clerk's Astro middleware or provider to `BaseLayout.astro`
+4. **Build auth components** — Create sign-in/sign-up forms, user menu, and protected route wrapper in `src/components/auth/`
+5. **Update reserved pages** — Replace "Coming Soon" content in `sign-in.astro` and `sign-up.astro` with Clerk UI components
+
+### Important Notes
+
+- **No Clerk packages are currently installed** — `@clerk/astro` and `@clerk/react` are intentionally excluded until authentication is actively being implemented
+- **No environment variables are configured** — No `.env` file with Clerk keys exists in the project
+- **Existing architecture supports Clerk without modification** — Clerk components integrate as React islands within the current layout, page routing, and component system
+
+---
+
 ## Summary
 
 This is a comprehensive, multi-page community website for the Global Association of Muslim Eritrean Communities (GAMEC). The site features a modern, responsive design with a teal/green color scheme, extensive program information, multiple donation options, and dynamic content loading. It serves as a central hub for Muslim Eritreans worldwide to connect, access resources, and participate in community programs across demographics (youth, sisters, seniors, professionals). The technical implementation uses jQuery, custom JavaScript for dynamic header/footer injection, and a mobile-first responsive design approach with a slide-in navigation panel for smaller screens.

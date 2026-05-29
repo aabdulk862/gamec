@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  href: string;
+}
+
+const { title, description, icon, href } = Astro.props;
+---
+
+<a href={href} class="program-item">
+  {icon && <i class={icon}></i>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+</a>

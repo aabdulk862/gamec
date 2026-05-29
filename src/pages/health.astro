@@ -1,0 +1,128 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import healthHeroImg from '../assets/images/health-hero.jpg';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "department": {
+      "@type": "Organization",
+      "name": "Health Services",
+      "description": "Providing essential healthcare support to the Muslim Eritrean community, including medical assistance, health education, and wellness programs."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Health Services",
+        "item": "https://igamec.org/health.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Health Services | GAMEC"
+  description="GAMEC Health Services aims to provide essential healthcare support to the Muslim Eritrean community, including medical assistance, health education, and wellness programs to promote the well-being of our members and those in need."
+  canonicalPath="/health.html"
+  bodyClass="no-sidebar"
+  dataPage="health"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div id="content">
+      <article>
+        <!-- Section: Page Header -->
+        <h1 data-section="page-header">GAMEC Health Services</h1>
+        <Image
+          src={healthHeroImg}
+          alt="Stethoscope on a clean surface representing healthcare"
+          class="page-hero-img"
+          width={1920}
+          height={1277}
+          format="webp"
+          quality={75}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <p>
+          GAMEC Health Services aims to provide essential healthcare
+          support to Muslim Eritrean communities. Planned services include
+          medical assistance, health education, and wellness programs
+          designed to promote physical and mental well-being. We plan to
+          collaborate with local healthcare providers and volunteers to
+          ensure access to quality care for all members of the community,
+          regardless of their circumstances.
+        </p>
+        <!-- /Section: Page Header -->
+
+        <!-- Section: Planned Health Services -->
+        <section data-section="planned-health-services" aria-label="Planned Health Services">
+          <h2>Planned Health Services:</h2>
+          <ul>
+            <li>
+              Medical Assistance: Access to healthcare professionals and
+              medical resources.
+            </li>
+            <li>
+              Health Education: Workshops and seminars on various health
+              topics.
+            </li>
+            <li>
+              Wellness Programs: Initiatives to promote physical and mental
+              well-being.
+            </li>
+            <li>
+              Community Support: Assistance for those with chronic
+              conditions or disabilities.
+            </li>
+          </ul>
+        </section>
+        <!-- /Section: Planned Health Services -->
+
+        <!-- Section: Get Involved -->
+        <section data-section="get-involved" aria-label="Get Involved">
+          <h2>Get Involved</h2>
+          <p>
+            Want to support our health initiatives or access services?
+            <a href="./contact.html">Contact us</a> to learn how you can
+            participate or benefit from our programs.
+          </p>
+        </section>
+        <!-- /Section: Get Involved -->
+      </article>
+    </div>
+  </div>
+</BaseLayout>

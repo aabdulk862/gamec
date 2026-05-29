@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://igamec.org/sitemap.xml

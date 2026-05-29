@@ -1,0 +1,124 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "department": {
+      "@type": "Organization",
+      "name": "GAMEC Charity",
+      "description": "Extending aid to those in need within the Muslim Eritrean community and beyond, alleviating human suffering through compassionate assistance."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GAMEC Charity",
+        "item": "https://igamec.org/relief.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Charity | GAMEC"
+  description="GAMEC Charity is dedicated to extending a helping hand to those in need within the Muslim Eritrean community and beyond. Our mission is to alleviate human suffering by providing compassionate assistance to individuals affected by adversities and survivors of disasters. Through our services, we aim to foster unity, preserve cultural heritage, and promote Islamic values, all while upholding the dignity of those we serve."
+  canonicalPath="/relief.html"
+  bodyClass="no-sidebar"
+  dataPage="relief"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div id="content">
+      <!-- Content -->
+      <article>
+        <!-- Section: Page Header -->
+        <h1 data-section="page-header">GAMEC Charity</h1>
+
+        <!-- /Section: Page Header -->
+
+        <!-- Section: Our Commitment -->
+        <section data-section="our-commitment" aria-label="Our Commitment">
+          <h2>Our Commitment:</h2>
+          <p>
+            GAMEC Charity stands as a beacon of compassion, dedicated to
+            extending aid to those in need within the Muslim Eritrean
+            community and beyond. Rooted in our mission to serve Allah (swt)
+            through service to humanity, we endeavor to alleviate suffering
+            and uphold dignity in every endeavor.
+          </p>
+        </section>
+        <!-- /Section: Our Commitment -->
+
+        <!-- Section: Our Vision -->
+        <section data-section="our-vision" aria-label="Our Vision">
+          <h2>Our Vision</h2>
+          <p>
+            We envision a world where every individual, regardless of
+            background, finds solace and support in times of adversity.
+            GAMEC Charity aims to carve a path towards this vision, becoming
+            synonymous with hope, resilience, and unwavering compassion.
+          </p>
+        </section>
+        <!-- /Section: Our Vision -->
+
+        <!-- Section: Our Objectives -->
+        <section data-section="our-objectives" aria-label="Our Objectives">
+          <h2>Our Objectives:</h2>
+          <ul>
+            <li>
+              <b>Empowering Communities:</b> We're committed to empowering
+              marginalized Muslim Eritreans and individuals through tailored
+              social service programs, fostering self-sufficiency and
+              resilience.
+            </li>
+            <li>
+              <b>Strengthening Bonds:</b> We believe in nurturing strong
+              family bonds by providing educational resources and services
+              rooted in Islamic values, nurturing a sense of unity and
+              belonging.
+            </li>
+            <li>
+              <b>Forging Partnerships:</b> Collaboration lies at the heart
+              of our approach. We seek to forge meaningful partnerships with
+              Islamic institutions, community organizations, and
+              governmental agencies to amplify our impact and reach.
+            </li>
+          </ul>
+        </section>
+        <!-- /Section: Our Objectives -->
+      </article>
+    </div>
+  </div>
+</BaseLayout>

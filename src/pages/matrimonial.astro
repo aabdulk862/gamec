@@ -1,0 +1,405 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import matrimonialHeroImg from '../assets/images/matrimonial-hero.jpg';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Matrimonial",
+        "item": "https://igamec.org/matrimonial.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Matrimonial | GAMEC"
+  description="GAMEC Matrimonial Services helps Muslim Eritrean community members find compatible partners based on shared values, faith, and cultural backgrounds. Learn about marriage in Islam and register your interest."
+  canonicalPath="/matrimonial.html"
+  bodyClass="no-sidebar"
+  dataPage="matrimonial"
+  structuredData={structuredData}
+>
+  <div id="main-content" tabindex="-1">
+    <div class="container">
+      <div id="content">
+        <!-- Content -->
+        <article>
+          <h1>Marriage in Islam</h1>
+
+          <!-- Section: Introduction -->
+          <section class="matrimonial-intro" data-section="introduction" aria-label="Introduction to marriage in Islam">
+            <Image
+              src={matrimonialHeroImg}
+              alt="Wedding rings on soft fabric"
+              class="page-hero-img"
+              width={1400}
+              height={933}
+              format="webp"
+              quality={75}
+              loading="eager"
+              fetchpriority="high"
+            />
+            <p>
+              Marriage in Islam is a sacred covenant, described in the Quran
+              as a <em>"firm covenant"</em> (<em>mithaqan ghalidha</em>) and
+              one of the most beloved institutions to Allah. It is not
+              merely a social contract or a means to satisfy physical
+              desires but a profound spiritual, emotional, and social bond
+              designed to bring tranquility, affection, and mercy into the
+              lives of a man and a woman.
+            </p>
+
+            <blockquote>
+              "And among His signs is that He created for you mates from
+              among yourselves, that you may dwell in tranquility with them,
+              and He has put between you affection (<em>mawaddah</em>) and
+              mercy (<em>rahmah</em>). Indeed in that are signs for a people
+              who reflect."
+              <cite>&mdash; Surah Ar-Rum (30:21)</cite>
+            </blockquote>
+
+            <p>
+              This verse underscores the divine purpose: spouses are meant
+              to be a source of comfort (<em>sakinah</em>) for one another,
+              like garments that protect, adorn, and bring closeness. As the
+              Quran states:
+              <em>"They are clothing for you and you are clothing for
+              them"</em>
+              (Quran 2:187).
+            </p>
+          </section>
+          <!-- /Section: Introduction -->
+
+          <!-- Section: Purposes Of Marriage -->
+          <section
+            class="matrimonial-section"
+            data-section="purposes-of-marriage"
+            aria-label="The Purposes of Marriage in Islam"
+          >
+            <h2>The Purposes of Marriage in Islam</h2>
+            <p>
+              Islam encourages marriage as a religious duty and a completion
+              of half one's faith, as the Prophet Muhammad (peace be upon
+              him) said:
+              <em>"Whoever marries has completed half of his faith; so let
+              him fear Allah in the remaining half."</em>
+              It serves multiple noble objectives:
+            </p>
+
+            <div class="matrimonial-purposes">
+              <div class="box matrimonial-purpose-card">
+                <span class="icon solid fa-heart"></span>
+                <h3>Tranquility, Love &amp; Companionship</h3>
+                <p>
+                  Marriage provides emotional security and a harmonious
+                  partnership where spouses find peace and mutual support.
+                  It fosters love and mercy, helping each other navigate
+                  life's challenges.
+                </p>
+              </div>
+
+              <div class="box matrimonial-purpose-card">
+                <span class="icon solid fa-home"></span>
+                <h3>Procreation &amp; Family Building</h3>
+                <p>
+                  It allows for the lawful continuation of humanity through
+                  righteous offspring. Children are raised in a stable,
+                  moral environment, and the Prophet emphasized increasing
+                  the Muslim community through marriage.
+                </p>
+              </div>
+
+              <div class="box matrimonial-purpose-card">
+                <span class="icon solid fa-shield-alt"></span>
+                <h3>Safeguarding Chastity &amp; Morality</h3>
+                <p>
+                  Marriage channels natural desires in a halal (permissible)
+                  way, protecting individuals and society from moral
+                  degradation. The Prophet advised young men who can afford
+                  it to marry to lower their gaze and guard their chastity.
+                </p>
+              </div>
+
+              <div class="box matrimonial-purpose-card">
+                <span class="icon solid fa-mosque"></span>
+                <h3>Spiritual Growth &amp; Societal Stability</h3>
+                <p>
+                  It strengthens faith, promotes good character, and forms
+                  the foundation of a healthy society. A strong family unit
+                  contributes to communal harmony and righteousness.
+                </p>
+              </div>
+            </div>
+
+            <blockquote>
+              "There is no better structure founded in Islam than marriage."
+              <cite>&mdash; Prophet Muhammad (peace be upon him)</cite>
+            </blockquote>
+          </section>
+          <!-- /Section: Purposes Of Marriage -->
+
+          <!-- Section: Nikah Contract -->
+          <section
+            class="matrimonial-section"
+            data-section="nikah-contract"
+            aria-label="The Islamic Marriage Contract"
+          >
+            <h2>The Islamic Marriage Contract (Nikah)</h2>
+            <p>
+              The core of an Islamic marriage is the <em>nikah</em>, a
+              formal contract that legalizes the union. It is simple yet
+              solemn, emphasizing mutual consent and clarity of rights.
+            </p>
+
+            <details class="matrimonial-accordion">
+              <summary>Key Elements of the Nikah</summary>
+              <div class="matrimonial-accordion-content">
+                <ul>
+                  <li>
+                    <strong>Mutual Consent:</strong> Both the bride and
+                    groom must freely agree. Forced marriages are invalid.
+                  </li>
+                  <li>
+                    <strong>Offer &amp; Acceptance (Ijab and Qubul):</strong>
+                    The proposal and acceptance are verbally declared in the
+                    presence of witnesses, often facilitated by an imam.
+                  </li>
+                  <li>
+                    <strong>Mahr (Dower):</strong> A mandatory gift from the
+                    groom to the bride, which becomes her exclusive
+                    property. The Quran instructs:
+                    <em>"And give the women their dower with a good
+                    heart"</em>
+                    (4:4).
+                  </li>
+                  <li>
+                    <strong>Witnesses:</strong> At least two upright Muslim
+                    witnesses must be present to validate the contract.
+                  </li>
+                  <li>
+                    <strong>Wali (Guardian):</strong> The bride's father or
+                    closest male relative often acts as guardian, ensuring
+                    her interests are protected.
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <p>
+              The contract may include additional stipulations as long as
+              they do not contradict Islamic principles. After the nikah,
+              consummation is followed by a <em>walimah</em>&mdash;a
+              celebratory feast hosted by the groom, as recommended by the
+              Prophet.
+            </p>
+          </section>
+          <!-- /Section: Nikah Contract -->
+
+          <!-- Section: Rights And Responsibilities -->
+          <section
+            class="matrimonial-section"
+            data-section="rights-and-responsibilities"
+            aria-label="Rights and Responsibilities of Spouses"
+          >
+            <h2>Rights &amp; Responsibilities of Spouses</h2>
+            <p>
+              Islamic marriage establishes balanced rights and duties,
+              rooted in justice, kindness, and cooperation. The Quran
+              emphasizes:
+              <em>"And due to the wives is similar to what is expected of
+              them, according to what is reasonable"</em>
+              (2:228).
+            </p>
+
+            <details class="matrimonial-accordion">
+              <summary>Mutual Rights</summary>
+              <div class="matrimonial-accordion-content">
+                <ul>
+                  <li>
+                    Enjoyment of each other physically and emotionally in a
+                    lawful, loving manner.
+                  </li>
+                  <li>
+                    Kind treatment, respect, and consultation in family
+                    matters.
+                  </li>
+                  <li>Inheritance from one another.</li>
+                  <li>Protection of lineage and children's rights.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="matrimonial-accordion">
+              <summary>Rights of the Wife</summary>
+              <div class="matrimonial-accordion-content">
+                <ul>
+                  <li>
+                    <strong>Financial Maintenance (Nafaqah):</strong> The
+                    husband must provide food, clothing, housing, and
+                    necessities. The wife's earnings remain hers.
+                  </li>
+                  <li>
+                    <strong>Mahr:</strong> Her exclusive right as a
+                    mandatory gift from the groom.
+                  </li>
+                  <li>
+                    <strong>Kind Treatment:</strong> The husband must live
+                    with her in goodness. The Prophet said:
+                    <em>"The best of you are those who are best to their
+                    wives."</em>
+                  </li>
+                  <li>
+                    <strong>Privacy and Respect:</strong> No one the husband
+                    disapproves of should enter the home without permission.
+                  </li>
+                  <li>
+                    <strong>Fairness in Polygyny:</strong> If the husband
+                    has multiple wives, he must treat them equitably. The
+                    Quran warns:
+                    <em>"But if you fear that you will not be just, then
+                    [marry only] one"</em>
+                    (4:3).
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="matrimonial-accordion">
+              <summary>Rights of the Husband</summary>
+              <div class="matrimonial-accordion-content">
+                <ul>
+                  <li>
+                    <strong>Obedience in Righteous Matters:</strong> The
+                    wife supports her husband in matters that align with
+                    Islam. She is not obligated to obey in sin or harm.
+                  </li>
+                  <li>
+                    <strong>Care of the Household:</strong> Managing the
+                    home and raising children with love, flexible based on
+                    mutual agreement.
+                  </li>
+                  <li>
+                    <strong>Physical and Emotional Intimacy:</strong> Mutual
+                    satisfaction within marriage.
+                  </li>
+                  <li>
+                    <strong>Loyalty and Modesty:</strong> The wife guards
+                    her chastity and the family's honor.
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <p>
+              Both spouses are urged to forgive shortcomings, communicate
+              gently, and prioritize each other's happiness. The Prophet
+              modeled exemplary treatment, helping with household chores and
+              expressing affection openly.
+            </p>
+          </section>
+          <!-- /Section: Rights And Responsibilities -->
+
+          <!-- Section: Spirit Beyond Rules -->
+          <section
+            class="matrimonial-section"
+            data-section="spirit-beyond-rules"
+            aria-label="The Spirit Beyond Rules"
+          >
+            <h2>The Spirit Beyond Rules</h2>
+            <p>
+              While rights provide structure, Islamic ethics breathe life
+              into marriage: patience, forgiveness, gratitude, and
+              continuous striving for piety. Spouses should view each other
+              as partners in worship. Conflicts are resolved through
+              dialogue, counseling, and remembrance of Allah. Divorce is
+              permitted as a last resort but discouraged&mdash;<em>"the most hated of permissible things to Allah is
+              divorce."</em>
+            </p>
+            <p>
+              Marriage in Islam transforms two individuals into a unified
+              family unit that reflects divine signs&mdash;love, mercy, and
+              purpose. It elevates human relationships to a path of
+              righteousness, where spouses help one another attain closeness
+              to Allah and build a legacy of faith.
+            </p>
+          </section>
+          <!-- /Section: Spirit Beyond Rules -->
+
+          <!-- Section: GAMEC Matrimonial Services -->
+          <section
+            class="matrimonial-section matrimonial-cta"
+            data-section="gamec-matrimonial-services"
+            aria-label="GAMEC Matrimonial Services"
+          >
+            <h2>GAMEC Matrimonial Services</h2>
+            <p>
+              For generations, Eritrean Muslim families have joyfully
+              arranged marriages for their sons and daughters, guided by
+              Islamic principles, cultural traditions, and the loving
+              involvement of family. These unions have brought happiness and
+              stability to countless homes.
+            </p>
+            <p>
+              However, over the past sixty years, war and hardship in
+              Eritrea have forced hundreds of thousands of Eritreans to
+              leave their homeland and resettle across the world. This
+              scattering has made it more challenging for many to find
+              compatible life partners within their faith and culture.
+            </p>
+            <p>
+              GAMEC is here to help. We are delighted to offer a trusted,
+              compassionate matrimonial service rooted deeply in Islamic
+              principles. Our goal is to bring sincere Eritrean Muslim
+              individuals together in a respectful and halal way, helping
+              them find loving, compatible matches for a blessed life
+              together.
+            </p>
+
+            <h3>How It Works</h3>
+            <p>
+              Interested individuals can register through our online form to
+              express their interest in the program. Our team will review
+              submissions and work to connect compatible community members
+              in a respectful and confidential process. We encourage
+              families to participate and support their loved ones
+              throughout the journey.
+            </p>
+
+            <div class="matrimonial-buttons">
+              <a
+                href="https://forms.fillout.com/t/rSH1pzE2a6us"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button icon solid fa-arrow-circle-right"
+              >Register Interest</a>
+              <a
+                href="./contact.html"
+                class="button alt icon solid fa-envelope"
+              >Contact Us</a>
+            </div>
+          </section>
+          <!-- /Section: GAMEC Matrimonial Services -->
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

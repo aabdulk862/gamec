@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import seniorsHeroImg from '../assets/images/seniors-hero.jpg';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "department": {
+      "@type": "Organization",
+      "name": "GAMEC Seniors",
+      "description": "Supporting senior members with compassionate care, community connections, and resources to maintain independence and dignity."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GAMEC Seniors",
+        "item": "https://igamec.org/seniors.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Seniors | GAMEC"
+  description="Discover the GAMEC Seniors program, committed to providing care, companionship, and resources for elderly Muslims."
+  canonicalPath="/seniors.html"
+  bodyClass="right-sidebar"
+  dataPage="seniors"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div class="row gtr-200">
+      <div id="content">
+        <!-- Content -->
+        <article>
+          <!-- Section: Page Header -->
+          <h1 data-section="page-header">GAMEC Seniors</h1>
+          <Image
+            src={seniorsHeroImg}
+            alt="Reading glasses resting on an open book in warm light"
+            class="page-hero-img page-hero-img--tall"
+            width={1920}
+            height={1442}
+            format="webp"
+            quality={75}
+            loading="eager"
+            fetchpriority="high"
+          />
+          <!-- /Section: Page Header -->
+
+          <!-- Section: About Seniors Program -->
+          <section data-section="about-seniors-program" aria-label="About the Seniors Program">
+            <p>
+              Welcome to GAMEC Seniors, where we are dedicated to empowering
+              individuals as they age. Our vision is to reimagine aging by
+              providing compassionate service, fostering community
+              connections, and supporting independence. At GAMEC Seniors, we
+              believe in creating a culture of belonging for everyone,
+              including our staff, volunteers, partners, and the individuals
+              we serve. We are committed to diversity and inclusion,
+              celebrating the unique identities, experiences, and
+              perspectives of all. Join us as we work together to empower
+              seniors and enhance their quality of life.
+            </p>
+          </section>
+          <!-- /Section: About Seniors Program -->
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

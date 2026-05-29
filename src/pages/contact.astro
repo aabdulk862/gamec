@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://igamec.org/vision.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Contact Us",
+        "item": "https://igamec.org/contact.html"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-202-440-9089",
+      "email": "contact@igamec.org",
+      "contactType": "General Inquiry"
+    }
+  }
+];
+---
+<BaseLayout
+  title="Contact Us | GAMEC"
+  description="Contact GAMEC for inquiries, feedback, or partnership opportunities. We value your input and look forward to connecting with you."
+  canonicalPath="/contact.html"
+  bodyClass="no-sidebar"
+  dataPage="contact"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <article id="content">
+      <h1>Contact Us</h1>
+
+      <!-- Section: Contact Info -->
+      <section aria-label="Contact Information">
+        <p>
+          We welcome your messages, questions, feedback, and partnership
+          ideas at the Global Association of Muslim Eritrean Communities
+          (GAMEC). Your input helps us serve our community better.
+        </p>
+
+        <div class="contact-grid" data-section="contact-info">
+          <!-- Facebook Card -->
+          <div class="contact-card">
+            <div class="card-icon">
+              <i class="fab fa-facebook"></i>
+            </div>
+            <h2>Facebook</h2>
+            <p>
+              <a
+                href="https://www.facebook.com/TheOfficialGAMEC/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                facebook.com/TheOfficialGAMEC
+              </a>
+            </p>
+            <p class="small">Message us directly or follow for updates.</p>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="contact-card">
+            <div class="card-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h2>Phone</h2>
+            <p>
+              <a href="tel:+12024409089">+1 (202) 440-9089</a>
+            </p>
+            <p class="small">Available during business hours (EST).</p>
+          </div>
+
+          <!-- Address Card -->
+          <div class="contact-card">
+            <div class="card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h2>Address</h2>
+            <p>
+              3420 13th St SE<br />
+              Washington, DC 20032<br />
+              United States
+            </p>
+            <p class="small">By appointment only.</p>
+          </div>
+        </div>
+      </section>
+      <!-- /Section: Contact Info -->
+
+      <!-- Section: Response Note -->
+      <section class="contact-note" data-section="response-note" aria-label="Response time">
+        <p>
+          Our team reviews every message carefully and aims to respond
+          within 1–3 business days. May Allah reward your effort in
+          reaching out and supporting our shared mission.
+        </p>
+      </section>
+      <!-- /Section: Response Note -->
+
+      <!-- Section: Developer Callout -->
+      <aside class="dev-callout" data-section="developer-callout">
+        <p>
+          Need a website for your organization? This site was designed and
+          built by
+          <a
+            href="https://adversesolutions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Adverse</a
+          >
+          — full-stack development, cloud architecture, and consulting for
+          nonprofits and businesses.
+        </p>
+      </aside>
+      <!-- /Section: Developer Callout -->
+    </article>
+  </div>
+</BaseLayout>

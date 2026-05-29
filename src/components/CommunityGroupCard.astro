@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  href: string;
+  icon: string;
+}
+
+const { title, description, href, icon } = Astro.props;
+---
+
+<a
+  href={href}
+  class="association-btn"
+  title={`GAMEC ${title}`}
+>
+  <i class={icon}></i> {title}
+  {description && <span class="association-btn__description">{description}</span>}
+</a>

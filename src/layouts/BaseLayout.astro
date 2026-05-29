@@ -1,0 +1,114 @@
+---
+import '@styles/main.css';
+import '@styles/media.css';
+import '@styles/fontawesome-all.min.css';
+
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  robots?: string;
+  bodyClass?: string;
+  dataPage?: string;
+  structuredData?: object[];
+  pageScripts?: string[];
+}
+
+const {
+  title = "GAMEC",
+  description = "GAMEC (Global Association of Muslim Eritrean Communities) is a 501(c)(3) non-profit voluntary membership association serving the Eritrean Muslim community.",
+  canonicalPath,
+  ogImage = "https://igamec.org/images/logo-bg.png",
+  robots = "index, follow",
+  bodyClass = "",
+  dataPage,
+  structuredData,
+  pageScripts,
+} = Astro.props;
+
+// Derive current page filename from the URL pathname
+// e.g., "/donate.html" → "donate.html", "/" → "index.html"
+const pathname = Astro.url.pathname;
+const currentPath = pathname === "/" || pathname === ""
+  ? "index.html"
+  : pathname.split("/").pop() || "index.html";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+
+    {/* Canonical URL */}
+    {canonicalPath && <link rel="canonical" href={`https://igamec.org${canonicalPath}`} />}
+
+    {/* Open Graph */}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalPath ? `https://igamec.org${canonicalPath}` : "https://igamec.org"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GAMEC" />
+    <meta property="og:locale" content="en_US" />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {/* Resource hints for Google Fonts */}
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {/* Favicons and manifest */}
+    <link rel="icon" href="/images/favicon.ico" sizes="any" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    {/* Structured Data (JSON-LD) */}
+    {structuredData && structuredData.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+  </head>
+  <body class={`is-preload ${bodyClass}`.trim()} {...(dataPage ? { "data-page": dataPage } : {})}>
+    <noscript>
+      <div class="noscript-warning">
+        This site requires JavaScript for full functionality.
+      </div>
+    </noscript>
+
+    <div id="page-wrapper">
+      <div id="header-wrapper">
+        <Header currentPath={currentPath} />
+      </div>
+
+      <main id="main-wrapper">
+        <slot />
+      </main>
+
+      <div id="footer-wrapper">
+        <Footer />
+      </div>
+    </div>
+
+    {/* Shared scripts: navigation and scroll reveal */}
+    <script src="../scripts/navigation.js"></script>
+    <script src="../scripts/scroll-reveal.js"></script>
+
+    {/* Page-specific scripts */}
+    {pageScripts && pageScripts.map((script) => (
+      <script src={script}></script>
+    ))}
+  </body>
+</html>

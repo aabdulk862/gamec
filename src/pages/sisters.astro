@@ -1,0 +1,237 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import lanternImg from '../assets/images/lantern.jpg';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["NonprofitOrganization", "Organization"],
+    "name": "GAMEC",
+    "url": "https://igamec.org",
+    "logo": "https://igamec.org/images/logo-bg.png",
+    "description": "Global Association of Muslim Eritrean Communities — fostering unity, culture, and understanding within the Muslim Eritrean community.",
+    "telephone": "+1-202-440-9089",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3420 13th St SE",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20032",
+      "addressCountry": "US"
+    },
+    "sameAs": ["https://www.facebook.com/TheOfficialGAMEC/"],
+    "department": {
+      "@type": "Organization",
+      "name": "GAMEC Sisters",
+      "description": "Empowering Muslim women of all backgrounds through Islamic education, leadership development, and community engagement."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Programs",
+        "item": "https://igamec.org/programs.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GAMEC Sisters",
+        "item": "https://igamec.org/sisters.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Sisters | GAMEC"
+  description="Explore the GAMEC Sisters program, empowering Muslim women of all backgrounds through Islamic education and community support."
+  canonicalPath="/sisters.html"
+  bodyClass="no-sidebar"
+  dataPage="sisters"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <article class="membership-page sisters-page">
+      <h1>GAMEC Sisters</h1>
+
+      <!-- Section: Hero -->
+      <section class="sisters-hero" data-section="hero" aria-label="Empowering Sisters">
+        <h2>Empowering Sisters, Strengthening Foundations</h2>
+        <p>
+          The GAMEC Sisters Program is a cornerstone initiative dedicated
+          to empowering women of all backgrounds through Islamic
+          education, social support, and community leadership. Our mission
+          is to provide a dedicated platform where sisters can explore
+          their faith, share their talents, and strengthen the fabric of
+          our global community.
+        </p>
+        <Image
+          src={lanternImg}
+          alt="Islamic lantern representing faith and spiritual warmth in the GAMEC Sisters program"
+          class="sisters-hero-img"
+          width={1200}
+          height={600}
+          format="webp"
+          quality={75}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </section>
+      <!-- /Section: Hero -->
+
+      <!-- Section: Vision -->
+      <section class="sisters-section" data-section="vision" aria-label="Our Vision">
+        <div class="sisters-section-header">
+          <div class="sisters-section-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h2>Our Vision: Unity through Diversity</h2>
+        </div>
+        <p>
+          GAMEC serves as a "shadow umbrella," collaborating with all
+          Eritrean Muslim associations to foster a common direction. While
+          our roots are Eritrean, our vision is global. We embrace
+          diversity across all ages, ethnicities, and economic
+          backgrounds. By leveraging technology and cross-border
+          collaboration, we aim to become a leading institution for
+          spiritual growth and civic engagement.
+        </p>
+      </section>
+      <!-- /Section: Vision -->
+
+      <!-- Section: Core Initiatives -->
+      <section class="sisters-section" data-section="core-initiatives" aria-label="Core Initiatives and Programs">
+        <div class="sisters-section-header">
+          <div class="sisters-section-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h2>Core Initiatives and Programs</h2>
+        </div>
+        <p>
+          We believe that women are the backbone of society. GAMEC ensures
+          that sisters are not just participants, but leaders in our
+          economic, technological, and social projects.
+        </p>
+        <ul class="sisters-list">
+          <li>
+            <strong>Academic &amp; Professional Advancement:</strong> We
+            advocate for women to pursue higher education and meaningful
+            careers, balancing Islamic teachings with academic excellence.
+          </li>
+          <li>
+            <strong>Matrimonial Services:</strong> To support the next
+            generation, we offer a
+            <a href="./matrimonial.html">Matrimonial Service</a>
+            (available online) to help young men and women meet in a safe,
+            respectful, and Islamic environment.
+          </li>
+          <li>
+            <strong>Advocacy &amp; Human Rights:</strong> Through the
+            GAMEC for the Advancement of Human Rights, sisters can engage
+            locally or online to champion social justice and community
+            transformation.
+          </li>
+          <li>
+            <strong>Cultural Preservation:</strong> We invite sisters to
+            lead in sharing the rich traditions of our heritage —
+            including language, arts, food, and clothing — to ensure our
+            identity thrives in the modern world.
+          </li>
+        </ul>
+      </section>
+      <!-- /Section: Core Initiatives -->
+
+      <!-- Section: Leadership And Engagement -->
+      <section
+        class="sisters-section"
+        data-section="leadership-and-engagement"
+        aria-label="Leadership and Engagement"
+      >
+        <div class="sisters-section-header">
+          <div class="sisters-section-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h2>Leadership and Engagement</h2>
+        </div>
+        <p>
+          Women possess a unique resilience and capacity for dialogue.
+          GAMEC is committed to ensuring that women participate as full
+          partners alongside men in every objective we pursue.
+        </p>
+        <h3>How Sisters Can Make an Impact</h3>
+        <ul class="sisters-list">
+          <li>
+            <strong>Volunteerism:</strong> Offer time and talent to drive
+            social justice and community welfare.
+          </li>
+          <li>
+            <strong>Digital Ambassadorship:</strong> Use social media to
+            highlight community issues and expand our reach.
+          </li>
+          <li>
+            <strong>Innovation:</strong> Bring fresh perspectives to the
+            decision-making process, utilizing technology to solve modern
+            challenges.
+          </li>
+          <li>
+            <strong>Dialogue:</strong> Participate in open forums — both
+            in-person and online — to share updates, gather ideas, and
+            address community concerns.
+          </li>
+        </ul>
+      </section>
+      <!-- /Section: Leadership And Engagement -->
+
+      <!-- Section: Building A Vibrant Future -->
+      <section
+        class="sisters-closing"
+        data-section="building-a-vibrant-future"
+        aria-label="Building a Vibrant Future"
+      >
+        <h2>Building a Vibrant Future</h2>
+        <p>
+          Community engagement is what transforms a group into a thriving
+          hub. At GAMEC, we celebrate the individuals and groups who
+          contribute significantly to our progress. By fostering a deep
+          sense of belonging through shared activities, we are building a
+          resilient, cohesive community that transcends physical borders.
+        </p>
+        <p class="sisters-cta-text">
+          Join us today. Whether locally or online, your voice and your
+          vision are essential to our collective success.
+        </p>
+      </section>
+      <!-- /Section: Building A Vibrant Future -->
+
+      <!-- Section: Call To Action -->
+      <section class="membership-cta" data-section="call-to-action" aria-label="Join GAMEC Sisters">
+        <div class="cta-container">
+          <a
+            href="./membership.html"
+            class="button large primary icon solid fa-user-plus"
+          >
+            Join Now
+          </a>
+          <a
+            href="./contact.html"
+            class="button large accent icon solid fa-envelope"
+          >
+            Contact Us
+          </a>
+        </div>
+      </section>
+      <!-- /Section: Call To Action -->
+    </article>
+  </div>
+</BaseLayout>

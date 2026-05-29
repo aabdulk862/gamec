@@ -1,0 +1,251 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import kaaba1Img from '../assets/images/kaaba1.jpg';
+import visionPrioritiesImg from '../assets/images/vision-priorities.jpg';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://igamec.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://igamec.org/vision.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Mission & Vision",
+        "item": "https://igamec.org/vision.html"
+      }
+    ]
+  }
+];
+---
+<BaseLayout
+  title="Mission & Vision | GAMEC"
+  description="Discover GAMEC's mission to create a supportive environment for Muslim Eritreans, preserving cultural heritage, and promoting unity."
+  canonicalPath="/vision.html"
+  bodyClass="no-sidebar"
+  dataPage="vision"
+  structuredData={structuredData}
+>
+  <div class="container">
+    <div id="content">
+      <article>
+        <header>
+          <h1>Mission and Vision</h1>
+        </header>
+
+        <!-- Section: Who We Are -->
+        <section class="vision-intro" data-section="who-we-are" aria-label="Who We Are">
+          <div class="row gtr-200">
+            <div class="col-5 col-12-medium">
+              <a class="image featured">
+                <Image
+                  src={kaaba1Img}
+                  alt="The Holy Kaaba - Symbol of Islamic unity and faith"
+                  width={4608}
+                  height={2184}
+                  format="webp"
+                  quality={75}
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="col-7 col-12-medium">
+              <h2>Who We Are</h2>
+              <p>
+                GAMEC is a leading Muslim Eritrean organization serving
+                communities outside of Eritrea. We are a non-governmental,
+                non-political, not-for-profit 501(c)(3) voluntary
+                membership association composed of organizations,
+                communities, villages, and individuals dedicated to being
+                of service to Allah (SWT) and strengthening the global
+                Muslim Eritrean community.
+              </p>
+              <p>
+                We are committed to advancing the social, civic, cultural,
+                and spiritual fabric of Muslim Eritreans in North America
+                and around the world, preserving our rich heritage,
+                nurturing strong Islamic values, and promoting unity,
+                leadership, and civic responsibility among our members.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- /Section: Who We Are -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Mission Vision Cards -->
+        <section data-section="mission-vision-cards" aria-label="Mission and Vision statements">
+          <div class="row gtr-50">
+            <div class="col-6 col-12-medium">
+              <div class="vision-card">
+                <h2>Our Mission</h2>
+                <p>
+                  To advance the social, civic, cultural, and spiritual
+                  well-being of Muslim Eritreans worldwide by preserving
+                  our heritage, nurturing Islamic values, and promoting
+                  unity, leadership, and civic responsibility.
+                </p>
+              </div>
+            </div>
+            <div class="col-6 col-12-medium">
+              <div class="vision-card">
+                <h2>Our Vision</h2>
+                <p>
+                  A united, resilient, and harmonious global Muslim
+                  Eritrean community that fosters meaningful connections
+                  with the Eritrean motherland and empowers its members to
+                  thrive in democratic societies worldwide.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /Section: Mission Vision Cards -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Global Connections -->
+        <section data-section="global-connections" aria-label="Global Connections">
+          <p>
+            GAMEC will also foster meaningful connections with the
+            Eritrean motherland in matters concerning the religious,
+            civic, and social well-being of all Eritreans. It will educate
+            community members about their rights and responsibilities
+            within democratic societies while organizing and coordinating
+            local chapters and regional bodies across various countries to
+            expand its global network and further its mission.
+          </p>
+        </section>
+        <!-- /Section: Global Connections -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Priorities -->
+        <section data-section="priorities" aria-label="Our Priorities">
+          <div class="row gtr-200">
+            <div class="col-7 col-12-medium">
+              <h2>Our Priorities</h2>
+              <p>
+                As concerned Muslim Eritreans, seniors and youth alike, we
+                recognize these guiding priorities for our community.
+              </p>
+              <ul class="mission">
+                <li>
+                  Establish a faith-based civic association addressing
+                  social justice issues.
+                </li>
+                <li>
+                  Unite Muslim Eritrean communities around a common
+                  mission.
+                </li>
+                <li>
+                  Support the development of Islamic community centers
+                  globally.
+                </li>
+                <li>
+                  Create dedicated Youth, Women, Senior, and Professional
+                  Associations.
+                </li>
+                <li>
+                  Strengthen Islamic knowledge through connections with
+                  scholars and sheikhs.
+                </li>
+                <li>
+                  Collaborate with other Islamic organizations for the
+                  greater good.
+                </li>
+                <li>
+                  Provide relief and development assistance for Eritrea
+                  and refugee communities.
+                </li>
+                <li>
+                  Organize interfaith dialogues and outreach initiatives.
+                </li>
+              </ul>
+            </div>
+            <div class="col-5 col-12-medium">
+              <Image
+                src={visionPrioritiesImg}
+                alt="Green seedling growing from soil representing growth and foundation"
+                class="page-accent-img"
+                width={800}
+                height={533}
+                format="webp"
+                quality={75}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- /Section: Priorities -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Belief -->
+        <section class="vision-belief" data-section="belief" aria-label="Our Belief">
+          <blockquote class="vision-quote">
+            <p>
+              "Diversity is a divine <em>blessing</em>, and as Muslims,
+              working together toward a common goal (Islam) is the key to
+              our <em>success</em>."
+            </p>
+          </blockquote>
+          <p>
+            By embracing our heritage, values, and a shared commitment to
+            positive change, we endeavor to build a more united,
+            resilient, and harmonious Muslim Eritrean community.
+          </p>
+        </section>
+        <!-- /Section: Belief -->
+
+        <div class="bottom-border"></div>
+
+        <!-- Section: Call To Action -->
+        <section class="text-center" data-section="call-to-action" aria-label="Get Involved">
+          <h2>Get Involved</h2>
+          <p>
+            Join us in building a stronger, more connected Muslim Eritrean
+            community. Every contribution makes a difference.
+          </p>
+          <div class="mission-actions" style="justify-content: center">
+            <a
+              href="./programs.html"
+              class="button icon solid fa-arrow-circle-right"
+              >View Our Programs</a
+            >
+            <a
+              href="./history.html"
+              class="button alt icon solid fa-landmark"
+              >Our History</a
+            >
+            <a
+              href="https://forms.gle/A1FqRDDurbPHKgy67"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button alt icon solid fa-user-plus"
+              >Sign Up</a
+            >
+            <a href="./donate.html" class="button icon solid fa-donate"
+              >Donate Now</a
+            >
+          </div>
+        </section>
+        <!-- /Section: Call To Action -->
+      </article>
+    </div>
+  </div>
+</BaseLayout>
