@@ -1,0 +1,139 @@
+---
+/**
+ * CallToAction.astro — Reusable CTA component with multiple variants.
+ * Use for donation prompts, membership sign-ups, and engagement CTAs.
+ */
+interface Props {
+  title: string;
+  description?: string;
+  buttonText: string;
+  buttonHref: string;
+  variant?: 'banner' | 'inline' | 'card';
+  icon?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+}
+
+const {
+  title,
+  description,
+  buttonText,
+  buttonHref,
+  variant = 'inline',
+  icon,
+  secondaryText,
+  secondaryHref,
+} = Astro.props;
+---
+
+<aside class:list={['cta', `cta--${variant}`]} role="complementary" aria-label={title}>
+  <div class="cta__content">
+    <h3 class="cta__title">{title}</h3>
+    {description && <p class="cta__description">{description}</p>}
+  </div>
+  <div class="cta__actions">
+    <a href={buttonHref} class:list={['button', 'cta__button', { 'icon': !!icon }]}>
+      {icon && <i class={icon}></i>}
+      {buttonText}
+    </a>
+    {secondaryText && secondaryHref && (
+      <a href={secondaryHref} class="button alt cta__button cta__button--secondary">
+        {secondaryText}
+      </a>
+    )}
+  </div>
+</aside>
+
+<style>
+  .cta {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: var(--radius-card, 8px);
+    margin: 2em 0;
+  }
+
+  .cta--inline {
+    background: var(--color-background-section);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .cta--banner {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: 3em;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .cta--card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-card);
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta__content {
+    flex: 1;
+  }
+
+  .cta__title {
+    margin: 0 0 0.3em;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+  }
+
+  .cta--banner .cta__title {
+    color: var(--color-white);
+    font-size: 1.6em;
+    font-family: var(--font-heading);
+  }
+
+  .cta__description {
+    margin: 0;
+    color: var(--color-text-medium);
+    line-height: 1.6;
+  }
+
+  .cta--banner .cta__description {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: 1em;
+    flex-shrink: 0;
+  }
+
+  .cta--banner .cta__actions,
+  .cta--card .cta__actions {
+    margin-top: 1.5em;
+  }
+
+  .cta__button {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 736px) {
+    .cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5em;
+    }
+
+    .cta__actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta__button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

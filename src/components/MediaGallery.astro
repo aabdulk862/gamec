@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface GalleryImage {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
+interface Props {
+  images: GalleryImage[];
+  title?: string;
+  columns?: 2 | 3 | 4;
+}
+
+const { images, title, columns = 3 } = Astro.props;
+const gridClass = `media-gallery media-gallery--cols-${columns}`;
+---
+
+<div class={gridClass} role="region" aria-label={title || "Photo gallery"}>
+  {title && <h3 class="media-gallery__title">{title}</h3>}
+  <div class="media-gallery__grid">
+    {images.map((image, index) => (
+      <figure class="media-gallery__item">
+        <button
+          class="media-gallery__trigger"
+          type="button"
+          aria-label={`View full size: ${image.alt}`}
+          data-index={index}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            format="webp"
+            quality={75}
+            loading="lazy"
+          />
+        </button>
+        {image.caption && (
+          <figcaption class="media-gallery__caption">{image.caption}</figcaption>
+        )}
+      </figure>
+    ))}
+  </div>
+</div>

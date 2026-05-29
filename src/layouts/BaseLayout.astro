@@ -97,11 +97,11 @@ const currentPath = pathname === "/" || pathname === ""
         <Header currentPath={currentPath} />
       </div>
 
-      <main id="main-wrapper">
+      <main id="main-wrapper" transition:animate="fade">
         <slot />
       </main>
 
-      <div id="footer-wrapper">
+      <div id="footer-wrapper" transition:animate="fade">
         <Footer />
       </div>
     </div>

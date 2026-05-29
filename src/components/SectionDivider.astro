@@ -1,0 +1,79 @@
+---
+/**
+ * SectionDivider.astro — Branded section break with optional icon.
+ * Adds visual rhythm between content sections.
+ */
+interface Props {
+  icon?: 'mosque' | 'star' | 'crescent' | 'book' | 'heart' | 'hands' | 'none';
+  spacing?: 'sm' | 'md' | 'lg';
+}
+
+const { icon = 'star', spacing = 'md' } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  mosque: 'fas fa-mosque',
+  star: 'fas fa-star',
+  crescent: 'fas fa-moon',
+  book: 'fas fa-book-open',
+  heart: 'fas fa-heart',
+  hands: 'fas fa-hands-helping',
+  none: '',
+};
+
+const iconClass = iconMap[icon] || '';
+---
+
+<div class:list={['section-divider', `section-divider--${spacing}`]} role="separator" aria-hidden="true">
+  <span class="section-divider__line"></span>
+  {icon !== 'none' && (
+    <span class="section-divider__icon">
+      <i class={iconClass}></i>
+    </span>
+  )}
+  <span class="section-divider__line"></span>
+</div>
+
+<style>
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-divider--sm {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  .section-divider--md {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+  }
+
+  .section-divider--lg {
+    margin-top: 4em;
+    margin-bottom: 4em;
+  }
+
+  .section-divider__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-accent, #d4af37),
+      transparent
+    );
+  }
+
+  .section-divider__icon {
+    color: var(--color-accent, #d4af37);
+    font-size: 0.9em;
+    opacity: 0.8;
+    line-height: 1;
+  }
+</style>

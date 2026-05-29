@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import LivestreamCard from '@components/LivestreamCard.astro';
+import MediaGallery from '@components/MediaGallery.astro';
+import ImageModal from '@components/ImageModal.astro';
+
 import logoBgImg from '../assets/images/logo-bg.png';
 import asmaraMosqueImg from '../assets/images/asmara-mosque.jpg';
 import asSahabaImg from '../assets/images/as-sahaba.jpg';
@@ -13,6 +16,75 @@ import awateLibrary3Img from '../assets/images/awate-library3.jpg';
 import awateLibrary4Img from '../assets/images/awate-library4.png';
 import kaaba2Img from '../assets/images/kaaba2.jpg';
 import madinahImg from '../assets/images/madinah.jpeg';
+
+const communityImages = [
+  {
+    src: logoBgImg,
+    alt: "GAMEC - Global Association of Muslim Eritrean Communities official logo",
+    caption: "GAMEC Logo",
+    width: 1072,
+    height: 715,
+  },
+  {
+    src: asmaraMosqueImg,
+    alt: "Khulafa al-Rashidun Mosque in Asmara, Eritrea",
+    caption: "Khulafa al-Rashidun Mosque, Asmara",
+    width: 1800,
+    height: 1200,
+  },
+  {
+    src: asSahabaImg,
+    alt: "The Sahaba Mosque in Massawa, Eritrea - 7th Century historic mosque",
+    caption: "As-Sahaba Mosque, Massawa (7th Century)",
+    width: 600,
+    height: 400,
+  },
+  {
+    src: eventRoomImg,
+    alt: "GAMEC community event and gathering room",
+    caption: "Community Event Space",
+    width: 6016,
+    height: 4016,
+  },
+  {
+    src: jebenaImg,
+    alt: "Traditional Eritrean jebena coffee pot",
+    caption: "Traditional Eritrean Jebena Coffee",
+    width: 600,
+    height: 400,
+  },
+];
+
+const awateLibraryImages = [
+  {
+    src: awateLibrary1Img,
+    alt: "Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 1",
+    caption: "Vocational Training Session",
+    width: 600,
+    height: 400,
+  },
+  {
+    src: awateLibrary2Img,
+    alt: "Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 2",
+    caption: "Computer Skills Workshop",
+    width: 600,
+    height: 400,
+  },
+  {
+    src: awateLibrary3Img,
+    alt: "Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 3",
+    caption: "Group Learning Activity",
+    width: 600,
+    height: 400,
+  },
+  {
+    src: awateLibrary4Img,
+    alt: "Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 4",
+    caption: "Class Graduation",
+    width: 600,
+    height: 400,
+  },
+];
 
 const structuredData = [
   {
@@ -32,6 +104,17 @@ const structuredData = [
         "item": "https://igamec.org/media.html"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "GAMEC Media Gallery",
+    "description": "Photos, videos, and media from GAMEC community events and activities.",
+    "url": "https://igamec.org/media.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "GAMEC"
+    }
   }
 ];
 ---
@@ -42,6 +125,7 @@ const structuredData = [
   bodyClass="no-sidebar"
   dataPage="media"
   structuredData={structuredData}
+  pageScripts={["/scripts/media-gallery.js"]}
 >
   <div class="container">
     <article id="content">
@@ -84,7 +168,6 @@ const structuredData = [
           />
         </div>
       </section>
-      <!-- /Section: Livestream -->
       <div class="bottom-border"></div>
 
       <!-- Section: Photo Gallery -->
@@ -92,121 +175,17 @@ const structuredData = [
         <h2>Photo Gallery</h2>
         <p>
           A collection of portraits, artwork, historical sites, and
-          moments from community events and activities.
+          moments from community events and activities. Click any image to view full size.
         </p>
 
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <Image
-              src={logoBgImg}
-              alt="GAMEC - Global Association of Muslim Eritrean Communities official logo"
-              width={1072}
-              height={715}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <figcaption>GAMEC Logo</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <Image
-              src={asmaraMosqueImg}
-              alt="Khulafa al-Rashidun Mosque in Asmara, Eritrea"
-              width={1800}
-              height={1200}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <figcaption>Khulafa al-Rashidun Mosque, Asmara</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <Image
-              src={asSahabaImg}
-              alt="The Sahaba Mosque in Massawa, Eritrea - 7th Century historic mosque"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <figcaption>
-              As-Sahaba Mosque, Massawa (7th Century)
-            </figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <Image
-              src={eventRoomImg}
-              alt="GAMEC community event and gathering room"
-              width={6016}
-              height={4016}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <figcaption>Community Event Space</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <Image
-              src={jebenaImg}
-              alt="Traditional Eritrean jebena coffee pot"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <figcaption>Traditional Eritrean Jebena Coffee</figcaption>
-          </figure>
-        </div>
+        <MediaGallery images={communityImages} columns={3} />
 
-        <div class="gallery-sub">
-          <h3>
-            Awate Library – Sisters' Vocational & Computer Class (Cairo,
-            Egypt)
-          </h3>
-          <div class="gallery-grid">
-            <Image
-              src={awateLibrary1Img}
-              alt="Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 1"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <Image
-              src={awateLibrary2Img}
-              alt="Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 2"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <Image
-              src={awateLibrary3Img}
-              alt="Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 3"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <Image
-              src={awateLibrary4Img}
-              alt="Sisters Vocational and Computer Class at Awate Library in Cairo, Egypt - Photo 4"
-              width={600}
-              height={400}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-          </div>
-        </div>
+        <MediaGallery
+          images={awateLibraryImages}
+          title="Awate Library – Sisters' Vocational & Computer Class (Cairo, Egypt)"
+          columns={4}
+        />
       </section>
-      <!-- /Section: Photo Gallery -->
-
       <div class="bottom-border"></div>
 
       <!-- Section: Videos -->
@@ -217,12 +196,10 @@ const structuredData = [
           and more. GAMEC is producing original content including
           community interviews and educational series.
         </p>
-        <p>
+        <p class="coming-soon">
           Content is currently in production — check back for updates.
         </p>
       </section>
-      <!-- /Section: Videos -->
-
       <div class="bottom-border"></div>
 
       <!-- Section: Audio -->
@@ -234,8 +211,6 @@ const structuredData = [
         </p>
         <p class="coming-soon">Audio collection is in development.</p>
       </section>
-      <!-- /Section: Audio -->
-
       <div class="bottom-border"></div>
 
       <!-- Section: Articles -->
@@ -247,8 +222,6 @@ const structuredData = [
         </p>
         <p class="coming-soon">Articles section launching soon.</p>
       </section>
-      <!-- /Section: Articles -->
-
       <div class="bottom-border"></div>
 
       <!-- Section: Social Media -->
@@ -264,25 +237,30 @@ const structuredData = [
             class="button icon brands fa-facebook"
             target="_blank"
             rel="noopener noreferrer"
-            >Facebook</a
-          >
+          >Facebook
+            <span class="visually-hidden">(opens in new tab)</span>
+          </a>
           <a
             href="#"
             class="button icon brands fa-instagram"
             target="_blank"
             rel="noopener noreferrer"
-            >Instagram</a
-          >
+          >Instagram
+            <span class="visually-hidden">(opens in new tab)</span>
+          </a>
           <a
             href="#"
             class="button icon brands fa-whatsapp"
             target="_blank"
             rel="noopener noreferrer"
-            >WhatsApp Group</a
-          >
+          >WhatsApp Group
+            <span class="visually-hidden">(opens in new tab)</span>
+          </a>
         </div>
       </section>
-      <!-- /Section: Social Media -->
     </article>
   </div>
+
+  <!-- Lightbox modal (rendered once, controlled by JS) -->
+  <ImageModal />
 </BaseLayout>

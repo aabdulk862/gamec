@@ -1,0 +1,159 @@
+---
+/**
+ * PageHero.astro — Standardized hero section for content pages.
+ * Provides consistent hero styling with optional image, overlay, and subtitle.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  overlay?: 'dark' | 'light' | 'none';
+  align?: 'center' | 'left';
+  compact?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  image,
+  imageAlt = '',
+  overlay = 'none',
+  align = 'left',
+  compact = false,
+} = Astro.props;
+---
+
+<section class:list={[
+  'page-hero-section',
+  `page-hero-section--${align}`,
+  { 'page-hero-section--compact': compact },
+  { 'page-hero-section--has-image': !!image },
+]} transition:animate="fade">
+  {image && (
+    <div class="page-hero-section__image-wrapper">
+      <Image
+        src={image}
+        alt={imageAlt}
+        class="page-hero-section__image"
+        width={1920}
+        height={600}
+        format="webp"
+        quality={75}
+        loading="eager"
+        fetchpriority="high"
+      />
+      {overlay !== 'none' && (
+        <div class:list={['page-hero-section__overlay', `page-hero-section__overlay--${overlay}`]} />
+      )}
+    </div>
+  )}
+  <div class="page-hero-section__content">
+    <h1 class="page-hero-section__title" transition:name={`hero-title-${title.toLowerCase().replace(/\s+/g, '-')}`}>
+      {title}
+    </h1>
+    {subtitle && <p class="page-hero-section__subtitle">{subtitle}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-hero-section {
+    position: relative;
+    margin-bottom: 2.5em;
+    border-radius: var(--radius-card, 8px);
+    overflow: hidden;
+  }
+
+  .page-hero-section--has-image {
+    min-height: 200px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .page-hero-section--compact {
+    margin-bottom: 1.5em;
+  }
+
+  .page-hero-section__image-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+
+  .page-hero-section__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .page-hero-section__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .page-hero-section__overlay--dark {
+    background: linear-gradient(to top, rgba(0, 31, 63, 0.75), rgba(0, 31, 63, 0.3));
+  }
+
+  .page-hero-section__overlay--light {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.4));
+  }
+
+  .page-hero-section__content {
+    position: relative;
+    z-index: 1;
+    padding: 2em;
+  }
+
+  .page-hero-section--has-image .page-hero-section__content {
+    padding: 3em 2em;
+  }
+
+  .page-hero-section--center {
+    text-align: center;
+  }
+
+  .page-hero-section__title {
+    margin: 0 0 0.25em;
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+  }
+
+  .page-hero-section--has-image .page-hero-section__title {
+    color: var(--color-white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero-section--has-image.page-hero-section--light .page-hero-section__title {
+    color: var(--color-primary-dark);
+    text-shadow: none;
+  }
+
+  .page-hero-section__subtitle {
+    margin: 0;
+    font-size: 1.15em;
+    line-height: 1.6;
+    color: var(--color-text-medium);
+    max-width: 700px;
+  }
+
+  .page-hero-section--has-image .page-hero-section__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 736px) {
+    .page-hero-section__title {
+      font-size: 1.8em;
+    }
+
+    .page-hero-section__content {
+      padding: 1.5em 1em;
+    }
+  }
+</style>
