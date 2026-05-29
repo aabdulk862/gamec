@@ -17,15 +17,15 @@
    * Initializes scroll reveal and preload removal once the DOM is ready.
    */
   function init() {
-    // Preload removal: remove .is-preload from body 100ms after window load
-    window.addEventListener('load', function () {
+    // Preload removal: remove .is-preload from body 100ms after load
+    if (document.body.classList.contains('is-preload')) {
       setTimeout(function () {
         document.body.classList.remove('is-preload');
       }, 100);
-    });
+    }
 
     // Scroll reveal: observe .reveal and .reveal-stagger elements
-    var reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+    var reveals = document.querySelectorAll('.reveal:not(.is-visible), .reveal-stagger:not(.is-visible)');
 
     if (!reveals.length) {
       return;
@@ -61,4 +61,7 @@
   } else {
     init();
   }
+
+  // Re-initialize after Astro View Transitions swap the page
+  document.addEventListener('astro:page-load', init);
 })();

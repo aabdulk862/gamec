@@ -103,6 +103,16 @@
         closeTimer = setTimeout(closeDropdown, 200);
       });
 
+      // Click on parent link: toggle dropdown instead of navigating
+      link.addEventListener('click', function (e) {
+        if (dropdown.classList.contains('is-open')) {
+          // If already open, navigate to the link's href
+          return;
+        }
+        e.preventDefault();
+        openDropdown();
+      });
+
       // Keyboard on parent link
       link.addEventListener('keydown', function (e) {
         var key = e.key;
@@ -146,6 +156,20 @@
           }
         });
       });
+    });
+
+    // Close all dropdowns when clicking outside nav
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target)) {
+        topLevelItems.forEach(function (li) {
+          var dropdown = li.querySelector('ul');
+          if (dropdown) {
+            dropdown.classList.remove('is-open');
+            var link = li.querySelector(':scope > a');
+            if (link) link.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
     });
   }
 
@@ -299,12 +323,15 @@
     initMobilePanel(nav);
   }
 
-  // Initialize when DOM is ready
+  // Initialize when DOM is ready and re-initialize on View Transitions
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNavigation);
   } else {
     initNavigation();
   }
+
+  // Re-initialize after Astro View Transitions swap the page
+  document.addEventListener('astro:page-load', initNavigation);
 
   // Expose globally for potential external use
   window.initNavigation = initNavigation;

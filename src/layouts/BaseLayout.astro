@@ -107,12 +107,12 @@ const currentPath = pathname === "/" || pathname === ""
     </div>
 
     {/* Shared scripts: navigation and scroll reveal */}
-    <script src="../scripts/navigation.js"></script>
-    <script src="../scripts/scroll-reveal.js"></script>
+    <script src="/scripts/navigation.js" is:inline></script>
+    <script src="/scripts/scroll-reveal.js" is:inline></script>
 
     {/* Page-specific scripts */}
     {pageScripts && pageScripts.map((script) => (
-      <script src={script}></script>
+      <script src={script} is:inline></script>
     ))}
   </body>
 </html>
