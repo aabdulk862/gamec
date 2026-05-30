@@ -19,7 +19,8 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('donation-receipts') &&
         !page.includes('sign-in') &&
-        !page.includes('sign-up'),
+        !page.includes('sign-up') &&
+        !page.includes('leadership'),
     }),
   ],
   vite: {

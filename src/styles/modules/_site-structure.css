@@ -368,7 +368,7 @@ header p {
 
 #copyright {
   color: var(--color-footer-text-light);
-  padding: 4em 0 0 0;
+  padding: 2em 0 0 0;
   text-align: center;
   font-size: 0.88em;
   opacity: 0.65;
