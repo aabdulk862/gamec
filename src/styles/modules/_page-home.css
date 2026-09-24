@@ -127,18 +127,14 @@
   line-height: 1.75;
 }
 
-/* ── Uniform plain sections (History, Community Groups, Donate, Stay Connected) ── */
-.history-teaser h2,
+/* ── Uniform plain sections (Community Groups, Donate) ── */
 .affiliated-associations h2,
-.donate-homepage h2,
-.stay-connected h2 {
+.donate-homepage h2 {
   margin-top: 0;
   margin-bottom: 0.5em;
 }
 
-.history-teaser p,
-.donate-homepage p,
-.stay-connected p {
+.donate-homepage p {
   max-width: 580px;
   margin: 0 auto 1.5em;
   color: var(--color-text-gray);
@@ -201,6 +197,11 @@
 }
 
 /* ── Why GAMEC Section ── */
+.why-gamec-wrapper {
+  background: var(--color-white);
+  padding: 3.5em 0 0;
+}
+
 .why-gamec {
   padding: 2.5em 3em;
   background: var(--color-background-light);
@@ -233,26 +234,6 @@
   }
   .why-gamec__lead {
     font-size: 1em;
-  }
-}
-
-/* ── Stay Connected ── */
-.social-connect-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5em;
-}
-
-@media screen and (max-width: 736px) {
-  .social-connect-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  .social-connect-links .button {
-    width: 100%;
-    max-width: 300px;
   }
 }
 
