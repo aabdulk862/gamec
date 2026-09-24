@@ -120,68 +120,39 @@
   }
 }
 
-/* ── Impact Section ── */
+/* ── Donate Homepage ── */
+.donate-homepage p {
+  max-width: 580px;
+  margin: 0 auto 1.6em;
+  line-height: 1.75;
+}
+
+/* ── Uniform plain sections (History, Community Groups, Donate, Stay Connected) ── */
+.history-teaser h2,
+.affiliated-associations h2,
+.donate-homepage h2,
+.stay-connected h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.history-teaser p,
+.donate-homepage p,
+.stay-connected p {
+  max-width: 580px;
+  margin: 0 auto 1.5em;
+  color: var(--color-text-gray);
+  line-height: 1.75;
+}
+
+/* ── Homepage Main Wrapper ── */
 .homepage #main-wrapper section {
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 
 .homepage #main-wrapper {
-  padding-top: 5em;
+  padding-top: 3.5em;
   padding-bottom: 5em;
-}
-
-.impact-section {
-  margin-bottom: 2em;
-}
-
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 800px;
-  margin: 2rem auto 0;
-}
-
-.impact-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5em 1em;
-}
-
-.impact-number {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.1;
-}
-
-.impact-number-sm {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.1;
-}
-
-.impact-label {
-  font-size: 1rem;
-  color: var(--color-text-medium);
-  margin-top: 0.4em;
-}
-
-@media screen and (max-width: 736px) {
-  .impact-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .impact-item {
-    padding: 1em;
-  }
-  .impact-number {
-    font-size: 2.2rem;
-  }
 }
 
 /* ── New Program Callout ── */
@@ -229,6 +200,42 @@
   }
 }
 
+/* ── Why GAMEC Section ── */
+.why-gamec {
+  padding: 2.5em 3em;
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-card);
+}
+
+.why-gamec h2 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+
+.why-gamec__lead {
+  max-width: 760px;
+  margin: 0 auto 1.1em;
+  font-size: 1.02em;
+  color: var(--color-text-gray);
+  line-height: 1.85;
+  text-align: left;
+}
+
+.why-gamec__lead:last-of-type {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 736px) {
+  .why-gamec {
+    padding: 2em 1.2em;
+  }
+  .why-gamec__lead {
+    font-size: 1em;
+  }
+}
+
 /* ── Stay Connected ── */
 .social-connect-links {
   display: flex;
@@ -250,20 +257,12 @@
 }
 
 /* Ultra-compact + elegant Affiliated Associations */
-.affiliated-associations h2 {
-  font-size: 1.8rem;
-  color: var(--color-primary-dark);
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
 .associations-compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.9rem;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 1.2em auto 0;
 }
 
 .association-btn {
@@ -284,16 +283,9 @@
 
 .association-btn:hover {
   background: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--color-shadow);
-}
-
-/* Consistent hover for all cards/buttons */
-.association-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 14px var(--color-shadow);
   border-color: var(--color-accent);
-  transition: all 0.3s ease;
 }
 
 .association-btn i {

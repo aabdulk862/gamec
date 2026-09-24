@@ -252,8 +252,8 @@ blockquote cite {
 
 .bottom-border {
   border-bottom: none;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1rem;
   text-align: center;
   position: relative;
 }
@@ -265,7 +265,7 @@ blockquote cite {
   height: 2px;
   background: var(--color-accent);
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 }
 
 .more-link {

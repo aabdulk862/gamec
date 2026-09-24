@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import ImpactStats from '@components/ImpactStats.astro';
 import LivestreamCard from '@components/LivestreamCard.astro';
 import CommunityGroupCard from '@components/CommunityGroupCard.astro';
 import asmaraMosqueImg from '../assets/images/asmara-mosque.jpg';
@@ -93,7 +92,7 @@ const webSiteData = {
                 <h2>Mission and Vision</h2>
               </header>
               <p>
-                GAMEC is a non-governmental, non-political, not-for-profit
+                GAMEC is a non-profit
                 501(c)(3) voluntary membership association composed of
                 organizations, communities, villages, and individuals
                 dedicated to being of service to Allah (SWT) and
@@ -173,36 +172,66 @@ const webSiteData = {
   <!-- Main -->
   <div id="main" tabindex="-1">
     <div class="container">
+
+      <!-- Section: Why GAMEC -->
+      <section class="why-gamec reveal" data-section="why-gamec" aria-label="Why GAMEC">
+        <h2>Why GAMEC?</h2>
+        <p class="why-gamec__lead">
+          Muslim Eritreans have built vibrant communities across the world
+          for decades, each shaped by its own history, country, and
+          circumstances. That diversity is something to celebrate — but it
+          has also meant that our organizations, however strong
+          individually, have often worked apart rather than together.
+        </p>
+        <p class="why-gamec__lead">
+          GAMEC was created to close that gap. We're not here to replace
+          the many organizations already serving Muslim Eritreans
+          worldwide. We're here to coordinate their efforts — a global
+          platform where existing communities and organizations keep their
+          own identity while cooperating on what matters most to all of us:
+          sharing knowledge, reducing duplicated effort, and taking on
+          projects too big for any one group alone.
+        </p>
+        <p class="why-gamec__lead">
+          Our mission is to advance the social, civic, cultural, and
+          spiritual well-being of Muslim Eritreans everywhere, preserving
+          our heritage, nurturing Islamic values, and building unity,
+          leadership, and civic responsibility across the diaspora and with
+          Eritrea.
+        </p>
+        <div class="bottom-border"></div>
+      </section>
+      <!-- /Section: Why GAMEC -->
+
       <!-- Section: History -->
-      <section class="text-center reveal" data-section="history" aria-label="Our History">
+      <section class="history-teaser text-center reveal" data-section="history" aria-label="Our History">
         <h2>Our History</h2>
         <p>
-          Discover the roots of GAMEC and the rich Islamic heritage of
-          Eritrea, from the first Hijra to the shores of Massawa over 1,400
-          years ago.
+          Rooted in over 1,400 years of Islamic heritage in Eritrea — from
+          the first Hijra to the shores of Massawa.
         </p>
-        <a href="./history.html" class="button icon solid fa-landmark"
-          >Explore Our History</a
-        >
+        <a href="./history.html" class="button icon solid fa-landmark">Explore Our History</a>
         <div class="bottom-border"></div>
       </section>
       <!-- /Section: History -->
 
-      <!-- Section: Impact -->
+      <!-- Section: Community Groups -->
       <section
-        class="impact-section text-center reveal"
-        data-section="impact"
-        aria-label="Our Impact"
+        class="affiliated-associations text-center reveal"
+        data-section="community-groups"
+        aria-label="Community Groups"
       >
-        <h2>Our Impact</h2>
-        <ImpactStats stats={[
-          { label: "Registered Non-Profit", value: "501(c)(3)", smallValue: true },
-          { label: "Years Serving Community", value: "3+" },
-          { label: "Eritrean Diaspora Network", value: "Global" },
-        ]} />
+        <h2>Community Groups</h2>
+        <p>GAMEC is building dedicated associations for every generation.</p>
+        <div class="associations-compact reveal-stagger">
+          <CommunityGroupCard href="./sisters.html" title="Sisters" icon="fas fa-female" />
+          <CommunityGroupCard href="./youth.html" title="Youth" icon="fas fa-child" />
+          <CommunityGroupCard href="./seniors.html" title="Seniors" icon="fas fa-users" />
+          <CommunityGroupCard href="./professionals.html" title="Professionals" icon="fas fa-briefcase" />
+        </div>
         <div class="bottom-border"></div>
       </section>
-      <!-- /Section: Impact -->
+      <!-- /Section: Community Groups -->
 
       <!-- Section: Donate CTA -->
       <section
@@ -217,14 +246,90 @@ const webSiteData = {
           donation helps build initiatives that will uplift, empower, and
           unite our community.
         </p>
-        <a
-          href="./donate.html"
-          class="button large icon solid fa-hand-holding-usd"
-          >Donate Now</a
-        >
+        <a href="./donate.html" class="button large icon solid fa-hand-holding-usd">Donate Now</a>
         <div class="bottom-border"></div>
       </section>
       <!-- /Section: Donate CTA -->
+
+      <!-- Section: Stay Connected -->
+      <section
+        class="stay-connected text-center reveal"
+        data-section="stay-connected"
+        aria-label="Stay Connected"
+      >
+        <h2>Stay Connected</h2>
+        <p>Follow GAMEC for events, announcements, and community highlights.</p>
+        <div class="social-connect-links">
+          <a
+            href="https://www.facebook.com/TheOfficialGAMEC/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button icon brands fa-facebook"
+          >Facebook</a>
+          <a href="./media.html" class="button alt icon solid fa-photo-video">Photos &amp; Media</a>
+        </div>
+      </section>
+      <!-- /Section: Stay Connected -->
+
+      <!-- Section: Resources -->
+      <section data-section="resources" aria-label="Islamic and Educational Resources">
+        <h2>Islamic &amp; Educational Resources</h2>
+        <p>
+          Access curated Islamic resources, educational materials, prayer
+          tools, and community directories to strengthen your faith and
+          connection to the global Muslim Eritrean community.
+        </p>
+        <div class="quran-cta">
+          <a href="./resources.html#quran-viewer" class="quran-cta-link">
+            <Image
+              src={coverImg}
+              alt="Read the Holy Quran online"
+              class="quran-cta-cover"
+              width={918}
+              height={1310}
+              format="webp"
+              quality={75}
+              loading="lazy"
+            />
+            <div class="quran-cta-text">
+              <h3>Read the Holy Quran</h3>
+              <p>
+                Browse all 114 surahs with our built-in Quran viewer.
+                Navigate by page or jump to any surah instantly.
+              </p>
+              <span class="button small">Open Quran Viewer</span>
+            </div>
+          </a>
+        </div>
+        <div class="bottom-border"></div>
+      </section>
+      <!-- /Section: Resources -->
+
+      <!-- Section: Matrimonial Callout -->
+      <section
+        class="new-program-callout text-center reveal"
+        data-section="matrimonial-callout"
+        aria-label="Matrimonial Services"
+      >
+        <span class="new-badge">New Program</span>
+        <h2>Matrimonial Services</h2>
+        <p>
+          A trusted, faith-based platform helping Muslim Eritrean community
+          members find compatible life partners rooted in shared values,
+          culture, and Islamic principles.
+        </p>
+        <div class="matrimonial-buttons">
+          <a href="./matrimonial.html" class="button icon solid fa-heart">Learn More</a>
+          <a
+            href="https://forms.fillout.com/t/rSH1pzE2a6us"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button alt icon solid fa-arrow-circle-right"
+          >Register Interest</a>
+        </div>
+        <div class="bottom-border"></div>
+      </section>
+      <!-- /Section: Matrimonial Callout -->
 
       <!-- Section: Livestream -->
       <section class="livestream-section" data-section="livestream" aria-label="Live from the Holy Cities">
@@ -250,135 +355,8 @@ const webSiteData = {
       </section>
       <!-- /Section: Livestream -->
 
-      <!-- Section: Matrimonial Callout -->
-      <section
-        class="new-program-callout text-center reveal"
-        data-section="matrimonial-callout"
-        aria-label="Matrimonial Services"
-      >
-        <span class="new-badge">New Program</span>
-        <h2>Matrimonial Services</h2>
-        <p>
-          A trusted, faith-based platform helping Muslim Eritrean community
-          members find compatible life partners rooted in shared values,
-          culture, and Islamic principles.
-        </p>
-        <div class="matrimonial-buttons">
-          <a href="./matrimonial.html" class="button icon solid fa-heart">
-            Learn More
-          </a>
-          <a
-            href="https://forms.fillout.com/t/rSH1pzE2a6us"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button alt icon solid fa-arrow-circle-right"
-          >
-            Register Interest
-          </a>
-        </div>
-        <div class="bottom-border"></div>
-      </section>
-      <!-- /Section: Matrimonial Callout -->
-
-      <!-- Section: Resources -->
-      <section data-section="resources" aria-label="Islamic and Educational Resources">
-        <h2>Islamic &amp; Educational Resources</h2>
-        <p>
-          Access curated Islamic resources, educational materials, prayer
-          tools, and community directories to strengthen your faith and
-          connection to the global Muslim Eritrean community.
-        </p>
-
-        <!-- Quran Viewer CTA -->
-        <div class="quran-cta">
-          <a href="./resources.html#quran-viewer" class="quran-cta-link">
-            <Image
-              src={coverImg}
-              alt="Read the Holy Quran online"
-              class="quran-cta-cover"
-              width={918}
-              height={1310}
-              format="webp"
-              quality={75}
-              loading="lazy"
-            />
-            <div class="quran-cta-text">
-              <h3>Read the Holy Quran</h3>
-              <p>
-                Browse all 114 surahs with our built-in Quran viewer.
-                Navigate by page or jump to any surah instantly.
-              </p>
-              <span class="button small">Open Quran Viewer</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="bottom-border"></div>
-      </section>
-      <!-- /Section: Resources -->
-
-      <!-- Section: Community Groups -->
-      <section
-        class="affiliated-associations text-center reveal"
-        data-section="community-groups"
-        aria-label="Community Groups"
-      >
-        <h2>Community Groups</h2>
-        <p>
-          GAMEC is building dedicated associations for every generation.
-        </p>
-        <div class="associations-compact reveal-stagger">
-          <CommunityGroupCard
-            href="./sisters.html"
-            title="Sisters"
-            icon="fas fa-female"
-          />
-          <CommunityGroupCard
-            href="./youth.html"
-            title="Youth"
-            icon="fas fa-child"
-          />
-          <CommunityGroupCard
-            href="./seniors.html"
-            title="Seniors"
-            icon="fas fa-users"
-          />
-          <CommunityGroupCard
-            href="./professionals.html"
-            title="Professionals"
-            icon="fas fa-briefcase"
-          />
-        </div>
-        <div class="bottom-border"></div>
-      </section>
-      <!-- /Section: Community Groups -->
-
-      <!-- Section: Stay Connected -->
-      <section
-        class="stay-connected text-center reveal"
-        data-section="stay-connected"
-        aria-label="Stay Connected"
-      >
-        <h2>Stay Connected</h2>
-        <p>
-          Follow GAMEC for events, announcements, and community highlights.
-        </p>
-        <div class="social-connect-links">
-          <a
-            href="https://www.facebook.com/TheOfficialGAMEC/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button icon brands fa-facebook"
-            >Facebook</a
-          >
-          <a
-            href="./media.html"
-            class="button alt icon solid fa-photo-video"
-            >Photos &amp; Media</a
-          >
-        </div>
-      </section>
-      <!-- /Section: Stay Connected -->
+    </div>
+  </div>
     </div>
   </div>
 </BaseLayout>
